@@ -1,23 +1,24 @@
-import { Button, ButtonProps, ThemeProvider } from '@mui/material';
-import { theme, THEME_COLOR } from '../../theme';
+import { Button, ButtonProps, ThemeProvider, useTheme } from '@mui/material';
 
 const StyledButton = (props: ButtonProps) => {
+	const theme = useTheme();
+
 	return (
 		<ThemeProvider theme={theme}>
 			<Button {...props} sx={{
-				borderRadius: '8px',
+				borderRadius: theme.shape.borderRadius,
 				color: theme.palette.text.secondary,
 				"&:hover": {
 					color: theme.palette.action.hover,
-					boxShadow: `8px 8px 8px ${THEME_COLOR.orange}`,
+					boxShadow: `8px 8px 8px ${theme.palette.action.hover}`,
 				},
 				"&:active": {
 					color: theme.palette.action.active,
-					boxShadow: `8px 8px 8px ${THEME_COLOR.lightGreen}`,
+					boxShadow: `8px 8px 8px ${theme.palette.action.active}`,
 				},
 				"&:focus": {
 					color: theme.palette.common.white,
-					boxShadow: `8px 8px 8px ${THEME_COLOR.white}`,
+					boxShadow: `8px 8px 8px ${theme.palette.action.focus}`,
 				},
 			}}
 			/>
