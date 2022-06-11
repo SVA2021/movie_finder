@@ -1,10 +1,9 @@
-import { Button, ButtonProps, ThemeProvider, useTheme } from '@mui/material';
+import { Button, ButtonProps, useTheme } from '@mui/material';
 
 const StyledButton = (props: ButtonProps) => {
 	const theme = useTheme();
 
 	return (
-		<ThemeProvider theme={theme}>
 			<Button {...props} sx={{
 				borderRadius: theme.shape.borderRadius,
 				color: theme.palette.text.secondary,
@@ -22,7 +21,6 @@ const StyledButton = (props: ButtonProps) => {
 				},
 			}}
 			/>
-		</ThemeProvider>
 	)
 };
 StyledButton.muiName = 'Button';
