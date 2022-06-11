@@ -9,16 +9,15 @@ const Logo = () => {
 			alignItems: 'center',
 			color: theme.palette.text.secondary,
 			textTransform: 'uppercase',
-			fontFamily: "Roboto,Arial,sans-serif",
 		}}>
 			Movie
 			<LocalMovies sx={{
 				width: 'auto',
 				height: theme.typography.pxToRem(32),
-				[theme.breakpoints.up('md')]: {
+				[theme.breakpoints.up('lg')]: {
 					height: theme.typography.pxToRem(48),
 				},
-				[theme.breakpoints.up('lg')]: {
+				[theme.breakpoints.up('xl')]: {
 					height: theme.typography.pxToRem(72),
 				},
 			}} />
