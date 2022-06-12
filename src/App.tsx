@@ -7,8 +7,8 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
-			<Container maxWidth='lg'>
-				<Header />
+			<Header />
+			<Container maxWidth='xl'>
 			</Container>
 		</ThemeProvider>
 	);
