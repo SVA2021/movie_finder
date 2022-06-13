@@ -3,7 +3,7 @@ import { Box, IconButton, Popover, useMediaQuery, useTheme } from '@mui/material
 import * as React from 'react';
 import SearchField from '../SearchField/SearchField';
 
-const SearchMenu = (props: any) => {
+const SearchMenu = () => {
 	const theme = useTheme();
 	const isTablet = useMediaQuery(theme.breakpoints.only('md'));
 
@@ -21,31 +21,25 @@ const SearchMenu = (props: any) => {
 			? (
 				<>
 					<IconButton
-						id="basic-button"
-						aria-controls={open ? 'basic-menu' : undefined}
+						id="search-button"
+						aria-controls={open ? 'search-menu' : undefined}
 						aria-haspopup="true"
 						aria-expanded={open ? 'true' : undefined}
 						onClick={handleClick}
 						sx={{
-							color: theme.palette.secondary.main,
+							color: 'secondary.main',
 							'&:hover': {
-								color: theme.palette.action.hover,
+								color: 'action.hover',
 							},
 							'&:active': {
-								color: theme.palette.action.active,
+								color: 'action.active',
 							},
 						}}
 					>
-						<Search sx={{
-							width: 'auto',
-							height: theme.typography.pxToRem(32),
-							[theme.breakpoints.up('xl')]: {
-								height: theme.typography.pxToRem(48),
-							},
-						}} />
+						<Search fontSize='large' />
 					</IconButton>
 					<Popover
-						id="basic-menu"
+						id="search-menu"
 						anchorEl={anchorEl}
 						open={open}
 						onClose={handleClose}
@@ -59,12 +53,12 @@ const SearchMenu = (props: any) => {
 						}}
 					>
 						<Box sx={{
-							bgcolor: theme.palette.primary.main,
+							bgcolor: 'primary.main',
 							p: 2,
 							width: 'calc(100vw - 32px)',
 							height: '200%',
 						}}>
-							<SearchField focused />
+							<SearchField />
 						</Box>
 					</Popover>
 				</>
