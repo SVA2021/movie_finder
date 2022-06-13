@@ -33,12 +33,52 @@ export const theme = createTheme({
 		action: {
 			hover: THEME_COLOR.orange,
 			active: THEME_COLOR.lightGreen,
+			focus: THEME_COLOR.white,
 		},
 		text: {
 			primary: THEME_COLOR.black,
 			secondary: THEME_COLOR.beige
 		},
+		background: {
+			paper: THEME_COLOR.white,
+			default: THEME_COLOR.white,
+		}
 	},
+	shape: {
+		borderRadius: 2
+	},
+	components: {
+		MuiSvgIcon: {
+			styleOverrides: {
+				root: ({ ownerState, theme }) => ({
+					...(ownerState.fontSize === 'large' && {
+						width: 'auto',
+						height: theme.typography.pxToRem(32),
+						[theme.breakpoints.up('lg')]: {
+							height: theme.typography.pxToRem(48),
+						},
+						[theme.breakpoints.up('xl')]: {
+							height: theme.typography.pxToRem(72),
+						},
+					}),
+					...(ownerState.fontSize === 'medium' && {
+						width: 'auto',
+						height: theme.typography.pxToRem(32),
+						[theme.breakpoints.up('xl')]: {
+							height: theme.typography.pxToRem(48),
+						},
+					}),
+					...(ownerState.fontSize === 'small' && {
+						width: 'auto',
+						height: theme.typography.pxToRem(18),
+						[theme.breakpoints.up('xl')]: {
+							height: theme.typography.pxToRem(24),
+						},
+					}),
+				})
+			}
+		},
+	}
 });
 
 //Logo and other important components
