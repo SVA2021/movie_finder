@@ -1,9 +1,9 @@
-import { AccountCircle, Home, LocalMovies, Menu as MenuIcon, Movie } from '@mui/icons-material';
+import { Home, LocalMovies, Menu as MenuIcon, Movie } from '@mui/icons-material';
 import { Grid, Popover } from '@mui/material';
 import * as React from 'react';
-import SearchField from '../SearchField/SearchField';
 import StyledButton from '../Styled_Button/Styled_Button';
 import StyledTextItem from '../Styled_TextItem/Styled_TextItem';
+import SubMenuMobile from '../SubMenuMobile/SubMenuMobile';
 
 const MenuMain = (props: any) => {
 
@@ -17,7 +17,7 @@ const MenuMain = (props: any) => {
 	};
 
 	return (
-		<div>
+		<>
 			<StyledButton
 				id="fade-button"
 				aria-controls={open ? 'fade-menu' : undefined}
@@ -54,25 +54,12 @@ const MenuMain = (props: any) => {
 					<Grid item xs={12} md={6} lg={3}>
 						<StyledTextItem ><Movie fontSize='medium' />Series</StyledTextItem>
 					</Grid>
-					<Grid item xs={12} sx={{
-						display: {
-							xs: 'block',
-							md: 'none',
-						}
-					}}>
-						<SearchField />
-					</Grid>
-					<Grid item xs={12} sx={{
-						display: {
-							xs: 'block',
-							md: 'none',
-						}
-					}}>
-						<StyledTextItem ><AccountCircle fontSize='medium' />Login</StyledTextItem>
+					<Grid item xs={12} sx={{ display: { xs: 'block', md: 'none', } }}>
+						<SubMenuMobile />
 					</Grid>
 				</Grid>
 			</Popover>
-		</div>
+		</>
 	);
 }
 
