@@ -78,6 +78,15 @@ export const theme = createTheme({
 				})
 			}
 		},
+		MuiAccordion:{
+			styleOverrides:{
+				root: ({ ownerState, theme }) => ({
+				...(ownerState && {
+					backgroundColor: theme.palette.primary.main,
+				}),
+			})
+			}
+		}
 	}
 });
 
