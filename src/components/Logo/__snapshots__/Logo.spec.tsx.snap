@@ -2,13 +2,13 @@
 
 exports[`render logo snapshot test 1`] = `
 <p
-  class="MuiTypography-root MuiTypography-h1 css-352z6l-MuiTypography-root"
+  class="MuiTypography-root MuiTypography-h1 css-a2474o-MuiTypography-root"
   data-testid="logo"
 >
   Movie
   <svg
     aria-hidden="true"
-    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1j1iy3m-MuiSvgIcon-root"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fpb96v-MuiSvgIcon-root"
     data-testid="LocalMoviesIcon"
     focusable="false"
     viewBox="0 0 24 24"
