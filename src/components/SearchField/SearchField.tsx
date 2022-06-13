@@ -10,10 +10,6 @@ const SearchField = (props: TextFieldProps) => {
 				backgroundColor: alpha(theme.palette.secondary.main, 0.5),
 				borderRadius: theme.shape.borderRadius,
 				borderColor: 'transparent',
-				fontSize: theme.typography.pxToRem(18),
-				[theme.breakpoints.up('xl')]: {
-					fontSize: theme.typography.pxToRem(24),
-				},
 				'&:hover': {
 					backgroundColor: alpha(theme.palette.secondary.main, 0.75),
 				},
@@ -28,22 +24,16 @@ const SearchField = (props: TextFieldProps) => {
 					<InputAdornment position="end" >
 						<IconButton
 							sx={{
-								color: theme.palette.primary.main,
+								color: 'primary.main',
 								'&:hover': {
-									color: theme.palette.action.hover,
+									color: 'action.hover',
 								},
 								'&:active': {
-									color: theme.palette.action.active,
+									color: 'action.active',
 								},
 							}}
 						>
-							<Search sx={{
-								width: 'auto',
-								height: theme.typography.pxToRem(32),
-								[theme.breakpoints.up('xl')]: {
-									height: theme.typography.pxToRem(48),
-								},
-							}} />
+							<Search fontSize='medium'/>
 						</IconButton>
 					</InputAdornment>
 				),
