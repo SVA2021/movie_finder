@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render styled-text-item snapshot test 1`] = `
+<p
+  class="MuiTypography-root MuiTypography-h3 css-53zoc3-MuiTypography-root"
+  data-testid="styled-text-item"
+>
+  Hello World
+</p>
+`;
