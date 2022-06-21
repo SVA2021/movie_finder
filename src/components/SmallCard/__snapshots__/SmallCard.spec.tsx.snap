@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render SmallCard snapshot test 1`] = `
+<div
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-bhp9pd-MuiPaper-root-MuiCard-root"
+  data-testid="smallCard"
+>
+  <button
+    class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+    tabindex="0"
+    type="button"
+  >
+    <img
+      alt="FakeDescription"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-o69gx8-MuiCardMedia-root"
+      src="https://kinopoiskapiunofficial.tech/images/posters/kp_small/301.jpg"
+      width="100%"
+    />
+    <div
+      class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+    >
+      <div
+        class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
+      >
+        263531
+        , 
+        FakeNameRu
+        , 
+        FakeNameEng
+        , 
+        100
+        , 
+        https://kinopoiskapiunofficial.tech/images/posters/kp_small/301.jpg
+      </div>
+      <p
+        class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+      >
+        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica
+      </p>
+    </div>
+    <span
+      class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+    />
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;

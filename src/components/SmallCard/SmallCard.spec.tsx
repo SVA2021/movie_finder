@@ -1,20 +1,21 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { filmDataShort } from '../../features/movieFinder/fakeData';
 import SmallCard from './SmallCard';
 
-const filmDataShort = {
-	filmId: 100,
-	nameRu: 'FakeNameRu',
-	nameEng: 'FakeNameEng',
-	nameOriginal: 'OriginalFakeName',
-	posterUrl: 'https://kinopoiskapiunofficial.tech/images/posters/kp/301.jpg',
-	posterUrlPreview: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/eed1de3a-5400-43b3-839e-22490389bf54/360',
-	relationType: 'SIMILAR',
-}
+// const filmDataShort = {
+// 	filmId: 100,
+// 	nameRu: 'FakeNameRu',
+// 	nameEng: 'FakeNameEng',
+// 	nameOriginal: 'OriginalFakeName',
+// 	posterUrl: 'https://kinopoiskapiunofficial.tech/images/posters/kp/301.jpg',
+// 	posterUrlPreview: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/eed1de3a-5400-43b3-839e-22490389bf54/360',
+// 	relationType: 'SIMILAR',
+// }
 
 describe('render SmallCard', () => {
 
 	const handleClicker = jest.fn();
-	const setUp = () => render(<SmallCard {...filmDataShort} onClick={handleClicker} />);
+	const setUp = () => render(<SmallCard {...filmDataShort} handleClick={ handleClicker()} />);
 
 	it('snapshot test', () => {
 		setUp();
