@@ -2,7 +2,7 @@
 
 exports[`render SmallCard snapshot test 1`] = `
 <div
-  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-bhp9pd-MuiPaper-root-MuiCard-root"
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-4ob670-MuiPaper-root-MuiCard-root"
   data-testid="smallCard"
 >
   <button
@@ -11,7 +11,7 @@ exports[`render SmallCard snapshot test 1`] = `
     type="button"
   >
     <img
-      alt="FakeDescription"
+      alt="FakeNameEng"
       class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-o69gx8-MuiCardMedia-root"
       src="https://kinopoiskapiunofficial.tech/images/posters/kp_small/301.jpg"
       width="100%"
@@ -19,23 +19,30 @@ exports[`render SmallCard snapshot test 1`] = `
     <div
       class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
     >
-      <div
-        class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
-      >
-        263531
-        , 
-        FakeNameRu
-        , 
-        FakeNameEng
-        , 
-        100
-        , 
-        https://kinopoiskapiunofficial.tech/images/posters/kp_small/301.jpg
-      </div>
       <p
-        class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
       >
-        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica
+        FakeNameRu
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      >
+        FakeNameEng
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      >
+        2000
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      >
+        40ч 40мин
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-h3 css-1rklbg3-MuiTypography-root"
+      >
+        7.9
       </p>
     </div>
     <span
