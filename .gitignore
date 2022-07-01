@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+key.ts
 # production
 /build
 
