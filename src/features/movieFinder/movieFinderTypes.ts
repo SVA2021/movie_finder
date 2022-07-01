@@ -1,10 +1,19 @@
+//********** BASIC CONSTANTS *************************/
+
+export const PRODUCTION_STATUS = ['FILMING', 'PRE_PRODUCTION', 'COMPLETED', 'ANNOUNCED', 'UNKNOWN', 'POST_PRODUCTION'] as const;
+export const FILM_TYPE = ['FILM', 'VIDEO', 'TV_SERIES', 'MINI_SERIES', 'TV_SHOW'] as const;
+export const TOP_FILMS_TYPE = ['TOP_250_BEST_FILMS', 'TOP_100_POPULAR_FILMS', 'TOP_AWAIT_FILMS'] as const;
+
+
 //********** BASIC TYPES *************************/
 
 export type TCountry = { country: string }
 export type TGenre = { genre: string }
-export type TProductionStatus = 'FILMING' | 'PRE_PRODUCTION' | 'COMPLETED' | 'ANNOUNCED' | 'UNKNOWN' | 'POST_PRODUCTION'
-export type TFilm = 'FILM' | 'VIDEO' | 'TV_SERIES' | 'MINI_SERIES' | 'TV_SHOW'
-export type TTop = 'TOP_250_BEST_FILMS' | 'TOP_100_POPULAR_FILMS' | 'TOP_AWAIT_FILMS'
+export type TProductionStatus = typeof PRODUCTION_STATUS[number];
+export type TFilm = typeof FILM_TYPE[number];
+export type TTopList = typeof TOP_FILMS_TYPE[number];
+export type TUser = { user: string, password: string } | null;
+export type TStatus = 'idle' | 'loading' | 'failed';
 
 //********** ITEM TYPES *************************/
 
@@ -39,13 +48,10 @@ export interface TFullCard {
 	shortDescription: string | null
 	editorAnnotation: string | null
 	isTicketsAvailable: boolean
-	productionStatus: TProductionStatus
+	productionStatus: TProductionStatus | null
 	type: TFilm
 	ratingMpaa: string | null
 	ratingAgeLimits: string | null
-	hasImax: boolean | null
-	has3D: boolean | null
-	lastSync: string
 	countries: TCountry[]
 	genres: TGenre[]
 	startYear?: number | null
@@ -53,23 +59,63 @@ export interface TFullCard {
 	serial?: boolean | null
 	shortFilm?: boolean | null
 	completed?: boolean | null
+	hasImax?: boolean | null
+	has3D?: boolean | null
+	lastSync?: string
 }
 
-export type TMovieShort = { filmId: number, rating: string, ratingVoteCount: string } & Pick<TFullCard, 'nameRu' | 'nameEn' | 'type' | 'year' | 'description' | 'filmLength' | 'countries' | 'genres' | 'posterUrl' | 'posterUrlPreview'>
-
-export interface TSmallCard extends TMovieShort {
-	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+export interface TSmallCard {
+	filmId: number
+	nameRu: string | null
+	nameEn: string | null
+	year: string | null
+	filmLength: string | null
+	countries: TCountry[]
+	genres: TGenre[]
+	rating: string | null
+	ratingVoteCount: number | null
+	posterUrl: string
+	posterUrlPreview: string
+	ratingChange?: null | any
 }
 
-export type TMovieSimilar = { filmId: number, relationType: string } & Pick<TFullCard, 'nameEn' | 'nameRu' | 'nameOriginal' | 'posterUrl' | 'posterUrlPreview'>
+export type TSearchItem = Pick<TFullCard, 'kinopoiskId' | 'imdbId' | 'nameRu' | 'nameEn' | 'nameOriginal'
+	| 'countries' | 'genres' | 'ratingKinopoisk' | 'ratingImdb' | 'year' | 'type' | 'posterUrl' | 'posterUrlPreview'>;
 
 //********** RESPONSE TYPES *************************/
 
 export interface TSearchResponse {
-	keyword: string
-	pagesCount: number
-	searchFilmsCountResult: number
-	films: TMovieShort[]
+	total: number
+	totalPages: number
+	items: TSearchItem[]
 }
 
-export type TSearchTops = Pick<TSearchResponse, 'films' | 'pagesCount'>
+export interface TSearchResponseData {
+	total: number
+	totalPages: number
+	items: { [key: number]: TSearchItem[] }
+}
+
+export interface TTopResponse {
+	pagesCount: number
+	films: TSmallCard[]
+}
+
+export interface TTopData {
+	pagesCount: number
+	data: { [key: number]: TSmallCard[] }
+}
+
+//********** SLICER TYPES *************************/
+
+export interface TMovieFinderState {
+	isAuth: boolean
+	user: TUser | null
+	status: TStatus
+	fullCard: TFullCard | null
+	fullCardExtraInfo: null
+	home: { [key in TTopList]: TTopData | null } | null
+	movies: TSearchResponseData | null
+	series: TSearchResponseData | null
+	searchResult: TSearchResponseData | null
+}
