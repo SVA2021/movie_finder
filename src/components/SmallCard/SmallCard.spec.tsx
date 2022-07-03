@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { fakeSmallCard, filmDataShort } from '../../features/movieFinder/fakeData';
+import { fakeSmallCard } from '../../features/movieFinder/fakeData';
 import SmallCard from './SmallCard';
 
 describe('render SmallCard', () => {
@@ -13,16 +13,16 @@ describe('render SmallCard', () => {
 	})
 	it('find movie name RU', () => {
 		setUp();
-		expect(screen.getByText(/FakeNameRu/i)).toBeInTheDocument();
+		expect(screen.getByText(/Семь жизней/i)).toBeInTheDocument();
 	})
 	it('find movie name Eng', () => {
 		setUp();
-		expect(screen.getByText(/FakeNameEng/i)).toBeInTheDocument();
+		expect(screen.getByText(/Seven Pounds/i)).toBeInTheDocument();
 	})
 	it('img uses correct src', () => {
 		setUp();
-		const image = screen.getByAltText('FakeNameEng');
-		expect(image).toHaveAttribute('src', 'https://kinopoiskapiunofficial.tech/images/posters/kp_small/301.jpg');
+		const image = screen.getByAltText('Семь жизней');
+		expect(image).toHaveAttribute('src', 'https://kinopoiskapiunofficial.tech/images/posters/kp_small/395787.jpg');
 	});
 	it('click on Card', () => {
 		setUp();

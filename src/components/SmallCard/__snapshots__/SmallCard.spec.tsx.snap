@@ -10,40 +10,52 @@ exports[`render SmallCard snapshot test 1`] = `
     tabindex="0"
     type="button"
   >
-    <img
-      alt="FakeNameEng"
-      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-o69gx8-MuiCardMedia-root"
-      src="https://kinopoiskapiunofficial.tech/images/posters/kp_small/301.jpg"
-      width="100%"
-    />
     <div
-      class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] css-1tw73vd-MuiGrid-root"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-12 css-1yl2ad8-MuiGrid-root"
       >
-        FakeNameRu
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+        <img
+          alt="Семь жизней"
+          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-o69gx8-MuiCardMedia-root"
+          src="https://kinopoiskapiunofficial.tech/images/posters/kp_small/395787.jpg"
+          width="100%"
+        />
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-12 css-1yl2ad8-MuiGrid-root"
       >
-        FakeNameEng
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-      >
-        2000
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-      >
-        40ч 40мин
-      </p>
-      <p
-        class="MuiTypography-root MuiTypography-h3 css-1rklbg3-MuiTypography-root"
-      >
-        7.9
-      </p>
+        <div
+          class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-d3wcwz-MuiTypography-root"
+          >
+            Семь жизней
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-d3wcwz-MuiTypography-root"
+          >
+            Seven Pounds
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-d3wcwz-MuiTypography-root"
+          >
+            2008
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          >
+            01:58
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-h3 css-1qtybp7-MuiTypography-root"
+          >
+            8.2
+          </p>
+        </div>
+      </div>
     </div>
     <span
       class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
