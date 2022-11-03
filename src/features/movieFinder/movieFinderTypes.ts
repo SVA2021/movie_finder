@@ -7,15 +7,54 @@ export const TOP_FILMS_TYPE = ['TOP_250_BEST_FILMS', 'TOP_100_POPULAR_FILMS', 'T
 
 //********** BASIC TYPES *************************/
 
-export type TCountry = { country: string }
-export type TGenre = { genre: string }
+export type TCountry = {country: string}
+export type TGenre = {genre: string}
 export type TProductionStatus = typeof PRODUCTION_STATUS[number];
 export type TFilm = typeof FILM_TYPE[number];
 export type TTopList = typeof TOP_FILMS_TYPE[number];
-export type TUser = { user: string, password: string } | null;
+export type TUser = {user: string, password: string} | null;
 export type TStatus = 'idle' | 'loading' | 'failed';
 
 //********** ITEM TYPES *************************/
+
+export interface TSmallCard {
+	id: number
+	nameRu: string | null
+	nameEn: string | null
+	year: string | number | null
+	filmLength: string | number | null
+	rating: string | null
+	posterUrlPreview: string
+}
+
+export interface Film {
+	filmId: number
+	nameRu: string | null
+	nameEn: string | null
+	year: string | null
+	filmLength: string | null
+	countries: TCountry[]
+	genres: TGenre[]
+	rating: string | null
+	ratingVoteCount: number | null
+	posterUrl: string
+	posterUrlPreview: string
+}
+
+export interface TTopFilm {
+	filmId: number
+	nameRu: string | null
+	nameEn: string | null
+	year: string | null
+	filmLength: string | null
+	countries: TCountry[]
+	genres: TGenre[]
+	rating: string | null
+	ratingVoteCount: number | null
+	posterUrl: string
+	posterUrlPreview: string
+	ratingChange?: null | any
+}
 
 export interface TFullCard {
 	kinopoiskId: number
@@ -64,21 +103,6 @@ export interface TFullCard {
 	lastSync?: string
 }
 
-export interface TSmallCard {
-	filmId: number
-	nameRu: string | null
-	nameEn: string | null
-	year: string | null
-	filmLength: string | null
-	countries: TCountry[]
-	genres: TGenre[]
-	rating: string | null
-	ratingVoteCount: number | null
-	posterUrl: string
-	posterUrlPreview: string
-	ratingChange?: null | any
-}
-
 export type TSearchItem = Pick<TFullCard, 'kinopoiskId' | 'imdbId' | 'nameRu' | 'nameEn' | 'nameOriginal'
 	| 'countries' | 'genres' | 'ratingKinopoisk' | 'ratingImdb' | 'year' | 'type' | 'posterUrl' | 'posterUrlPreview'>;
 
@@ -91,31 +115,21 @@ export interface TSearchResponse {
 }
 
 export interface TSearchResponseData {
-	total: number
-	totalPages: number
-	items: { [key: number]: TSearchItem[] }
+	total: number | null
+	totalPages: number | null
+	currentPage: number
+	keyword: string | null
+	items: {[key: number]: TSearchItem[]}
 }
 
 export interface TTopResponse {
 	pagesCount: number
-	films: TSmallCard[]
+	films: TTopFilm[]
 }
 
 export interface TTopData {
 	pagesCount: number
-	data: { [key: number]: TSmallCard[] }
-}
-
-//********** SLICER TYPES *************************/
-
-export interface TMovieFinderState {
-	isAuth: boolean
-	user: TUser | null
-	status: TStatus
-	fullCard: TFullCard | null
-	fullCardExtraInfo: null
-	home: { [key in TTopList]: TTopData | null } | null
-	movies: TSearchResponseData | null
-	series: TSearchResponseData | null
-	searchResult: TSearchResponseData | null
+	page: number
+	// data: {[key: number]: TSmallCard[]}
+	[key: number]: TSmallCard[]
 }

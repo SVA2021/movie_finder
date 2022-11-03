@@ -1,10 +1,10 @@
 import axios from "axios";
-import { API_OFFICIAL } from "../../private/key";
-import { TTopList } from "./movieFinderTypes";
+import {API_OFFICIAL} from "../../private/key";
+import {TTopList, TTopResponse} from "./movieFinderTypes";
 
 export const BASE_URL = 'https://kinopoiskapiunofficial.tech/';
 const FILMS = 'api/v2.2/films/';
-const TOP = 'top/';
+// const TOP = 'top/';
 
 const movieFinderInstance = axios.create({
 	baseURL: BASE_URL,
@@ -17,7 +17,7 @@ const movieFinderInstance = axios.create({
 export const movieFinderAPI = {
 
 	getTopList(topList: TTopList = 'TOP_250_BEST_FILMS', page: number = 1) {
-		let query = `${FILMS}${TOP}?page=${page}`;
+		let query = `${FILMS}top?type=${topList}&page=${page}`;
 		return movieFinderInstance.get(query)
 			.then(response => {
 				console.log(response);

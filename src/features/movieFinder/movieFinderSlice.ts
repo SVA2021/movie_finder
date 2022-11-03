@@ -1,6 +1,23 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../app/store';
-import { TFullCard, TMovieFinderState } from "./movieFinderTypes";
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {RootState} from '../../app/store';
+import {movieFinderAPI} from './movieFinderAPI';
+import {TFullCard, TSearchResponseData, TStatus, TTopData, TTopList, TTopResponse, TUser, } from "./movieFinderTypes";
+
+interface TMovieFinderState {
+	isAuth: boolean
+	user: TUser | null
+	status: TStatus
+	fullCard: TFullCard | null
+	fullCardExtraInfo: null
+	homePage: {[key in TTopList]: TTopData | null}
+	homePageCurrent: {
+		type: TTopList
+		page: number
+	}
+	movies: TSearchResponseData | null
+	series: TSearchResponseData | null
+	searchResult: TSearchResponseData
+}
 
 export const initialState: TMovieFinderState = {
 	isAuth: false,
@@ -8,21 +25,35 @@ export const initialState: TMovieFinderState = {
 	status: 'idle',
 	fullCard: null,
 	fullCardExtraInfo: null,
-	home: null,
+	homePage: {
+		TOP_250_BEST_FILMS: null,
+		TOP_100_POPULAR_FILMS: null,
+		TOP_AWAIT_FILMS: null,
+	},
+	homePageCurrent: {
+		type: 'TOP_250_BEST_FILMS',
+		page: 1,
+	},
 	movies: null,
 	series: null,
-	searchResult: null,
+	searchResult: {
+		total: null,
+		totalPages: null,
+		currentPage: 1,
+		keyword: null,
+		items: {},
+	},
 };
 
-// export const getCurrentWeatherAsync = createAsyncThunk(
-// 	'weather/getCurrentWeather',
-// 	async (geo: CityGeoType) => {
-// 		const response = await weatherAPI.getCurrentWeather(geo);
-// 		let result: WeatherType = { description: 'no data', time: 0 };
-// 		if (response.status === 200) result = convertWeatherData(response.data);
-// 		return result;
-// 	}
-// );
+export const getTopListAsync = createAsyncThunk(
+	'movieFinder/getTopList',
+	async ({type, page}: {type: TTopList, page: number}) => {
+		const response = await movieFinderAPI.getTopList(type, page);
+		let result = null;
+		if (response.status === 200) result = (response.data);
+		return result;
+	}
+);
 
 export const movieFinderSlice = createSlice({
 	name: 'movieFinder',
@@ -35,20 +66,39 @@ export const movieFinderSlice = createSlice({
 		setFullCard: (state, action: PayloadAction<null | TFullCard>) => {
 			state.fullCard = action.payload;
 		},
+		setHomePageCurrent: (state, action: PayloadAction<{type: TTopList, page: number}>) => {
+			state.homePageCurrent = action.payload;
+		},
 	},
 	extraReducers: (builder) => {
-		// builder
-		// 	.addCase(getLocationsListAsync.pending, (state) => {
-		// 		state.status = 'loading';
-		// 	})
-		// 	.addCase(getLocationsListAsync.fulfilled, (state, action: PayloadAction<LocationGeoType[]>) => {
-		// 		state.status = 'idle';
-		// 		state.locationsList = action.payload;
-		// 	});
+		builder
+			.addCase(getTopListAsync.pending, (state) => {
+				state.status = 'loading';
+			})
+			.addCase(getTopListAsync.fulfilled, (state, action: PayloadAction<TTopResponse>) => {
+				state.status = 'idle';
+				// state.homePage = {
+				// 	[state.homePageCurrent.type] : {
+				// 		page: state.homePageCurrent.page,
+				// 		pagesCount: action.payload.pagesCount,
+				// 		[state.homePageCurrent.page]: action.payload.films.map((v) => ({...v, id: v.filmId})),
+				// 	}
+				// }
+				state.homePage[state.homePageCurrent.type] = {
+					page: state.homePageCurrent.page,
+					pagesCount: action.payload.pagesCount,
+					[state.homePageCurrent.page]: action.payload.films.map((v) => ({...v, id: v.filmId})),
+				}
+			});
 	},
 });
 
-export const { setIsAuth, setFullCard } = movieFinderSlice.actions;
+export const {setIsAuth, setFullCard, setHomePageCurrent, } = movieFinderSlice.actions;
 
 export const selectIsAuth = (state: RootState) => state.movieFinder.isAuth;
+export const selectStatus = (state: RootState) => state.movieFinder.status;
+export const selectHomePage = (state: RootState) => state.movieFinder.homePage;
+export const selectHomePageCurrent = (state: RootState) => state.movieFinder.homePageCurrent;
+export const selectSearchResult = (state: RootState) => state.movieFinder.searchResult;
+
 export default movieFinderSlice.reducer;
