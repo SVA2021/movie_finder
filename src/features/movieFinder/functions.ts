@@ -1,3 +1,5 @@
+import {TSmallCard, TTopFilm} from "./movieFinderTypes";
+
 export const normalizeDateString = (date: number): string => {
 	return (date < 10) ? '0' + String(date) : String(date);
 }
@@ -16,4 +18,11 @@ export const getColorFromRate = (num: number | null): string => {
 	if (num >= 8) return 'green';
 	if (num >= 6) return 'orange';
 	return 'red';
+}
+
+export function normalizeTimeString(time: string | number | null): string | null {
+	if (time === null || time === '') return null;
+	const hh = String(time).slice(0, 2);
+	const mm = String(time).slice(3, 5);
+	return `${hh}ч : ${mm}м`
 }
