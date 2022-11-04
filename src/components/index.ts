@@ -12,3 +12,4 @@ export * from './SmallCard/SmallCard';
 export * from './Styled_Button/Styled_Button';
 export * from './Styled_TextItem/Styled_TextItem';
 export * from './SubMenuMobile/SubMenuMobile';
+export * from './RatingBadge/RatingBadge';
