@@ -45,7 +45,7 @@ export const theme = createTheme({
 		}
 	},
 	shape: {
-		borderRadius: 2
+		borderRadius: 4
 	},
 	components: {
 		MuiSvgIcon: {
@@ -78,13 +78,37 @@ export const theme = createTheme({
 				})
 			}
 		},
-		MuiAccordion:{
-			styleOverrides:{
+		MuiAccordion: {
+			styleOverrides: {
 				root: ({ ownerState, theme }) => ({
-				...(ownerState && {
-					backgroundColor: theme.palette.primary.main,
-				}),
-			})
+					...(ownerState && {
+						backgroundColor: theme.palette.primary.main,
+					}),
+				})
+			}
+		},
+		MuiButton: {
+			styleOverrides: {
+				root: ({ ownerState, theme }) => ({
+					...(ownerState && {
+						backgroundColor: theme.palette.primary.main,
+						"&:hover": {
+							backgroundColor: theme.palette.primary.main,
+							color: theme.palette.action.hover,
+							// boxShadow: `8px 8px 8px ${theme.palette.action.hover}`,
+						},
+						"&:active": {
+							backgroundColor: theme.palette.primary.main,
+							color: theme.palette.action.active,
+							// boxShadow: `8px 8px 8px ${theme.palette.action.active}`,
+						},
+						"&:focus": {
+							backgroundColor: theme.palette.primary.main,
+							color: theme.palette.common.white,
+							// boxShadow: `8px 8px 8px ${theme.palette.action.focus}`,
+						},
+					}),
+				})
 			}
 		}
 	}
