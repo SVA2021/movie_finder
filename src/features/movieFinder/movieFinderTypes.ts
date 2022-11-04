@@ -133,3 +133,8 @@ export interface TTopData {
 	// data: {[key: number]: TSmallCard[]}
 	[key: number]: TSmallCard[]
 }
+
+export interface THomePageCurrent {
+	type: TTopList
+	page: number
+}

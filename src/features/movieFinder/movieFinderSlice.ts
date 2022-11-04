@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '../../app/store';
 import {movieFinderAPI} from './movieFinderAPI';
-import {TFullCard, TSearchResponseData, TStatus, TTopData, TTopList, TTopResponse, TUser, } from "./movieFinderTypes";
+import {TFullCard, THomePageCurrent, TSearchResponseData, TStatus, TTopData, TTopList, TTopResponse, TUser, } from "./movieFinderTypes";
 
 interface TMovieFinderState {
 	isAuth: boolean
@@ -10,10 +10,7 @@ interface TMovieFinderState {
 	fullCard: TFullCard | null
 	fullCardExtraInfo: null
 	homePage: {[key in TTopList]: TTopData | null}
-	homePageCurrent: {
-		type: TTopList
-		page: number
-	}
+	homePageCurrent: THomePageCurrent
 	movies: TSearchResponseData | null
 	series: TSearchResponseData | null
 	searchResult: TSearchResponseData
@@ -45,9 +42,9 @@ export const initialState: TMovieFinderState = {
 	},
 };
 
-export const getTopListAsync = createAsyncThunk(
+export const getTopListAsync = createAsyncThunk<TTopResponse, THomePageCurrent, {rejectValue: string}>(
 	'movieFinder/getTopList',
-	async ({type, page}: {type: TTopList, page: number}) => {
+	async ({type, page}: THomePageCurrent) => {
 		const response = await movieFinderAPI.getTopList(type, page);
 		let result = null;
 		if (response.status === 200) result = (response.data);
@@ -77,13 +74,6 @@ export const movieFinderSlice = createSlice({
 			})
 			.addCase(getTopListAsync.fulfilled, (state, action: PayloadAction<TTopResponse>) => {
 				state.status = 'idle';
-				// state.homePage = {
-				// 	[state.homePageCurrent.type] : {
-				// 		page: state.homePageCurrent.page,
-				// 		pagesCount: action.payload.pagesCount,
-				// 		[state.homePageCurrent.page]: action.payload.films.map((v) => ({...v, id: v.filmId})),
-				// 	}
-				// }
 				state.homePage[state.homePageCurrent.type] = {
 					page: state.homePageCurrent.page,
 					pagesCount: action.payload.pagesCount,
