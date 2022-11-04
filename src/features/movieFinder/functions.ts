@@ -24,5 +24,5 @@ export function normalizeTimeString(time: string | number | null): string | null
 	if (time === null || time === '') return null;
 	const hh = String(time).slice(0, 2);
 	const mm = String(time).slice(3, 5);
-	return `${hh}ч : ${mm}м`
+	return `${hh}ч${mm}м`
 }
