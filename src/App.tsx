@@ -1,9 +1,7 @@
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import { Container } from '@mui/system';
-import Banner from './components/Banner/Banner';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
-import { theme } from './theme';
+import {CssBaseline, ThemeProvider} from '@mui/material';
+import {Container} from '@mui/system';
+import {Banner, Header, Main} from './components';
+import {theme} from './theme';
 
 function App() {
 	return (
@@ -11,8 +9,8 @@ function App() {
 			<CssBaseline />
 			<Header />
 			<Container maxWidth='xl'>
-				<Banner/>
-				<Main/>
+				<Banner />
+				<Main />
 			</Container>
 		</ThemeProvider>
 	);
