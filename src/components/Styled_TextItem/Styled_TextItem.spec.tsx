@@ -1,11 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import Item from './Styled_TextItem';
+import {render, screen} from '@testing-library/react';
+import {StyledTextItem} from './Styled_TextItem';
 
 
 describe('render styled-text-item', () => {
 
 	const setUp = () => render(
-		<Item>Hello World</Item>
+		<StyledTextItem>Hello World</StyledTextItem>
 	);
 
 	it('snapshot test', () => {

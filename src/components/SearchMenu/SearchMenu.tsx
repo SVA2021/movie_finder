@@ -1,9 +1,9 @@
 import { Search } from '@mui/icons-material';
 import { Box, IconButton, Popover, useMediaQuery, useTheme } from '@mui/material';
 import * as React from 'react';
-import SearchField from '../SearchField/SearchField';
+import {SearchField} from '../../components';
 
-const SearchMenu = () => {
+export const SearchMenu = () => {
 	const theme = useTheme();
 	const isTablet = useMediaQuery(theme.breakpoints.only('md'));
 
@@ -68,5 +68,3 @@ const SearchMenu = () => {
 			)
 	)
 };
-
-export default SearchMenu;

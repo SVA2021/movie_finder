@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-const Banner = () => {
+export const Banner = () => {
 	return (
 		<Box sx={{
 			height: '100px',
@@ -16,5 +16,3 @@ const Banner = () => {
 		</Box>
 	)
 }
-
-export default Banner;

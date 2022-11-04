@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import StyledButton from './Styled_Button';
+import {StyledButton} from './Styled_Button';
 
 describe('render logo', () => {
 

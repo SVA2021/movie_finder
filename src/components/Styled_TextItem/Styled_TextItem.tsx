@@ -1,6 +1,6 @@
 import { Typography, TypographyProps } from '@mui/material';
 
-const StyledTextItem = (props: TypographyProps) => {
+export const StyledTextItem = (props: TypographyProps) => {
 	return (
 		<Typography data-testid='styled-text-item' variant='h3' component={'p'} sx={{
 			display: 'flex',
@@ -25,5 +25,3 @@ const StyledTextItem = (props: TypographyProps) => {
 		</Typography>
 	)
 }
-
-export default StyledTextItem;

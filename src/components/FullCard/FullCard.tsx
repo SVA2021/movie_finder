@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-const FullCard = () => {
+export const FullCard = () => {
 	return (
 		<Box sx={{
 			height: '100px',
@@ -16,5 +16,3 @@ const FullCard = () => {
 		</Box>
 	)
 }
-
-export default FullCard;

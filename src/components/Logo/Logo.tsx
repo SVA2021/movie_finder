@@ -1,7 +1,7 @@
 import { LocalMovies } from '@mui/icons-material';
 import { Typography } from '@mui/material';
 
-const Logo = () => {
+export const Logo = () => {
 	return (
 		<Typography data-testid='logo' variant='h1' component={'p'} sx={{
 			display: 'flex',
@@ -16,5 +16,3 @@ const Logo = () => {
 		</Typography>
 	)
 };
-
-export default Logo;

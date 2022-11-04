@@ -1,6 +1,6 @@
 import { Button, ButtonProps, useTheme } from '@mui/material';
 
-const StyledButton = (props: ButtonProps) => {
+export const StyledButton = (props: ButtonProps) => {
 	const theme = useTheme();
 
 	return (
@@ -24,5 +24,3 @@ const StyledButton = (props: ButtonProps) => {
 	)
 };
 StyledButton.muiName = 'Button';
-
-export default StyledButton;

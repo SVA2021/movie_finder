@@ -1,7 +1,7 @@
 import { Search } from '@mui/icons-material';
 import { alpha, IconButton, InputAdornment, TextField, TextFieldProps, useTheme } from '@mui/material';
 
-const SearchField = (props: TextFieldProps) => {
+export const SearchField = (props: TextFieldProps) => {
 	const theme = useTheme();
 	return (
 		<TextField
@@ -41,5 +41,3 @@ const SearchField = (props: TextFieldProps) => {
 		/>
 	)
 };
-
-export default SearchField;

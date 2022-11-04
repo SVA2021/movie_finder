@@ -1,11 +1,9 @@
-import { Home, LocalMovies, Menu as MenuIcon, Movie } from '@mui/icons-material';
-import { Grid, Popover } from '@mui/material';
+import {Home, LocalMovies, Menu as MenuIcon, Movie} from '@mui/icons-material';
+import {Grid, Popover} from '@mui/material';
 import * as React from 'react';
-import StyledButton from '../Styled_Button/Styled_Button';
-import StyledTextItem from '../Styled_TextItem/Styled_TextItem';
-import SubMenuMobile from '../SubMenuMobile/SubMenuMobile';
+import {StyledButton, StyledTextItem, SubMenuMobile, } from '../../components';
 
-const MenuMain = (props: any) => {
+export const MenuMain = (props: any) => {
 
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const open = Boolean(anchorEl);
@@ -54,7 +52,7 @@ const MenuMain = (props: any) => {
 					<Grid item xs={12} md={6} lg={3}>
 						<StyledTextItem ><Movie fontSize='medium' />Series</StyledTextItem>
 					</Grid>
-					<Grid item xs={12} sx={{ display: { xs: 'block', md: 'none', } }}>
+					<Grid item xs={12} sx={{display: {xs: 'block', md: 'none', }}}>
 						<SubMenuMobile />
 					</Grid>
 				</Grid>
@@ -62,5 +60,3 @@ const MenuMain = (props: any) => {
 		</>
 	);
 }
-
-export default MenuMain;

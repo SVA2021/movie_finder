@@ -1,9 +1,8 @@
-import { AccountCircle, ExpandMore, Logout, Search, Settings } from '@mui/icons-material';
-import { Accordion, AccordionDetails, AccordionSummary, Grid } from '@mui/material';
-import SearchField from '../SearchField/SearchField';
-import StyledTextItem from '../Styled_TextItem/Styled_TextItem';
+import {AccountCircle, ExpandMore, Logout, Search, Settings} from '@mui/icons-material';
+import {Accordion, AccordionDetails, AccordionSummary, Grid} from '@mui/material';
+import {SearchField, StyledTextItem} from '../../components';
 
-const SubMenuMobile = () => {
+export const SubMenuMobile = () => {
 	return (
 		<>
 			<Accordion>
@@ -51,5 +50,3 @@ const SubMenuMobile = () => {
 		</>
 	);
 }
-
-export default SubMenuMobile;

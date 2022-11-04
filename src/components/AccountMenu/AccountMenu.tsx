@@ -1,10 +1,9 @@
-import { AccountCircle, Logout, Settings } from '@mui/icons-material';
-import { Grid, Popover } from '@mui/material';
+import {AccountCircle, Logout, Settings} from '@mui/icons-material';
+import {Grid, Popover} from '@mui/material';
 import * as React from 'react';
-import StyledButton from '../Styled_Button/Styled_Button';
-import StyledTextItem from '../Styled_TextItem/Styled_TextItem';
+import {StyledButton, StyledTextItem,} from '../../components'
 
-export default function AccountMenu() {
+export const AccountMenu = () => {
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const open = Boolean(anchorEl);
 	const handleClick = (event: React.MouseEvent<HTMLElement>) => {

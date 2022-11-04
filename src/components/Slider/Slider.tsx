@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-const Slider = () => {
+export const Slider = () => {
 	return (
 		<Box sx={{
 			height: '100px',
@@ -15,6 +15,4 @@ const Slider = () => {
 			</Typography>
 		</Box>
 	)
-}
-
-export default Slider;
+};
