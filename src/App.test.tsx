@@ -1,16 +1,24 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { store } from './app/store';
+import {render, screen} from '@testing-library/react';
+import {Provider} from 'react-redux';
+import {BrowserRouter} from 'react-router-dom';
 import {App} from './App';
+import {store} from './app/store';
 
-test('renders Hello World button', () => {
-	render(
+describe('render movie finder', () => {
+	const setUp = () => render(
 		<Provider store={store}>
-			<App />
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
 		</Provider>
 	);
-
-	expect(screen.getByText(/movie/i)).toBeInTheDocument();
-	expect(screen.getByText(/finder/i)).toBeInTheDocument();
+	it('find movie', () => {
+		setUp();
+		expect(screen.getByText(/movie/i)).toBeInTheDocument();
+	});
+	it('find finder', () => {
+		setUp();
+		expect(screen.getByText(/finder/i)).toBeInTheDocument();
+	});
+	screen.debug();
 });
