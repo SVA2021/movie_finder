@@ -1,10 +1,9 @@
 import axios from "axios";
 import {API_OFFICIAL} from "../../private/key";
-import {TTopList, TTopResponse} from "./movieFinderTypes";
+import {TTopList} from "./movieFinderTypes";
 
 export const BASE_URL = 'https://kinopoiskapiunofficial.tech/';
-const FILMS = 'api/v2.2/films/';
-// const TOP = 'top/';
+const API_FILMS = 'api/v2.2/films';
 
 const movieFinderInstance = axios.create({
 	baseURL: BASE_URL,
@@ -16,9 +15,9 @@ const movieFinderInstance = axios.create({
 
 export const movieFinderAPI = {
 
-	getTopList(topList: TTopList = 'TOP_250_BEST_FILMS', page: number = 1) {
-		let query = `${FILMS}top?type=${topList}&page=${page}`;
-		return movieFinderInstance.get(query)
+	getTopList(type: TTopList = 'TOP_250_BEST_FILMS', page: number = 1) {
+		let query = `${API_FILMS}/top`;
+		return movieFinderInstance.get(query, {params: {type, page}})
 			.then(response => {
 				console.log(response);
 				return response;
@@ -30,7 +29,7 @@ export const movieFinderAPI = {
 	},
 
 	getMovieData(id: number = 1) {
-		let query = `${FILMS}${id}`;
+		let query = `${API_FILMS}/${id}`;
 		return movieFinderInstance.get(query)
 			.then(response => {
 				console.log(response);
@@ -43,8 +42,8 @@ export const movieFinderAPI = {
 	},
 
 	getMoviesByKeyword(keyword: string | undefined, page: number = 1) {
-		let query = `${FILMS}?keyword=${keyword}&page=${page}`;
-		return movieFinderInstance.get(query)
+		let query = `${API_FILMS}`;
+		return movieFinderInstance.get(query, {params: {keyword, page}})
 			.then(response => {
 				console.log(response);
 				return response;
@@ -56,8 +55,8 @@ export const movieFinderAPI = {
 	},
 
 	getSeries(page: number = 1) {
-		let query = `${FILMS}?type=TV_SERIES&page=${page}`;
-		return movieFinderInstance.get(query)
+		let query = `${API_FILMS}`;
+		return movieFinderInstance.get(query, {params: {type: 'TV_SERIES', page}})
 			.then(response => {
 				console.log(response);
 				return response;
