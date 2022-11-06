@@ -1,62 +1,49 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import {SmallCard} from './SmallCard';
 
 const FakeCard = {
 	"id": 325381,
-	"nameRu": "Вверх",
-	"nameEn": "Up",
-	"year": "2009",
-	"filmLength": "01:36",
-	"countries": [
-		{
-			"country": "США"
-		}
-	],
-	"genres": [
-		{
-			"genre": "драма"
-		},
-		{
-			"genre": "приключения"
-		},
-		{
-			"genre": "комедия"
-		},
-		{
-			"genre": "мультфильм"
-		},
-		{
-			"genre": "семейный"
-		}
-	],
-	"rating": "8.0",
-	"ratingVoteCount": 366532,
-	"posterUrl": "https://kinopoiskapiunofficial.tech/images/posters/kp/325381.jpg",
-	"posterUrlPreview": "https://kinopoiskapiunofficial.tech/images/posters/kp_small/325381.jpg",
-	"ratingChange": null
+	"nameRu": "fakeNameRu",
+	"nameEn": "fakeNameEng",
+	"year": "2000",
+	"filmLength": "10:10",
+	"rating": "fakeRating",
+	"posterUrlPreview": "fakePosterUrlPreview",
 }
 
 describe('render SmallCard', () => {
 
 	// const handleClicker = jest.fn();
-	const setUp = () => render(<SmallCard item={FakeCard}  />);
+	const setUp = () => render(<SmallCard item={FakeCard} />);
 
 	it('snapshot test', () => {
 		setUp();
 		expect(screen.getByTestId('smallCard')).toMatchSnapshot();
-	})
+	});
 	it('find movie name RU', () => {
 		setUp();
-		expect(screen.getByText(/Семь жизней/i)).toBeInTheDocument();
+		expect(screen.getByText(/fakeNameRu/i)).toBeInTheDocument();
 	})
 	it('find movie name Eng', () => {
 		setUp();
-		expect(screen.getByText(/Seven Pounds/i)).toBeInTheDocument();
+		expect(screen.getByText(/fakeNameEng/i)).toBeInTheDocument();
 	})
 	it('img uses correct src', () => {
 		setUp();
-		const image = screen.getByAltText('Семь жизней');
-		expect(image).toHaveAttribute('src', 'https://kinopoiskapiunofficial.tech/images/posters/kp_small/395787.jpg');
+		const image = screen.getByAltText('fakeNameRu');
+		expect(image).toHaveAttribute('src', 'fakePosterUrlPreview');
+	});
+	it('find rating', () => {
+		setUp();
+		expect(screen.getByText(/fakeRating/i)).toBeInTheDocument();
+	});
+	it('find year', () => {
+		setUp();
+		expect(screen.getByText(/2000/i)).toBeInTheDocument();
+	});
+	it('find film length', () => {
+		setUp();
+		expect(screen.getByText(/10ч10м/i)).toBeInTheDocument();
 	});
 	// it('click on Card', () => {
 	// 	setUp();

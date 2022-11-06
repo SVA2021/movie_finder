@@ -16,11 +16,8 @@ export const SmallCard: FC<TSmallCardProps> = ({item}) => {
 	const time = normalizeTimeString(filmLength);
 
 	return (
-		<Card data-testid={'smallCard'} sx={{
-			position: 'relative',
-			//  height: '100%',
-		}}>
-			<CardActionArea onClick={() => console.log(id)} sx={{position: 'relative', height: '100%'}}>
+		<Card data-testid={'smallCard'} sx={{position: 'relative', }}>
+			<CardActionArea sx={{position: 'relative', height: '100%'}}>
 				<Grid container direction={{xs: 'row', md: 'column'}} >
 					<Grid item xs={7} md={12} >
 						<CardMedia
@@ -28,13 +25,15 @@ export const SmallCard: FC<TSmallCardProps> = ({item}) => {
 							width="100%"
 							image={posterUrlPreview}
 							alt={nameRu?.toString() || nameEn?.toString() || ''}
-						// sx={{height: {md: '34vw', lg: '20vw', xl: '16vw'}}}
 						/>
 					</Grid>
 					<Grid item xs={5} md={12}>
 						<CardContent>
 							<Typography gutterBottom variant="body1" component="p">{nameRu}</Typography>
-							{nameEn && <Typography fontStyle={'italic'} gutterBottom variant="body2" component="p">{nameEn}</Typography>}
+							{nameEn &&
+								<Typography fontStyle={'italic'} gutterBottom variant="body2" component="p">
+									{nameEn}
+								</Typography>}
 							<Typography gutterBottom variant="body1" component="p">
 								{year},  {time}
 							</Typography>
@@ -45,4 +44,4 @@ export const SmallCard: FC<TSmallCardProps> = ({item}) => {
 			<RatingBadge rating={rating} bgColor={ratingColored} />
 		</Card>
 	)
-}
+};

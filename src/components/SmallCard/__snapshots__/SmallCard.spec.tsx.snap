@@ -6,7 +6,7 @@ exports[`render SmallCard snapshot test 1`] = `
   data-testid="smallCard"
 >
   <button
-    class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+    class="MuiButtonBase-root MuiCardActionArea-root css-tqw9zv-MuiButtonBase-root-MuiCardActionArea-root"
     tabindex="0"
     type="button"
   >
@@ -14,17 +14,17 @@ exports[`render SmallCard snapshot test 1`] = `
       class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] css-1tw73vd-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-12 css-1yl2ad8-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 MuiGrid-grid-md-12 css-1hf7a59-MuiGrid-root"
       >
         <img
-          alt="Семь жизней"
+          alt="fakeNameRu"
           class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-o69gx8-MuiCardMedia-root"
-          src="https://kinopoiskapiunofficial.tech/images/posters/kp_small/395787.jpg"
+          src="fakePosterUrlPreview"
           width="100%"
         />
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-12 css-1yl2ad8-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 MuiGrid-grid-md-12 css-15qlg2x-MuiGrid-root"
       >
         <div
           class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
@@ -32,27 +32,19 @@ exports[`render SmallCard snapshot test 1`] = `
           <p
             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-d3wcwz-MuiTypography-root"
           >
-            Семь жизней
+            fakeNameRu
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom css-122n2ei-MuiTypography-root"
+          >
+            fakeNameEng
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-d3wcwz-MuiTypography-root"
           >
-            Seven Pounds
-          </p>
-          <p
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-d3wcwz-MuiTypography-root"
-          >
-            2008
-          </p>
-          <p
-            class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-          >
-            01:58
-          </p>
-          <p
-            class="MuiTypography-root MuiTypography-h3 css-1qtybp7-MuiTypography-root"
-          >
-            8.2
+            2000
+            ,  
+            10ч10м
           </p>
         </div>
       </div>
@@ -64,5 +56,10 @@ exports[`render SmallCard snapshot test 1`] = `
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </button>
+  <p
+    class="MuiTypography-root MuiTypography-h3 css-1xh6tfv-MuiTypography-root"
+  >
+    fakeRating
+  </p>
 </div>
 `;
