@@ -1,6 +1,6 @@
 import {Card, CardActionArea, CardContent, CardMedia, Grid, Typography} from "@mui/material";
 import {FC} from 'react';
-import {getColorFromRate, normalizeTimeString} from "../../features/movieFinder/functions";
+import {getColorFromRate, normalizeTimeString} from "../../utils";
 import {TSmallCard} from "../../features/movieFinder/movieFinderTypes";
 import {RatingBadge} from "../../components";
 
