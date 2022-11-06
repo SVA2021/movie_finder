@@ -1,4 +1,4 @@
-import {Container, Skeleton} from "@mui/material";
+import {Backdrop, CircularProgress, Container} from "@mui/material";
 import {Route, Routes} from "react-router-dom";
 import {useAppSelector} from "../../app/hooks";
 import {selectStatus} from "../../features/movieFinder/movieFinderSlice";
@@ -9,13 +9,12 @@ export const Main = () => {
 
 	return (
 		<Container maxWidth='xl' sx={{minHeight: '100vh'}} >
-			{
-				SERVER_STATUS === 'loading'
-					? <Skeleton />
-					: <Routes>
-						<Route path='/' element={<Home />} />
-					</Routes>
-			}
+			<Backdrop open={SERVER_STATUS === 'loading'} >
+				<CircularProgress color="warning" />
+			</Backdrop>
+			<Routes>
+				<Route path='/' element={<Home />} />
+			</Routes>
 		</Container>
 	)
 };
