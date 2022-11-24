@@ -10,7 +10,10 @@ export const getTimeFromMinutes = (num: number | null): string => {
     return (hh === 0) ? `${mm}мин ` : `${hh}ч ${mm}мин`;
 }
 
-export const getColorFromRate = (num: number | null): string => {
+export const getColorFromRate = (numberInString: string | null): string => {
+    const num = numberInString?.includes('%')
+        ? parseFloat(numberInString) / 10
+        : Number(numberInString);
     if (num === null) return '';
     if (num <= 0 || num > 10) return 'white';
     if (num >= 8) return 'green';
