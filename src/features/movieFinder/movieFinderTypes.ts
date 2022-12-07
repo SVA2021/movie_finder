@@ -4,7 +4,6 @@ export const PRODUCTION_STATUS = ['FILMING', 'PRE_PRODUCTION', 'COMPLETED', 'ANN
 export const FILM_TYPE = ['FILM', 'VIDEO', 'TV_SERIES', 'MINI_SERIES', 'TV_SHOW'] as const;
 export const TOP_FILMS_TYPE = ['TOP_250_BEST_FILMS', 'TOP_100_POPULAR_FILMS', 'TOP_AWAIT_FILMS'] as const;
 
-
 //********** BASIC TYPES *************************/
 
 export type TCountry = {country: string}
@@ -125,13 +124,14 @@ export interface TSearchResponseData {
 export interface TTopResponse {
 	pagesCount: number
 	films: TTopFilm[]
+	type: TTopList
+	page: number
 }
 
 export interface TTopData {
 	pagesCount: number
 	page: number
-	// data: {[key: number]: TSmallCard[]}
-	[key: number]: TSmallCard[]
+	data: TSmallCard[]
 }
 
 export interface THomePageCurrent {
