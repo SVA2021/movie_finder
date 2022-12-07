@@ -1,8 +1,8 @@
 import axios from "axios";
-import {API_OFFICIAL} from "../../private/key";
 import {TTopList} from "./movieFinderTypes";
 
 export const BASE_URL = 'https://kinopoiskapiunofficial.tech/';
+const API_OFFICIAL = process.env.REACT_APP_API_KEY ?? '';
 const API_FILMS = 'api/v2.2/films';
 
 const movieFinderInstance = axios.create({
