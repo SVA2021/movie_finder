@@ -28,12 +28,12 @@ export const SearchMenu = () => {
 						onClick={handleClick}
 						sx={{
 							color: 'secondary.main',
-							'&:hover': {
-								color: 'action.hover',
-							},
-							'&:active': {
-								color: 'action.active',
-							},
+							// '&:hover': {
+							// 	color: 'action.hover',
+							// },
+							// '&:active': {
+							// 	color: 'action.active',
+							// },
 						}}
 					>
 						<Search fontSize='large' />
