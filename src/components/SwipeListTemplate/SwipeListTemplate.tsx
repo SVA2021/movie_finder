@@ -3,7 +3,6 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import {Grid, useTheme} from '@mui/material';
 import {FC, useRef} from 'react';
 import 'swiper/css';
-import 'swiper/css/navigation';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {SmallCard} from '../SmallCard/SmallCard';
 import {StyledButton} from '../Styled_Button/Styled_Button';
@@ -14,10 +13,20 @@ export const SwipeListTemplate: FC<SwipeListTemplateProps> = ({data}) => {
     const swiperRef = useRef<any>();
 
     return (
-        <Grid container spacing={1} direction={'row'} alignItems={'center'} justifyContent={'space-between'}
+        <Grid container
+            margin={0}
+            spacing={0}
+            direction={'row'}
+            alignItems={'center'}
+            justifyContent={'space-between'}
             sx={{bgcolor: 'primary.main'}}
         >
-            <Grid item lg={1} sx={{display: {xs: 'none', lg: 'flex', }, justifyContent: 'center', }}>
+            <Grid item lg={1}
+                sx={{
+                    display: {xs: 'none', lg: 'flex', },
+                    justifyContent: 'center',
+                }}
+            >
                 <StyledButton onClick={() => swiperRef.current.slidePrev()}>
                     <NavigateBeforeIcon fontSize='large' />
                 </StyledButton>
@@ -49,7 +58,12 @@ export const SwipeListTemplate: FC<SwipeListTemplateProps> = ({data}) => {
                     }
                 </Swiper>
             </Grid>
-            <Grid item lg={1} sx={{display: {xs: 'none', lg: 'flex', }, justifyContent: 'center', }}>
+            <Grid item lg={1}
+                sx={{
+                    display: {xs: 'none', lg: 'flex', },
+                    justifyContent: 'center',
+                }}
+            >
                 <StyledButton onClick={() => swiperRef.current.slideNext()}>
                     <NavigateNextIcon fontSize='large' />
                 </StyledButton>
