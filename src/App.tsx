@@ -10,8 +10,9 @@ export const App = () => {
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<Routes>
-				<Route path="/" element={<Layout />}>
+				<Route path='/' element={<Layout />}>
 					<Route index element={<Home />} />
+					<Route path='*' element={<Home />} />
 				</Route>
 			</Routes>
 		</ThemeProvider>
