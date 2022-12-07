@@ -1,40 +1,48 @@
-import {Box, Skeleton} from "@mui/material";
+import {Box, Link, Typography} from "@mui/material";
 import {FC, useEffect} from 'react';
+import {Link as RouterLink} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {SmallCard} from "../../components";
-import {getTopListAsync, selectHomePage, selectHomePageCurrent, selectStatus} from "../../features/movieFinder/movieFinderSlice";
+import {SwipeListTemplate} from "../../components";
+import {getTopListAsync, selectHomePage} from "../../features/movieFinder/movieFinderSlice";
+import {TOP_FILMS_TYPE} from "../../features/movieFinder/movieFinderTypes";
+import {getTopListPath, getTopListTitle} from "../../utils";
 
 export const Home: FC<any> = () => {
 
 	const dispatch = useAppDispatch();
-	const SERVER_STATUS = useAppSelector(selectStatus);
-	const CurrentPage = useAppSelector(selectHomePageCurrent);
 	const HomePage = useAppSelector(selectHomePage);
-	const Films = HomePage === null ? null : HomePage[CurrentPage.type]
-	const CurrentFilms = Films === null ? [] : Films[CurrentPage.page]
 
 	useEffect(() => {
-		dispatch(getTopListAsync(CurrentPage));
-	}, [CurrentPage, dispatch,]);
+		TOP_FILMS_TYPE.forEach((type) =>
+			dispatch(getTopListAsync({type, page: 1}))
+		)
+	}, []);
 
 	return (
-		<Box sx={{
-			m: 2,
-			display: 'flex',
-			flexDirection: 'row',
-			alignItems: 'center',
-			justifyContent: 'center',
-		}}>
-			<Box display={'grid'} gridTemplateColumns={'repeat(12, 1fr)'} gap={3}>
-				{
-					SERVER_STATUS === 'loading'
-						? <Skeleton />
-						: CurrentFilms.map((item) =>
-							<Box gridColumn={{xs: 'span 12', md: 'span 3', lg: 'span 2'}} key={item.id} >
-								<SmallCard item={item} />
-							</Box>
-						)}
-			</Box>
+		<Box pt={1}>
+			{TOP_FILMS_TYPE.map((type, index) =>
+				<Box m={1}  >
+					<Typography
+						ml={{lg: 15, xl: 20}}
+						gutterBottom
+						variant="h3"
+						component={'h2'}
+						textTransform={'capitalize'}
+					>
+						<Link
+							component={RouterLink}
+							underline={'hover'}
+							to={getTopListPath(type)}
+							sx={{
+								color: 'common.white'
+							}}
+						>
+							{getTopListTitle(type)}
+						</Link>
+					</Typography>
+					<SwipeListTemplate key={index} data={HomePage[type]?.data ?? []} />
+				</Box>
+			)}
 		</Box>
 	)
 };
