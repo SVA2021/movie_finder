@@ -1,3 +1,5 @@
+import {TTopList} from "./features/movieFinder/movieFinderTypes";
+
 export const normalizeDateString = (date: number): string => {
     return (date < 10) ? '0' + String(date) : String(date);
 }
@@ -26,4 +28,26 @@ export function normalizeTimeString(time: string | number | null): string | null
     const hh = String(time).slice(0, 2);
     const mm = String(time).slice(3, 5);
     return `${hh}ч${mm}м`
+}
+
+export function getTopListTitle(topFilmType: TTopList): string {
+    switch (topFilmType) {
+        case 'TOP_100_POPULAR_FILMS':
+            return '100 самых популярных фильмов'
+        case 'TOP_250_BEST_FILMS':
+            return 'топ 250 фильмов кинопоиска'
+        case 'TOP_AWAIT_FILMS':
+            return 'самые ожидаемые фильмы'
+    }
+}
+
+export function getTopListPath(topFilmType: TTopList): string {
+    switch (topFilmType) {
+        case 'TOP_100_POPULAR_FILMS':
+            return 'top100'
+        case 'TOP_250_BEST_FILMS':
+            return 'top250'
+        case 'TOP_AWAIT_FILMS':
+            return 'topAwait'
+    }
 }
