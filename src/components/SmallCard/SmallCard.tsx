@@ -1,5 +1,6 @@
 import {Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 import {FC} from 'react';
+import {useNavigate} from "react-router-dom";
 import {RatingBadge} from "../../components";
 import {TSmallCard} from "../../features/movieFinder/movieFinderTypes";
 import {getColorFromRate, normalizeTimeString} from "../../utils";
@@ -11,13 +12,18 @@ interface TSmallCardProps {
 export const SmallCard: FC<TSmallCardProps> = ({item}) => {
 
 	const {id, nameRu, nameEn, year, filmLength, rating, posterUrlPreview} = item;
+	const navigate = useNavigate();
+
+	function getDetails() {
+		navigate(`details/${id}`);
+	}
 
 	const ratingColored = getColorFromRate(rating);
 	const time = normalizeTimeString(filmLength);
 
 	return (
 		<Card data-testid={'smallCard'} sx={{position: 'relative', }}>
-			<CardActionArea sx={{position: 'relative', height: '100%'}}>
+			<CardActionArea onClick={() => getDetails()} sx={{position: 'relative', height: '100%'}}>
 				<CardMedia
 					component="img"
 					width="100%"
