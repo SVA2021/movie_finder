@@ -1,7 +1,8 @@
 import {Home, LocalMovies, Menu as MenuIcon, Movie} from '@mui/icons-material';
-import {Grid, Popover} from '@mui/material';
+import {Grid, Link, Popover} from '@mui/material';
 import * as React from 'react';
 import {StyledButton, StyledTextItem, SubMenuMobile, } from '../../components';
+import {Link as RouterLink} from "react-router-dom";
 
 export const MenuMain = (props: any) => {
 
@@ -44,7 +45,9 @@ export const MenuMain = (props: any) => {
 					p: 2,
 				}} >
 					<Grid item xs={12} md={6} lg={3}>
-						<StyledTextItem ><Home fontSize='medium' />Home</StyledTextItem>
+						<Link component={RouterLink} to={'/'} >
+							<StyledTextItem ><Home fontSize='medium' />Home</StyledTextItem>
+						</Link>
 					</Grid>
 					<Grid item xs={12} md={6} lg={3}>
 						<StyledTextItem ><LocalMovies fontSize='medium' />Movies</StyledTextItem>
