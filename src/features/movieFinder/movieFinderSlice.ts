@@ -76,7 +76,9 @@ export const movieFinderSlice = createSlice({
 				state.homePage[action.payload.type] = {
 					page: action.payload.page,
 					pagesCount: action.payload.pagesCount,
-					data: action.payload.films.map((v) => ({...v, id: v.filmId})),
+					data: (state.homePage[action.payload.type] === null)
+						? action.payload.films.map((v) => ({...v, id: v.filmId}))
+						: [...state.homePage[action.payload.type]!.data, ...action.payload.films.map((v) => ({...v, id: v.filmId}))],
 				}
 			})
 			.addMatcher(isError, (state, action: PayloadAction<string>) => {
