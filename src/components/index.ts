@@ -12,3 +12,4 @@ export * from './Styled_TextItem/Styled_TextItem';
 export * from './SubMenuMobile/SubMenuMobile';
 export * from './RatingBadge/RatingBadge';
 export * from './SwipeListTemplate/SwipeListTemplate';
+export * from './ExpandableList/ExpandableList';
