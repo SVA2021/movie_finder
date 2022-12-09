@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles';
+import {createTheme} from '@mui/material/styles';
 
 export const THEME_COLOR = {
 	black: '#0A0A0A',
@@ -50,7 +50,7 @@ export const theme = createTheme({
 	components: {
 		MuiSvgIcon: {
 			styleOverrides: {
-				root: ({ ownerState, theme }) => ({
+				root: ({ownerState, theme}) => ({
 					...(ownerState.fontSize === 'large' && {
 						width: 'auto',
 						height: theme.typography.pxToRem(32),
@@ -80,7 +80,7 @@ export const theme = createTheme({
 		},
 		MuiAccordion: {
 			styleOverrides: {
-				root: ({ ownerState, theme }) => ({
+				root: ({ownerState, theme}) => ({
 					...(ownerState && {
 						backgroundColor: theme.palette.primary.main,
 					}),
@@ -89,7 +89,7 @@ export const theme = createTheme({
 		},
 		MuiButton: {
 			styleOverrides: {
-				root: ({ ownerState, theme }) => ({
+				root: ({ownerState, theme}) => ({
 					...(ownerState && {
 						backgroundColor: theme.palette.primary.main,
 						"&:hover": {
@@ -110,7 +110,26 @@ export const theme = createTheme({
 					}),
 				})
 			}
-		}
+		},
+		MuiLink: {
+			styleOverrides: {
+				root: ({ownerState, theme}) => ({
+					...(ownerState && {
+						color: theme.palette.text.secondary,
+						"&:hover": {
+							color: theme.palette.action.hover,
+						},
+						"&:active": {
+							color: theme.palette.action.active,
+						},
+						"&:focus": {
+							color: theme.palette.common.white,
+						},
+					}),
+				})
+			}
+		},
+
 	}
 });
 
