@@ -13,3 +13,4 @@ export * from './SubMenuMobile/SubMenuMobile';
 export * from './RatingBadge/RatingBadge';
 export * from './SwipeListTemplate/SwipeListTemplate';
 export * from './ExpandableList/ExpandableList';
+export * from './Styled_Link/StyledLink';
