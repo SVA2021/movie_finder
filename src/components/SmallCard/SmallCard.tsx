@@ -3,7 +3,7 @@ import {FC} from 'react';
 import {useNavigate} from "react-router-dom";
 import {RatingBadge} from "../../components";
 import {TSmallCard} from "../../features/movieFinder/movieFinderTypes";
-import {getColorFromRate, normalizeTimeString} from "../../utils";
+import {normalizeTimeString} from "../../utils";
 
 interface TSmallCardProps {
 	item: TSmallCard
@@ -13,13 +13,11 @@ export const SmallCard: FC<TSmallCardProps> = ({item}) => {
 
 	const {id, nameRu, nameEn, year, filmLength, rating, posterUrlPreview} = item;
 	const navigate = useNavigate();
+	const time = normalizeTimeString(filmLength);
 
 	function getDetails() {
 		navigate(`details/${id}`);
 	}
-
-	const ratingColored = getColorFromRate(rating);
-	const time = normalizeTimeString(filmLength);
 
 	return (
 		<Card data-testid={'smallCard'} sx={{position: 'relative', }}>
@@ -41,7 +39,7 @@ export const SmallCard: FC<TSmallCardProps> = ({item}) => {
 					</Typography>
 				</CardContent>
 			</CardActionArea>
-			<RatingBadge rating={rating} bgColor={ratingColored} />
+			<RatingBadge rating={rating} position={'left'} />
 		</Card>
 	)
 };
