@@ -4,12 +4,12 @@ export const normalizeDateString = (date: number): string => {
     return (date < 10) ? '0' + String(date) : String(date);
 }
 
-export const getTimeFromMinutes = (num: number | null): string => {
-    if (num === null) return '';
-    let hh = Math.floor(num % 60);
+export const getTimeFromMinutes = (num: number | null | undefined): string => {
+    if (!num) return '';
+    let hh = Math.floor(num / 60);
     let mm = num % 60;
 
-    return (hh === 0) ? `${mm}мин ` : `${hh}ч ${mm}мин`;
+    return (hh === 0) ? `${mm}мин ` : `${hh}ч ${mm}м`;
 }
 
 export const getColorFromRate = (num: number | null): string => {
