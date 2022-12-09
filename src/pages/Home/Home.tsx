@@ -21,7 +21,7 @@ export const Home: FC<any> = () => {
 	return (
 		<Box pt={1}>
 			{TOP_FILMS_TYPE.map((type, index) =>
-				<Box m={1}  >
+				<Box m={1} key={index} >
 					<Typography
 						ml={{lg: 15, xl: 20}}
 						gutterBottom
@@ -33,14 +33,12 @@ export const Home: FC<any> = () => {
 							component={RouterLink}
 							underline={'hover'}
 							to={getTopListPath(type)}
-							sx={{
-								color: 'common.white'
-							}}
+							sx={{color: 'common.white'}}
 						>
 							{getTopListTitle(type)}
 						</Link>
 					</Typography>
-					<SwipeListTemplate key={index} data={HomePage[type]?.data ?? []} />
+					<SwipeListTemplate data={HomePage[type]?.data ?? []} />
 				</Box>
 			)}
 		</Box>
