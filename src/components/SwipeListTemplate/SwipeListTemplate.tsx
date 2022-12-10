@@ -43,7 +43,7 @@ export const SwipeListTemplate: FC<SwipeListTemplateProps> = ({data}) => {
                                 spaceBetween: 16,
                             },
                             [theme.breakpoints.values.lg]: {
-                                slidesPerView: 6,
+                                slidesPerView: 5,
                                 spaceBetween: 24,
                             },
                         }
