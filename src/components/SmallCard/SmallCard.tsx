@@ -16,7 +16,7 @@ export const SmallCard: FC<TSmallCardProps> = ({item}) => {
 	const time = normalizeTimeString(filmLength);
 
 	function getDetails() {
-		navigate(`details/${id}`);
+		navigate(`/details/${id}`);
 	}
 
 	return (
@@ -33,10 +33,13 @@ export const SmallCard: FC<TSmallCardProps> = ({item}) => {
 					{nameEn &&
 						<Typography fontStyle={'italic'} gutterBottom variant="body2" component="p">
 							{nameEn}
-						</Typography>}
-					<Typography variant="body1" component="p">
-						{year},  {time}
-					</Typography>
+						</Typography>
+					}
+					{year &&
+						<Typography variant="body1" component="p">
+							{year},  {time}
+						</Typography>
+					}
 				</CardContent>
 			</CardActionArea>
 			<RatingBadge rating={rating} position={'left'} />
