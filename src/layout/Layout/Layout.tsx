@@ -10,10 +10,7 @@ export const Layout = () => {
     return (
         <Container
             maxWidth='xl'
-            sx={{
-                minHeight: '100vh',
-                bgcolor: 'primary.main',
-            }} >
+            sx={{minHeight: '100vh'}} >
             <Backdrop open={SERVER_STATUS === 'loading'} sx={{zIndex: 1000}} >
                 <CircularProgress color="warning" />
             </Backdrop>
