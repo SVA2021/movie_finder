@@ -1,8 +1,8 @@
-import {Box, Card, CardActionArea, CardContent, CardMedia, Grid, Typography} from "@mui/material";
+import {Avatar, Box, Card, CardActionArea, CardContent, CardMedia, Grid, Rating, Typography} from "@mui/material";
 import {FC, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {RatingBadge, StyledLink} from "../../components";
+import {StyledLink} from "../../components";
 import {getMovieDataAsync, selectDetails} from "../../features/movieFinder/movieFinderSlice";
 import {getTimeFromMinutes} from "../../utils";
 
@@ -18,8 +18,7 @@ export const Details: FC = () => {
 
     const kinopoiskLink = movie?.webUrl ?? `https://www.kinopoisk.ru/${movie?.type === 'FILM' ? 'film' : 'series'}/${movie?.kinopoiskId}/`;
     const imdbLink = `https://www.imdb.com/title/${movie?.imdbId}/`;
-
-    console.log(movie);
+    const ageLimit = (movie?.ratingAgeLimits ?? '').slice(3, 5);
 
     return (
         <Box p={1}>
@@ -34,6 +33,16 @@ export const Details: FC = () => {
                             image={movie?.posterUrl}
                             alt={movie?.nameRu?.toString() || movie?.nameEn?.toString() || ''}
                         />
+                        <CardActionArea>
+                            <Grid container spacing={{xs: 0, lg: 1}} >
+                                <Grid item xs={12} lg={6} >
+                                    <StyledLink href={kinopoiskLink} title={'KinoPoisk'} />
+                                </Grid>
+                                <Grid item xs={12} lg={6} >
+                                    <StyledLink href={imdbLink} title={'IMDB'} />
+                                </Grid>
+                            </Grid>
+                        </CardActionArea>
                     </Grid>
                     <Grid item xs={12} md={8} >
                         <CardContent>
@@ -41,6 +50,7 @@ export const Details: FC = () => {
                                 <Typography gutterBottom variant="h3" component={'h3'} textTransform={'capitalize'}>
                                     {movie?.nameRu}
                                 </Typography>
+                                <Rating max={10} precision={0.1} value={movie?.ratingKinopoisk ?? movie?.ratingImdb ?? null} readOnly />
                                 <Typography gutterBottom variant={'body1'} fontStyle={'italic'} component={'p'} textTransform={'capitalize'}>
                                     {movie?.nameEn ?? movie?.nameOriginal}
                                 </Typography>
@@ -48,41 +58,50 @@ export const Details: FC = () => {
                                     {movie?.slogan}
                                 </Typography>
                             </Box>
-                            <Grid container>
+                            <Grid container spacing={2}>
                                 <Grid item xs={12} md={8}>
+                                    <Avatar>{ageLimit}+</Avatar>
                                     <Typography gutterBottom variant={'body1'} component={'p'} >
-                                        length: {getTimeFromMinutes(movie?.filmLength)}
-                                    </Typography>
-                                    <Typography gutterBottom variant={'body1'} component={'p'} >
-                                        countries: {movie?.countries.map((v) => v.country).join(', ')}
-                                    </Typography>
-                                    <Typography gutterBottom variant={'body1'} component={'p'} >
-                                        year: {movie?.year}
-                                    </Typography>
-                                    <Typography gutterBottom variant={'body1'} component={'p'} >
-                                        genres: {movie?.genres.map((v) => v.genre).join(', ')}
-                                    </Typography>
-                                    <Typography gutterBottom variant={'body1'} component={'p'} >
+                                        длительность: {getTimeFromMinutes(movie?.filmLength)}
+                                        <br />
+                                        страны: {movie?.countries.map((v) => v.country).join(', ')}
+                                        <br />
+                                        год: {movie?.year}
+                                        <br />
+                                        жанры: {movie?.genres.map((v) => v.genre).join(', ')}
+                                        <br />
+                                        <br />
                                         {movie?.description}
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} md={4}>
-                                    <CardActionArea>
-                                        <StyledLink href={kinopoiskLink} title={'KinoPoisk'} />
-                                        <StyledLink href={imdbLink} title={'IMDB'} />
-                                    </CardActionArea>
+                                    <Box>
+                                        <Typography gutterBottom variant={'body1'} component={'p'} color={'text.secondary'} >
+                                            Рейтинги
+                                        </Typography>
+                                        <Typography gutterBottom variant={'body1'} component={'p'} >
+                                            Kinopoisk: {movie?.ratingKinopoisk ?? ' - '} / {movie?.ratingKinopoiskVoteCount ?? ' - '}
+                                            <br />
+                                            Imdb: {movie?.ratingImdb ?? ' - '} / {movie?.ratingImdbVoteCount ?? ' - '}
+                                            <br />
+                                            Await: {movie?.ratingAwait ?? ' - '} / {movie?.ratingAwaitCount ?? ' - '}
+                                            <br />
+                                            RfCritics: {movie?.ratingRfCritics ?? ' - '} / {movie?.ratingRfCriticsVoteCount ?? ' - '}
+                                            <br />
+                                            FilmCritics: {movie?.ratingFilmCritics ?? ' - '} / {movie?.ratingFilmCriticsVoteCount ?? ' - '}
+                                            <br />
+                                            GoodReview: {movie?.ratingGoodReview ?? ' - '} / {movie?.ratingGoodReviewVoteCount ?? ' - '}
+                                        </Typography>
+                                        <Typography gutterBottom variant={'body1'} component={'p'} >
+                                            Количество рецензий: {movie?.reviewsCount ?? ' - '}
+                                        </Typography>
+                                    </Box>
                                 </Grid>
                             </Grid>
                         </CardContent>
                     </Grid>
-                    <RatingBadge rating={movie?.ratingKinopoisk ?? movie?.ratingImdb} position={"right"} />
                 </Grid>
-
             </Card>
-
-            <Box m={1}  >
-                other data
-            </Box>
         </Box>
     )
 };
