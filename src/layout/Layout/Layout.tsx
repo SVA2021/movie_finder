@@ -14,7 +14,7 @@ export const Layout = () => {
                 minHeight: '100vh',
                 bgcolor: 'primary.main',
             }} >
-            <Backdrop open={SERVER_STATUS === 'loading'} >
+            <Backdrop open={SERVER_STATUS === 'loading'} sx={{zIndex: 1000}} >
                 <CircularProgress color="warning" />
             </Backdrop>
             <Header />
