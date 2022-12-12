@@ -141,4 +141,15 @@ export interface THomePageCurrent {
 
 export interface TMovieDetails {
 	movie: TFullCard | null
+	similars: TSimilarsData | null
+}
+
+export interface TMovieSimilarsRes {
+	total: number
+	items: Film[]
+}
+
+export interface TSimilarsData {
+	total: number
+	data: TSmallCard[]
 }

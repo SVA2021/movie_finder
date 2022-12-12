@@ -2,18 +2,21 @@ import {Avatar, Box, Card, CardActionArea, CardContent, CardMedia, Grid, Rating,
 import {FC, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {StyledLink} from "../../components";
-import {getMovieDataAsync, selectDetails} from "../../features/movieFinder/movieFinderSlice";
+import {StyledLink, SwipeListTemplate} from "../../components";
+import {getMovieDataAsync, getMovieSimilarAsync, selectDetails} from "../../features/movieFinder/movieFinderSlice";
 import {getTimeFromMinutes} from "../../utils";
 
 export const Details: FC = () => {
 
     const dispatch = useAppDispatch();
     const params = useParams();
-    const movie = useAppSelector(selectDetails);
+    const DetailsPage = useAppSelector(selectDetails);
+    const movie = DetailsPage.movie;
+    const SimilarFilms = DetailsPage.similars;
 
     useEffect(() => {
-        dispatch(getMovieDataAsync(Number(params.id)))
+        dispatch(getMovieDataAsync(Number(params.id)));
+        dispatch(getMovieSimilarAsync(Number(params.id)));
     }, [params.id]);
 
     const kinopoiskLink = movie?.webUrl ?? `https://www.kinopoisk.ru/${movie?.type === 'FILM' ? 'film' : 'series'}/${movie?.kinopoiskId}/`;
@@ -102,6 +105,14 @@ export const Details: FC = () => {
                     </Grid>
                 </Grid>
             </Card>
+
+            <Box pt={{xs: 2, lg: 4}} color={'common.white'} >
+                <Typography ml={{lg: 15, xl: 20}} gutterBottom variant="h3" component={'h3'}>
+                    Похожее
+                </Typography>
+                <SwipeListTemplate data={SimilarFilms?.data ?? []} />
+            </Box>
+
         </Box>
     )
 };

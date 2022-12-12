@@ -4,7 +4,7 @@ import {movieFinderAPI} from './movieFinderAPI';
 import {
 	TMovieDetails,
 	TFullCard, THomePageCurrent, TSearchResponseData,
-	TStatus, TTopData, TTopList, TTopResponse, TUser
+	TStatus, TTopData, TTopList, TTopResponse, TUser, TMovieSimilarsRes
 } from "./movieFinderTypes";
 
 interface TMovieFinderState {
@@ -27,6 +27,7 @@ export const initialState: TMovieFinderState = {
 	status: 'idle',
 	detailsPage: {
 		movie: null,
+		similars: null,
 	},
 	fullCard: null,
 	fullCardExtraInfo: null,
@@ -71,6 +72,18 @@ export const getMovieDataAsync = createAsyncThunk<TFullCard, number, {rejectValu
 	}
 );
 
+export const getMovieSimilarAsync = createAsyncThunk<TMovieSimilarsRes, number, {rejectValue: string}>(
+	'movieFinder/getMovieSimilars',
+	async function (id: number, {rejectWithValue}) {
+		const response = await movieFinderAPI.getMovieSimilars(id);
+		if (response.status === 200) {
+			return response.data
+		} else {
+			return rejectWithValue('Server Error!');
+		}
+	}
+);
+
 export const movieFinderSlice = createSlice({
 	name: 'movieFinder',
 	initialState,
@@ -105,6 +118,16 @@ export const movieFinderSlice = createSlice({
 				state.status = 'idle';
 				state.detailsPage.movie = action.payload;
 			})
+			.addCase(getMovieSimilarAsync.pending, (state) => {
+				state.status = 'loading';
+			})
+			.addCase(getMovieSimilarAsync.fulfilled, (state, action) => {
+				state.status = 'idle';
+				state.detailsPage.similars = {
+					total: action.payload.total,
+					data: action.payload.items.map((v) => ({...v, id: v.filmId}))
+				};
+			})
 			.addMatcher(isError, (state, action: PayloadAction<string>) => {
 				state.error = action.payload;
 				state.status = 'failed';
@@ -117,7 +140,8 @@ export const {setIsAuth, setFullCard, } = movieFinderSlice.actions;
 export const selectIsAuth = (state: RootState) => state.movieFinder.isAuth;
 export const selectStatus = (state: RootState) => state.movieFinder.status;
 export const selectHomePage = (state: RootState) => state.movieFinder.homePage;
-export const selectDetails = (state: RootState) => state.movieFinder.detailsPage.movie;
+export const selectDetails = (state: RootState) => state.movieFinder.detailsPage;
+// export const selectDetailsSimilars = (state: RootState) => state.movieFinder.detailsPage.similars;
 export const selectSearchResult = (state: RootState) => state.movieFinder.searchResult;
 
 export default movieFinderSlice.reducer;

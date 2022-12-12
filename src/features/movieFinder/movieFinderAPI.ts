@@ -35,6 +35,18 @@ export const movieFinderAPI = {
 			});
 	},
 
+	getMovieSimilars(id: number = 1) {
+		let query = `${API_FILMS}/${id}/similars`;
+		return movieFinderInstance.get(query)
+			.then(response => {
+				console.log(response);
+				return response;
+			})
+			.catch(e => {
+				console.log(e);
+				return e;
+			});
+	},
 	getMoviesByKeyword(keyword: string | undefined, page: number = 1) {
 		let query = `${API_FILMS}`;
 		return movieFinderInstance.get(query, {params: {keyword, page}})
