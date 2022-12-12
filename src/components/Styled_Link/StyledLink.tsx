@@ -9,7 +9,7 @@ interface StyledLinkProps {
 export const StyledLink: FC<StyledLinkProps> = ({href, title}) => {
     return (
         <Link
-            component={'button'}
+            component={'a'}
             target={'_blank'}
             rel={'noopener noreferrer'}
             href={href}
@@ -19,7 +19,7 @@ export const StyledLink: FC<StyledLinkProps> = ({href, title}) => {
                 m={1}
                 p={2}
                 variant="body1"
-                component="span"
+                component="p"
                 textAlign={'center'}
             >
                 {title}
