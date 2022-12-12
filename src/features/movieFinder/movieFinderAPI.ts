@@ -18,14 +18,8 @@ export const movieFinderAPI = {
 	getTopList(type: TTopList = 'TOP_250_BEST_FILMS', page: number = 1) {
 		let query = `${API_FILMS}/top`;
 		return movieFinderInstance.get(query, {params: {type, page}})
-			.then(response => {
-				console.log(response);
-				return response;
-			})
-			.catch(e => {
-				console.log(e);
-				return e;
-			});
+			.then(response => response)
+			.catch(e => e);
 	},
 
 	getMovieData(id: number = 1) {
