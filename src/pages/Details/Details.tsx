@@ -63,7 +63,7 @@ export const Details: FC = () => {
                             </Box>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} md={8}>
-                                    <Avatar>{ageLimit}+</Avatar>
+                                    {movie?.ratingAgeLimits && <Avatar>{ageLimit}+</Avatar>}
                                     <Typography gutterBottom variant={'body1'} component={'p'} >
                                         длительность: {getTimeFromMinutes(movie?.filmLength)}
                                         <br />
