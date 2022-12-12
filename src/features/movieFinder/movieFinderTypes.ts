@@ -142,7 +142,13 @@ export interface THomePageCurrent {
 export interface TMovieDetails {
 	movie: TFullCard | null
 	similars: TSimilarsData | null
+	videos: TVideosRes | null
+	images: TImagesRes | null
+	awards: TAwardsRes | null
+	facts: TFactsRes | null
 }
+
+export type TMovieExtraType = 'similars' | 'videos' | 'images' | 'awards' | 'facts'
 
 export interface TMovieSimilarsRes {
 	total: number
@@ -152,4 +158,50 @@ export interface TMovieSimilarsRes {
 export interface TSimilarsData {
 	total: number
 	data: TSmallCard[]
+}
+
+export interface TVideoItem {
+	url: string
+	name: string
+	site: 'YOUTUBE' | 'KINOPOISK_WIDGET' | 'UNKNOWN'
+}
+
+export interface TImageItem {
+	imageUrl: string
+	previewUrl: string
+}
+
+export interface TVideosRes {
+	total: number
+	data: TVideoItem[]
+}
+
+export interface TImagesRes {
+	total: number
+	totalPages: number
+	items: TImageItem[]
+}
+
+export interface TAwardsItem {
+	name: string
+	win: boolean
+	imageUrl: string
+	nominationName: string
+	year: number
+}
+
+export interface TAwardsRes {
+	total: number
+	items: TAwardsItem[]
+}
+
+export interface TFactsItem {
+	text: string
+	spoiler: boolean
+	type: 'FACT' | 'BLOOPER'
+}
+
+export interface TFactsRes {
+	total: number
+	items: TFactsItem[]
 }

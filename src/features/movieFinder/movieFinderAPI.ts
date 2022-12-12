@@ -1,5 +1,5 @@
 import axios from "axios";
-import {TTopList} from "./movieFinderTypes";
+import {TMovieExtraType, TTopList} from "./movieFinderTypes";
 
 export const BASE_URL = 'https://kinopoiskapiunofficial.tech/';
 const API_OFFICIAL = process.env.REACT_APP_API_KEY ?? '';
@@ -47,6 +47,20 @@ export const movieFinderAPI = {
 				return e;
 			});
 	},
+
+	getMovieExtra(id: number = 1, type: TMovieExtraType = 'similars') {
+		let query = `${API_FILMS}/${id}/${type}`;
+		return movieFinderInstance.get(query)
+			.then(response => {
+				console.log(response);
+				return response;
+			})
+			.catch(e => {
+				console.log(e);
+				return e;
+			});
+	},
+
 	getMoviesByKeyword(keyword: string | undefined, page: number = 1) {
 		let query = `${API_FILMS}`;
 		return movieFinderInstance.get(query, {params: {keyword, page}})

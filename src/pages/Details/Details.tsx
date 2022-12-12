@@ -1,5 +1,5 @@
-import {Avatar, Box, Card, CardActionArea, CardContent, CardMedia, Grid, Rating, Typography} from "@mui/material";
-import {FC, useEffect} from 'react';
+import {Avatar, Box, Card, CardActionArea, CardContent, CardMedia, Grid, Rating, Tab, Tabs, Typography} from "@mui/material";
+import {FC, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {StyledLink, SwipeListTemplate} from "../../components";
@@ -14,6 +14,8 @@ export const Details: FC = () => {
     const movie = DetailsPage.movie;
     const SimilarFilms = DetailsPage.similars;
 
+    const [activeTab, setActiveTab] = useState(0);
+
     useEffect(() => {
         dispatch(getMovieDataAsync(Number(params.id)));
         dispatch(getMovieSimilarAsync(Number(params.id)));
@@ -22,6 +24,10 @@ export const Details: FC = () => {
     const kinopoiskLink = movie?.webUrl ?? `https://www.kinopoisk.ru/${movie?.type === 'FILM' ? 'film' : 'series'}/${movie?.kinopoiskId}/`;
     const imdbLink = `https://www.imdb.com/title/${movie?.imdbId}/`;
     const ageLimit = (movie?.ratingAgeLimits ?? '').slice(3, 5);
+
+    const handleChangeTabs = (event: React.SyntheticEvent, newValue: number) => {
+        setActiveTab(newValue);
+    };
 
     return (
         <Box p={1}>
@@ -105,6 +111,23 @@ export const Details: FC = () => {
                     </Grid>
                 </Grid>
             </Card>
+
+            <Box pt={{xs: 2, lg: 4}} color={'common.white'} >
+                <Tabs aria-label="tabs"
+                    value={activeTab}
+                    onChange={handleChangeTabs}
+                    indicatorColor="secondary"
+                    textColor="secondary"
+                >
+                    <Tab label="Videos" />
+                    <Tab label="Images" />
+                    <Tab label="Awards" />
+                    <Tab label="Facts" />
+                </Tabs>
+                <Box>
+
+                </Box>
+            </Box>
 
             <Box pt={{xs: 2, lg: 4}} color={'common.white'} >
                 <Typography ml={{lg: 15, xl: 20}} gutterBottom variant="h3" component={'h3'}>

@@ -4,16 +4,12 @@ import {movieFinderAPI} from './movieFinderAPI';
 import {
 	TMovieDetails,
 	TFullCard, THomePageCurrent, TSearchResponseData,
-	TStatus, TTopData, TTopList, TTopResponse, TUser, TMovieSimilarsRes
+	TStatus, TTopData, TTopList, TTopResponse, TMovieSimilarsRes, TVideosRes, TImagesRes, TAwardsRes, TFactsRes,
 } from "./movieFinderTypes";
 
 interface TMovieFinderState {
-	isAuth: boolean
-	user: TUser | null
 	status: TStatus
 	detailsPage: TMovieDetails
-	fullCard: TFullCard | null
-	fullCardExtraInfo: null
 	homePage: {[key in TTopList]: TTopData | null}
 	movies: TSearchResponseData | null
 	series: TSearchResponseData | null
@@ -22,15 +18,15 @@ interface TMovieFinderState {
 }
 
 export const initialState: TMovieFinderState = {
-	isAuth: false,
-	user: null,
 	status: 'idle',
 	detailsPage: {
 		movie: null,
 		similars: null,
+		videos: null,
+		images: null,
+		awards: null,
+		facts: null,
 	},
-	fullCard: null,
-	fullCardExtraInfo: null,
 	homePage: {
 		TOP_250_BEST_FILMS: null,
 		TOP_100_POPULAR_FILMS: null,
@@ -52,11 +48,7 @@ export const getTopListAsync = createAsyncThunk<TTopResponse, THomePageCurrent, 
 	'movieFinder/getTopList',
 	async function ({type, page}: THomePageCurrent, {rejectWithValue}) {
 		const response = await movieFinderAPI.getTopList(type, page);
-		if (response.status === 200) {
-			return {...response.data, type, page, }
-		} else {
-			return rejectWithValue('Server Error!');
-		}
+		return response.status === 200 ? {...response.data, type, page, } : rejectWithValue('Server Error!');
 	}
 );
 
@@ -64,11 +56,7 @@ export const getMovieDataAsync = createAsyncThunk<TFullCard, number, {rejectValu
 	'movieFinder/getMovieData',
 	async function (id: number, {rejectWithValue}) {
 		const response = await movieFinderAPI.getMovieData(id);
-		if (response.status === 200) {
-			return response.data
-		} else {
-			return rejectWithValue('Server Error!');
-		}
+		return response.status === 200 ? response.data : rejectWithValue('Server Error!');
 	}
 );
 
@@ -76,11 +64,39 @@ export const getMovieSimilarAsync = createAsyncThunk<TMovieSimilarsRes, number, 
 	'movieFinder/getMovieSimilars',
 	async function (id: number, {rejectWithValue}) {
 		const response = await movieFinderAPI.getMovieSimilars(id);
-		if (response.status === 200) {
-			return response.data
-		} else {
-			return rejectWithValue('Server Error!');
-		}
+		return response.status === 200 ? response.data : rejectWithValue('Server Error!');
+	}
+);
+
+export const getMovieVideosAsync = createAsyncThunk<TVideosRes, number, {rejectValue: string}>(
+	'movieFinder/getMovieVideos',
+	async function (id: number, {rejectWithValue}) {
+		const response = await movieFinderAPI.getMovieExtra(id, 'videos');
+		return response.status === 200 ? response.data : rejectWithValue('Server Error!');
+	}
+);
+
+export const getMovieImagesAsync = createAsyncThunk<TImagesRes, number, {rejectValue: string}>(
+	'movieFinder/getMovieImages',
+	async function (id: number, {rejectWithValue}) {
+		const response = await movieFinderAPI.getMovieExtra(id, 'images');
+		return response.status === 200 ? response.data : rejectWithValue('Server Error!');
+	}
+);
+
+export const getMovieAwardsAsync = createAsyncThunk<TAwardsRes, number, {rejectValue: string}>(
+	'movieFinder/getMovieAwards',
+	async function (id: number, {rejectWithValue}) {
+		const response = await movieFinderAPI.getMovieExtra(id, 'awards');
+		return response.status === 200 ? response.data : rejectWithValue('Server Error!');
+	}
+);
+
+export const getMovieFactsAsync = createAsyncThunk<TFactsRes, number, {rejectValue: string}>(
+	'movieFinder/getMovieFacts',
+	async function (id: number, {rejectWithValue}) {
+		const response = await movieFinderAPI.getMovieExtra(id, 'facts');
+		return response.status === 200 ? response.data : rejectWithValue('Server Error!');
 	}
 );
 
@@ -89,12 +105,9 @@ export const movieFinderSlice = createSlice({
 	initialState,
 
 	reducers: {
-		setIsAuth: (state, action: PayloadAction<boolean>) => {
-			state.isAuth = action.payload;
-		},
-		setFullCard: (state, action: PayloadAction<null | TFullCard>) => {
-			state.fullCard = action.payload;
-		},
+		// setFullCard: (state, action: PayloadAction<null | TFullCard>) => {
+		// 	state.fullCard = action.payload;
+		// },
 	},
 	extraReducers: (builder) => {
 		builder
@@ -114,7 +127,7 @@ export const movieFinderSlice = createSlice({
 			.addCase(getMovieDataAsync.pending, (state) => {
 				state.status = 'loading';
 			})
-			.addCase(getMovieDataAsync.fulfilled, (state, action: PayloadAction<TFullCard>) => {
+			.addCase(getMovieDataAsync.fulfilled, (state, action) => {
 				state.status = 'idle';
 				state.detailsPage.movie = action.payload;
 			})
@@ -128,6 +141,34 @@ export const movieFinderSlice = createSlice({
 					data: action.payload.items.map((v) => ({...v, id: v.filmId}))
 				};
 			})
+			.addCase(getMovieVideosAsync.pending, (state) => {
+				state.status = 'loading';
+			})
+			.addCase(getMovieVideosAsync.fulfilled, (state, action) => {
+				state.status = 'idle';
+				state.detailsPage.videos = action.payload;
+			})
+			.addCase(getMovieImagesAsync.pending, (state) => {
+				state.status = 'loading';
+			})
+			.addCase(getMovieImagesAsync.fulfilled, (state, action) => {
+				state.status = 'idle';
+				state.detailsPage.images = action.payload;
+			})
+			.addCase(getMovieAwardsAsync.pending, (state) => {
+				state.status = 'loading';
+			})
+			.addCase(getMovieAwardsAsync.fulfilled, (state, action) => {
+				state.status = 'idle';
+				state.detailsPage.awards = action.payload;
+			})
+			.addCase(getMovieFactsAsync.pending, (state) => {
+				state.status = 'loading';
+			})
+			.addCase(getMovieFactsAsync.fulfilled, (state, action) => {
+				state.status = 'idle';
+				state.detailsPage.facts = action.payload;
+			})
 			.addMatcher(isError, (state, action: PayloadAction<string>) => {
 				state.error = action.payload;
 				state.status = 'failed';
@@ -135,13 +176,11 @@ export const movieFinderSlice = createSlice({
 	},
 });
 
-export const {setIsAuth, setFullCard, } = movieFinderSlice.actions;
+export const { } = movieFinderSlice.actions;
 
-export const selectIsAuth = (state: RootState) => state.movieFinder.isAuth;
 export const selectStatus = (state: RootState) => state.movieFinder.status;
 export const selectHomePage = (state: RootState) => state.movieFinder.homePage;
 export const selectDetails = (state: RootState) => state.movieFinder.detailsPage;
-// export const selectDetailsSimilars = (state: RootState) => state.movieFinder.detailsPage.similars;
 export const selectSearchResult = (state: RootState) => state.movieFinder.searchResult;
 
 export default movieFinderSlice.reducer;
