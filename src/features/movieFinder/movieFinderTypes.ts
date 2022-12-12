@@ -138,3 +138,7 @@ export interface THomePageCurrent {
 	type: TTopList
 	page: number
 }
+
+export interface TMovieDetails {
+	movie: TFullCard | null
+}
