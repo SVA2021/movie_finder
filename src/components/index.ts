@@ -14,3 +14,5 @@ export * from './RatingBadge/RatingBadge';
 export * from './SwipeListTemplate/SwipeListTemplate';
 export * from './ExpandableList/ExpandableList';
 export * from './Styled_Link/StyledLink';
+export * from './VideoList/VideoList';
+export * from './VideoItem/VideoItem';
