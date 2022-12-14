@@ -3,13 +3,10 @@ import {FC, memo, useEffect} from 'react';
 import {StyledLink} from '..';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {getMovieDataAsync, selectDetails} from '../../features/movieFinder/movieFinderSlice';
+import {TMovieExtraProps} from "../../features/movieFinder/movieFinderTypes";
 import {getTimeFromMinutes} from '../../utils';
 
-interface FullCardProps {
-	id: number
-}
-
-export const FullCard: FC<FullCardProps> = memo(({id}) => {
+export const FullCard: FC<TMovieExtraProps> = memo(({id}) => {
 
 	const dispatch = useAppDispatch();
 	const DetailsPage = useAppSelector(selectDetails);

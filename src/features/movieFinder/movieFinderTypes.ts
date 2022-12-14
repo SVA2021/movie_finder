@@ -207,3 +207,7 @@ export interface TFactsRes {
 	total: number
 	items: TFactsItem[]
 }
+
+export interface TMovieExtraProps {
+	id: number
+}

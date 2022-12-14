@@ -5,12 +5,9 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import {VideoItem} from '..';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {getMovieVideosAsync, selectDetails} from '../../features/movieFinder/movieFinderSlice';
+import {TMovieExtraProps} from '../../features/movieFinder/movieFinderTypes';
 
-interface VideoListProps {
-    id: number
-}
-
-export const VideoList: FC<VideoListProps> = memo(({id}) => {
+export const VideoList: FC<TMovieExtraProps> = memo(({id}) => {
 
     const dispatch = useAppDispatch();
     const DetailsPage = useAppSelector(selectDetails);
