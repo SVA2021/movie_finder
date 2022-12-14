@@ -1,7 +1,7 @@
 import {Box, Tab, Tabs} from "@mui/material";
 import {FC, useState} from 'react';
 import {useParams} from "react-router-dom";
-import {FullCard, SimilarList, VideoList} from "../../components";
+import {FullCard, ImgList, SimilarList, VideoList} from "../../components";
 import {TMovieExtraType} from "../../features/movieFinder/movieFinderTypes";
 
 export const Details: FC = () => {
@@ -31,6 +31,7 @@ export const Details: FC = () => {
                 </Tabs>
                 <Box mt={4} >
                     {activeTab === 'videos' && <VideoList id={id} />}
+                    {activeTab === 'images' && <ImgList id={id} />}
                 </Box>
             </Box>
             <SimilarList id={id} />

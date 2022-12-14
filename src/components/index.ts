@@ -17,3 +17,4 @@ export * from './Styled_Link/StyledLink';
 export * from './VideoList/VideoList';
 export * from './VideoItem/VideoItem';
 export * from './SimilarList/SimilarList';
+export * from './ImgList/ImgList';
