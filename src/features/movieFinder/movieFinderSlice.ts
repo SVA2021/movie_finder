@@ -4,7 +4,8 @@ import {movieFinderAPI} from './movieFinderAPI';
 import {
 	TMovieDetails,
 	TFullCard, THomePageCurrent, TSearchResponseData,
-	TStatus, TTopData, TTopList, TTopResponse, TMovieSimilarsRes, TVideosRes, TImagesRes, TAwardsRes, TFactsRes,
+	TStatus, TTopData, TTopList, TTopResponse,
+	 TMovieSimilarsRes, TVideosRes, TImagesRes, TAwardsRes, TFactsRes,
 } from "./movieFinderTypes";
 
 interface TMovieFinderState {

@@ -48,7 +48,7 @@ export const movieFinderAPI = {
 			});
 	},
 
-	getMovieExtra(id: number = 1, type: TMovieExtraType = 'similars') {
+	getMovieExtra(id: number = 1, type: TMovieExtraType = 'videos') {
 		let query = `${API_FILMS}/${id}/${type}`;
 		return movieFinderInstance.get(query)
 			.then(response => {

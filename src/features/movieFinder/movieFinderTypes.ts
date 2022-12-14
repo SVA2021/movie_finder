@@ -148,7 +148,9 @@ export interface TMovieDetails {
 	facts: TFactsRes | null
 }
 
-export type TMovieExtraType = 'similars' | 'videos' | 'images' | 'awards' | 'facts'
+// export type TMovieExtraType = 'similars' | 'videos' | 'images' | 'awards' | 'facts'
+export type TMovieExtraType = 'videos' | 'images' | 'awards' | 'facts'
+export type TVideoItemType = 'YOUTUBE' | 'KINOPOISK_WIDGET' | 'UNKNOWN'
 
 export interface TMovieSimilarsRes {
 	total: number
@@ -163,7 +165,7 @@ export interface TSimilarsData {
 export interface TVideoItem {
 	url: string
 	name: string
-	site: 'YOUTUBE' | 'KINOPOISK_WIDGET' | 'UNKNOWN'
+	site: TVideoItemType
 }
 
 export interface TImageItem {
@@ -173,7 +175,7 @@ export interface TImageItem {
 
 export interface TVideosRes {
 	total: number
-	data: TVideoItem[]
+	items: TVideoItem[]
 }
 
 export interface TImagesRes {
