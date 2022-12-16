@@ -18,3 +18,4 @@ export * from './VideoList/VideoList';
 export * from './VideoItem/VideoItem';
 export * from './SimilarList/SimilarList';
 export * from './ImgList/ImgList';
+export * from './FactsList/FactsList';
