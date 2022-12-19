@@ -1,17 +1,15 @@
 import {Box} from "@mui/material";
 import {FC} from 'react';
+import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {ExpandableList} from "../../components";
 import {getTopListAsync, selectHomePage} from "../../features/movieFinder/movieFinderSlice";
-import {TTopList} from "../../features/movieFinder/movieFinderTypes";
-import {getTopListTitle} from "../../utils";
+import {getTopListTitle, getTopListType} from "../../utils";
 
-interface TopPageProps {
-    type: TTopList
-}
+export const TopPage: FC = () => {
 
-export const TopPage: FC<TopPageProps> = ({type}) => {
-
+    const params = useParams();
+    const type = getTopListType(params.type);
     const dispatch = useAppDispatch();
     const HomePage = useAppSelector(selectHomePage);
     const totalPages = HomePage[type]?.pagesCount ?? 0;

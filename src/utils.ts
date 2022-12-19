@@ -47,13 +47,7 @@ export function getTopListTitle(topFilmType: TTopList): string {
     }
 }
 
-export function getTopListPath(topFilmType: TTopList): string {
-    switch (topFilmType) {
-        case 'TOP_100_POPULAR_FILMS':
-            return 'top100'
-        case 'TOP_250_BEST_FILMS':
-            return 'top250'
-        case 'TOP_AWAIT_FILMS':
-            return 'topAwait'
-    }
+export function getTopListType(type: string | undefined | null): TTopList {
+    if (type === 'TOP_100_POPULAR_FILMS' || type === 'TOP_250_BEST_FILMS' || type === 'TOP_AWAIT_FILMS') return type;
+    return 'TOP_100_POPULAR_FILMS';
 }
