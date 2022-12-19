@@ -85,7 +85,7 @@ export const ImgList: FC<TMovieExtraProps> = memo(({id}) => {
                         }}
                         onClick={() => setFullImage(null)}
                     >
-                        <img width={'100%'} src={fullImage} alt="full version" />
+                        <img src={fullImage} alt="full version" width={'auto'} height={'100%'} />
                     </Box>
                 </Paper>
             }
