@@ -13,11 +13,11 @@ export const Header = () => {
 						<Grid item xs={9} md={5} lg={4}>
 							<Logo />
 						</Grid>
-						<Grid item md={1} lg={5} xl={4}
+						<Grid item md={1} lg={4} xl={4}
 							sx={{display: {xs: 'none', md: 'block'}}}>
 							<SearchMenu />
 						</Grid>
-						<Grid item xs={false} md={3} lg={2}
+						<Grid item md={3} lg={2}
 							sx={{display: {xs: 'none', md: 'block'}}}>
 							<AccountMenu />
 						</Grid>

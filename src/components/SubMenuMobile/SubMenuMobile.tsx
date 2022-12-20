@@ -19,7 +19,7 @@ export const SubMenuMobile = () => {
 				<AccordionDetails sx={{
 					p: 0
 				}}>
-					<SearchField multiline />
+					<SearchField  />
 				</AccordionDetails>
 			</Accordion>
 			<Accordion>
