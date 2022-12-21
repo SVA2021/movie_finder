@@ -1,7 +1,7 @@
 import {CssBaseline, GlobalStyles, ThemeProvider} from '@mui/material';
 import {Route, Routes} from 'react-router-dom';
 import {Layout} from './layout';
-import {Details, Home, TopPage} from './pages';
+import {Details, Home, TopPage, SearchPage} from './pages';
 import {theme} from './theme';
 
 export const App = () => {
@@ -14,6 +14,7 @@ export const App = () => {
                     <Route index element={<Home />} />
                     <Route path='top/:type' element={<TopPage />} />
                     <Route path='details/:id' element={<Details />} />
+                    <Route path='search' element={<SearchPage />} />
                     <Route path='*' element={<Home />} />
                 </Route>
             </Routes>
