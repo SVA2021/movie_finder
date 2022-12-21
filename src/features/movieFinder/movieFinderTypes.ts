@@ -211,3 +211,8 @@ export interface TFactsRes {
 export interface TMovieExtraProps {
 	id: number
 }
+
+export interface TSearchRequest {
+    keyword: string | null
+    page: number
+}
