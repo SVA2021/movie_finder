@@ -20,3 +20,4 @@ export * from './SimilarList/SimilarList';
 export * from './ImgList/ImgList';
 export * from './FactsList/FactsList';
 export * from './AwardsList/AwardsList';
+export * from './SearchForm/SearchForm';
