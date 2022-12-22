@@ -86,4 +86,17 @@ export const movieFinderAPI = {
                 return e;
             });
     },
+
+    getFilters() {
+        let query = `${API_FILMS}/filters`;
+        return movieFinderInstance.get(query)
+            .then(response => {
+                console.log(response);
+                return response;
+            })
+            .catch(e => {
+                console.log(e);
+                return e;
+            });
+    },
 }

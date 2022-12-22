@@ -6,7 +6,7 @@ import {
     TFullCard, THomePageCurrent, TSearchResponseData,
     TStatus, TTopData, TTopList, TTopResponse,
     TMovieSimilarsRes, TVideosRes, TImagesRes, TAwardsRes,
-    TFactsRes, TSearchResponse, TSearchRequest,
+    TFactsRes, TSearchResponse, TSearchRequest, TFiltersResponse,
 } from "./movieFinderTypes";
 
 interface TMovieFinderState {
@@ -18,6 +18,7 @@ interface TMovieFinderState {
         request: TSearchRequest | null,
         result: TSearchResponse | null,
     }
+    filters: TFiltersResponse | null
 
     movies: TSearchResponseData | null
     series: TSearchResponseData | null
@@ -43,6 +44,7 @@ export const initialState: TMovieFinderState = {
         request: null,
         result: null,
     },
+    filters: null,
     movies: null,
     series: null,
 };
@@ -111,6 +113,14 @@ export const getMoviesByKeywordAsync = createAsyncThunk<TSearchResponse, TSearch
     }
 );
 
+export const getFiltersAsync = createAsyncThunk<TFiltersResponse, undefined, {rejectValue: string}>(
+    'movieFinder/getMovieFacts',
+    async function (_, {rejectWithValue}) {
+        const response = await movieFinderAPI.getFilters();
+        return response.status === 200 ? response.data : rejectWithValue('Server Error!');
+    }
+);
+
 export const movieFinderSlice = createSlice({
     name: 'movieFinder',
     initialState,
@@ -121,6 +131,9 @@ export const movieFinderSlice = createSlice({
         },
         setSearchResult: (state, action: PayloadAction<null | TSearchResponse>) => {
             state.search.result = action.payload;
+        },
+        setFilters: (state, action: PayloadAction<null | TFiltersResponse>) => {
+            state.filters = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -190,6 +203,13 @@ export const movieFinderSlice = createSlice({
                 state.status = 'idle';
                 state.search.result = action.payload;
             })
+            .addCase(getFiltersAsync.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(getFiltersAsync.fulfilled, (state, action) => {
+                state.status = 'idle';
+                state.filters = action.payload;
+            })
             .addMatcher(isError, (state, action: PayloadAction<string>) => {
                 state.error = action.payload;
                 state.status = 'failed';
@@ -197,12 +217,13 @@ export const movieFinderSlice = createSlice({
     },
 });
 
-export const {setSearchKeyword, setSearchResult, } = movieFinderSlice.actions;
+export const {setSearchKeyword, setSearchResult, setFilters, } = movieFinderSlice.actions;
 
 export const selectStatus = (state: RootState) => state.movieFinder.status;
 export const selectHomePage = (state: RootState) => state.movieFinder.homePage;
 export const selectDetails = (state: RootState) => state.movieFinder.detailsPage;
 export const selectSearch = (state: RootState) => state.movieFinder.search;
+export const selectFilters = (state: RootState) => state.movieFinder.filters;
 
 export default movieFinderSlice.reducer;
 

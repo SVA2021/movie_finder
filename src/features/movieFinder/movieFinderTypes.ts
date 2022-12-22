@@ -226,3 +226,10 @@ export interface TSearchRequest {
 }
 
 export type TOrder = 'RATING' | 'NUM_VOTE' | 'YEAR'
+export type TFilterGenre = {id: number, genre: string}
+export type TFilterCountry = {id: number, country: string}
+
+export interface TFiltersResponse {
+    genres: TFilterGenre[]
+    countries: TFilterCountry[]
+}
