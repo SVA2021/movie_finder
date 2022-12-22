@@ -5,7 +5,8 @@ import {
     TMovieDetails,
     TFullCard, THomePageCurrent, TSearchResponseData,
     TStatus, TTopData, TTopList, TTopResponse,
-    TMovieSimilarsRes, TVideosRes, TImagesRes, TAwardsRes, TFactsRes, TSearchResponse, TSearchRequest,
+    TMovieSimilarsRes, TVideosRes, TImagesRes, TAwardsRes,
+    TFactsRes, TSearchResponse, TSearchRequest,
 } from "./movieFinderTypes";
 
 interface TMovieFinderState {

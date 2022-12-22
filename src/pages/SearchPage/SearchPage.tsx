@@ -1,40 +1,45 @@
 import {Box, Grid, Pagination, Stack, Typography} from "@mui/material";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {SmallCard} from "../../components";
 import {getMoviesByKeywordAsync, selectSearch, setSearchKeyword} from "../../features/movieFinder/movieFinderSlice";
+import {TSearchRequest} from "../../features/movieFinder/movieFinderTypes";
 
 export const SearchPage = () => {
 
     const dispatch = useAppDispatch();
     const SEARCH = useAppSelector(selectSearch);
-    const keyword = SEARCH.request?.keyword ?? '';
-    const page = SEARCH.request?.page ?? 1;
+
+    const [searchParams, setSearchParams] = useState<TSearchRequest>({
+        keyword: SEARCH.request?.keyword ?? '',
+        page: SEARCH.request?.page ?? 1,
+    });
+
     const searchItems = SEARCH.result?.items ?? [];
     const totalPages = SEARCH.result?.totalPages ?? 0;
     const total = SEARCH.result?.total ?? 0;
 
-    const title = `Результат поиска по "${keyword}", всего найдено ${total}`;
+    const title = `Результат поиска по "${searchParams.keyword}", всего найдено ${total}`;
 
     useEffect(() => {
-        dispatch(getMoviesByKeywordAsync({keyword, page}))
-    }, [page]);
+        dispatch(getMoviesByKeywordAsync(searchParams))
+    }, [searchParams]);
 
     const handleChange = (event: React.ChangeEvent<unknown>, page: number) => {
-        dispatch(setSearchKeyword({keyword, page}))
+        dispatch(setSearchKeyword(searchParams))
     };
 
     const PaginationArea = () => {
         return (
             <Stack alignItems={'center'} mt={2} mb={2}>
                 <Pagination variant="outlined" shape="rounded" size="large" color="secondary"
-                    page={page}
+                    page={searchParams.page}
                     count={totalPages}
                     onChange={handleChange}
                 />
             </Stack>
         )
-    }
+    };
 
     return (
         <Box pt={1}>
