@@ -26,8 +26,8 @@ export const SearchPage = () => {
 
     const PaginationArea = () => {
         return (
-            <Stack alignItems={'center'} >
-                <Pagination variant="outlined" shape="rounded" size="large"
+            <Stack alignItems={'center'} mt={2} mb={2}>
+                <Pagination variant="outlined" shape="rounded" size="large" color="secondary"
                     page={page}
                     count={totalPages}
                     onChange={handleChange}
@@ -37,21 +37,23 @@ export const SearchPage = () => {
     }
 
     return (
-        <Box pt={{xs: 0, md: 1}}>
+        <Box pt={1}>
             <Typography gutterBottom variant="h3" component={'h2'} textTransform={'capitalize'} color={'common.white'}>
                 {title}
             </Typography>
-            <PaginationArea />
-            <Grid container rowSpacing={2} columnSpacing={{xs: 0, md: 2, lg: 4}} m={{xs: 0, md: 2, lg: 4}}>
-                {
-                    searchItems.map((item, index) =>
-                        <Grid key={index} item xs={12} md={3} lg={2}>
-                            <SmallCard item={{...item, id: item.kinopoiskId, filmLength: null, rating: null}} />
-                        </Grid>
-                    )
-                }
-            </Grid>
-            <PaginationArea />
+            <Box pt={1}>
+                <PaginationArea />
+                <Grid container rowSpacing={2} columnSpacing={{xs: 0, md: 2, lg: 4}}>
+                    {
+                        searchItems.map((item, index) =>
+                            <Grid key={index} item xs={12} md={3} lg={2}>
+                                <SmallCard item={{...item, id: item.kinopoiskId, filmLength: null, rating: null}} />
+                            </Grid>
+                        )
+                    }
+                </Grid>
+                <PaginationArea />
+            </Box>
         </Box>
     )
 };
