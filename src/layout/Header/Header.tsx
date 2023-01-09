@@ -4,7 +4,7 @@ import {MenuMain, Logo, SearchMenu, AccountMenu} from '../../components';
 export const Header = () => {
 	return (
 		<Box sx={{flexGrow: 1, bgcolor: 'primary.main'}}>
-			<AppBar position='sticky' sx={{maxWidth: 'xl', m: '0 auto'}}>
+			<AppBar position='sticky' sx={{maxWidth: 'xl', m: '0 auto', zIndex: 900}}>
 				<Toolbar sx={{boxShadow: 'none'}}>
 					<Grid container justifyContent={'space-between'} alignItems={'center'}>
 						<Grid item xs={3} md={1}>
