@@ -27,8 +27,13 @@ export const SearchForm: FC<SearchFormProps> = memo(({closeHandler, initialFilte
   const Genres = Filters?.genres ?? [];
   const BASE_FILTER_DATA = initialFilters ?? DEFAULT_SEARCH_FORM;
 
-  const onSubmit: SubmitHandler<TSearchForm> = data => dispatch(setSearchExtended(data));
+  const onSubmit: SubmitHandler<TSearchForm> = data => onSubmitHandler(data);
   const {control, handleSubmit} = useForm<TSearchForm>();
+
+  function onSubmitHandler(data: TSearchForm) {
+    dispatch(setSearchExtended(data));
+    closeHandler();
+  }
 
   useEffect(() => {
     if (Filters === null) dispatch(getFiltersAsync());

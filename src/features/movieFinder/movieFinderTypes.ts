@@ -238,8 +238,8 @@ export interface TSearchForm {
 }
 
 export interface TSearchExtended {
-  countries: number[]
-  genres: number[]
+  countries: number[] | null
+  genres: number[] | null
   order: TOrder
   ratingFrom: number
   ratingTo: number

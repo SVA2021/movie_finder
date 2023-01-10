@@ -56,8 +56,8 @@ export function convertSearchFilter(form: TSearchForm): TSearchExtended {
   const {order, countries, genres, rating, year} = form;
   return {
     order,
-    countries: countries === 'default' ? [] : [countries],
-    genres: genres === 'default' ? [] : [genres],
+    countries: countries === 'default' ? null : [countries],
+    genres: genres === 'default' ? null : [genres],
     ratingFrom: rating[0],
     ratingTo: rating[1],
     yearFrom: year[0],
