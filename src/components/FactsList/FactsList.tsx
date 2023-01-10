@@ -1,18 +1,20 @@
 import {Box, Typography, useTheme} from '@mui/material';
 import {FC, memo, useEffect, useRef} from 'react';
+import {useParams} from 'react-router-dom';
 import 'swiper/css';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {getMovieFactsAsync, selectDetails} from '../../features/movieFinder/movieFinderSlice';
-import {TMovieExtraProps} from '../../features/movieFinder/movieFinderTypes';
 
-export const FactsList: FC<TMovieExtraProps> = memo(({id}) => {
+export const FactsList: FC = memo(() => {
 
     const dispatch = useAppDispatch();
     const DetailsPage = useAppSelector(selectDetails);
     const MovieFacts = DetailsPage.facts?.items ?? [];
     const theme = useTheme();
     const swiperRef = useRef<any>();
+    const params = useParams();
+    const id = Number(params.id)
 
     useEffect(() => {
         dispatch(getMovieFactsAsync(id))

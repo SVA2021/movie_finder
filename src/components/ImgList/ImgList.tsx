@@ -1,19 +1,21 @@
 import {Box, Paper, Typography, useTheme} from '@mui/material';
 import {FC, memo, useEffect, useRef, useState} from 'react';
+import {useParams} from 'react-router-dom';
 import 'swiper/css';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {getMovieImagesAsync, selectDetails} from '../../features/movieFinder/movieFinderSlice';
-import {TMovieExtraProps} from '../../features/movieFinder/movieFinderTypes';
 
-export const ImgList: FC<TMovieExtraProps> = memo(({id}) => {
+export const ImgList: FC = memo(() => {
 
     const dispatch = useAppDispatch();
     const DetailsPage = useAppSelector(selectDetails);
     const Images = DetailsPage.images?.items ?? [];
     const theme = useTheme();
     const swiperRef = useRef<any>();
-
+    const params = useParams();
+    const id = Number(params.id)
+    
     const [fullImage, setFullImage] = useState<string | null>(null);
 
     useEffect(() => {

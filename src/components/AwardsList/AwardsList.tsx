@@ -1,18 +1,20 @@
 import {Box, Card, CardContent, CardMedia, Checkbox, Typography, useTheme} from '@mui/material';
 import {FC, memo, useEffect, useRef} from 'react';
+import {useParams} from 'react-router-dom';
 import 'swiper/css';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {getMovieAwardsAsync, selectDetails} from '../../features/movieFinder/movieFinderSlice';
-import {TMovieExtraProps} from '../../features/movieFinder/movieFinderTypes';
 
-export const AwardsList: FC<TMovieExtraProps> = memo(({id}) => {
+export const AwardsList: FC = memo(() => {
 
     const dispatch = useAppDispatch();
     const DetailsPage = useAppSelector(selectDetails);
     const MovieAwards = DetailsPage.awards?.items ?? [];
     const theme = useTheme();
     const swiperRef = useRef<any>();
+    const params = useParams();
+    const id = Number(params.id)
 
     useEffect(() => {
         dispatch(getMovieAwardsAsync(id))
