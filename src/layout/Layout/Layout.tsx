@@ -1,26 +1,35 @@
-import {Backdrop, CircularProgress, Container} from "@mui/material";
+import {Alert, Backdrop, CircularProgress, Container, Snackbar} from "@mui/material";
 import {useState} from "react";
 import {Outlet} from "react-router-dom";
-import {useAppSelector} from "../../app/hooks";
+import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {Banner} from "../../components";
-import {selectStatus} from "../../features/movieFinder/movieFinderSlice";
+import {selectError, selectStatus, setError} from "../../features/movieFinder/movieFinderSlice";
 import {Footer, Header} from "../index";
 
 export const Layout = () => {
+
+  const dispatch = useAppDispatch();
   const SERVER_STATUS = useAppSelector(selectStatus);
-  const [isOpen, setIsOpen] = useState(true);
+  const SERVER_ERROR = useAppSelector(selectError);
+  const [isOpenBanner, setIsOpenBanner] = useState(true);
+
+  const handleCloseError = () => dispatch(setError(null));
+  const handleCloseBanner = () => setIsOpenBanner(false);
 
   return (
-    <Container
-      maxWidth='xl'
-      sx={{minHeight: '100vh'}} >
+    <Container maxWidth='xl' sx={{minHeight: '100vh'}} >
       <Backdrop open={SERVER_STATUS === 'loading'} sx={{zIndex: 1000}} >
         <CircularProgress color="warning" />
       </Backdrop>
       <Header />
-      {isOpen && <Banner closeHandler={() => setIsOpen(false)} />}
+      {isOpenBanner && <Banner closeHandler={handleCloseBanner} />}
       <Outlet />
       <Footer />
+      <Snackbar open={!!SERVER_ERROR} autoHideDuration={2500} onClose={handleCloseError}>
+        <Alert onClose={handleCloseError} severity="error" sx={{width: '100%'}}>
+          {SERVER_ERROR}
+        </Alert>
+      </Snackbar>
     </Container>
   )
 };

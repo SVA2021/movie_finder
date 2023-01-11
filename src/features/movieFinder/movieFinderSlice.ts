@@ -2,11 +2,8 @@ import {AnyAction, createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/
 import {RootState} from '../../app/store';
 import {movieFinderAPI} from './movieFinderAPI';
 import {
-  TMovieDetails,
-  TFullCard, THomePageCurrent, TSearchResponseData,
-  TStatus, TTopData, TTopList, TTopResponse,
-  TMovieSimilarsRes, TVideosRes, TImagesRes, TAwardsRes,
-  TFactsRes, TSearchResponse, TSearchRequest, TFiltersResponse, TSearchForm, TSearch,
+  TAwardsRes,
+  TFactsRes, TFiltersResponse, TFullCard, THomePageCurrent, TImagesRes, TMovieDetails, TMovieSimilarsRes, TSearch, TSearchForm, TSearchRequest, TSearchResponse, TStatus, TTopData, TTopList, TTopResponse, TVideosRes
 } from "./movieFinderTypes";
 
 interface TMovieFinderState {
@@ -18,9 +15,6 @@ interface TMovieFinderState {
   searchExtended: TSearchForm | null,
   searchResult: TSearchResponse | null,
   filters: TFiltersResponse | null
-
-  movies: TSearchResponseData | null
-  series: TSearchResponseData | null
 }
 
 export const initialState: TMovieFinderState = {
@@ -43,8 +37,6 @@ export const initialState: TMovieFinderState = {
   searchRequest: null,
   searchResult: null,
   filters: null,
-  movies: null,
-  series: null,
 };
 
 export const getTopListAsync = createAsyncThunk<TTopResponse, THomePageCurrent, {rejectValue: string}>(
@@ -136,11 +128,15 @@ export const movieFinderSlice = createSlice({
     setFilters: (state, action: PayloadAction<null | TFiltersResponse>) => {
       state.filters = action.payload;
     },
+    setError: (state, action: PayloadAction<null | string>) => {
+      state.error = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getTopListAsync.pending, (state) => {
         state.status = 'loading';
+        state.error = null;
       })
       .addCase(getTopListAsync.fulfilled, (state, action: PayloadAction<TTopResponse>) => {
         state.status = 'idle';
@@ -154,6 +150,7 @@ export const movieFinderSlice = createSlice({
       })
       .addCase(getMovieDataAsync.pending, (state) => {
         state.status = 'loading';
+        state.error = null;
       })
       .addCase(getMovieDataAsync.fulfilled, (state, action) => {
         state.status = 'idle';
@@ -161,6 +158,7 @@ export const movieFinderSlice = createSlice({
       })
       .addCase(getMovieSimilarAsync.pending, (state) => {
         state.status = 'loading';
+        state.error = null;
       })
       .addCase(getMovieSimilarAsync.fulfilled, (state, action) => {
         state.status = 'idle';
@@ -171,6 +169,7 @@ export const movieFinderSlice = createSlice({
       })
       .addCase(getMovieVideosAsync.pending, (state) => {
         state.status = 'loading';
+        state.error = null;
       })
       .addCase(getMovieVideosAsync.fulfilled, (state, action) => {
         state.status = 'idle';
@@ -178,6 +177,7 @@ export const movieFinderSlice = createSlice({
       })
       .addCase(getMovieImagesAsync.pending, (state) => {
         state.status = 'loading';
+        state.error = null;
       })
       .addCase(getMovieImagesAsync.fulfilled, (state, action) => {
         state.status = 'idle';
@@ -185,6 +185,7 @@ export const movieFinderSlice = createSlice({
       })
       .addCase(getMovieAwardsAsync.pending, (state) => {
         state.status = 'loading';
+        state.error = null;
       })
       .addCase(getMovieAwardsAsync.fulfilled, (state, action) => {
         state.status = 'idle';
@@ -192,6 +193,7 @@ export const movieFinderSlice = createSlice({
       })
       .addCase(getMovieFactsAsync.pending, (state) => {
         state.status = 'loading';
+        state.error = null;
       })
       .addCase(getMovieFactsAsync.fulfilled, (state, action) => {
         state.status = 'idle';
@@ -199,6 +201,7 @@ export const movieFinderSlice = createSlice({
       })
       .addCase(getMoviesByKeywordAsync.pending, (state) => {
         state.status = 'loading';
+        state.error = null;
       })
       .addCase(getMoviesByKeywordAsync.fulfilled, (state, action) => {
         state.status = 'idle';
@@ -206,6 +209,7 @@ export const movieFinderSlice = createSlice({
       })
       .addCase(getFiltersAsync.pending, (state) => {
         state.status = 'loading';
+        state.error = null;
       })
       .addCase(getFiltersAsync.fulfilled, (state, action) => {
         state.status = 'idle';
@@ -218,8 +222,9 @@ export const movieFinderSlice = createSlice({
   },
 });
 
-export const {setSearchRequest, setSearchResult, setFilters, setSearchExtended, } = movieFinderSlice.actions;
+export const {setSearchRequest, setSearchResult, setFilters, setSearchExtended, setError,} = movieFinderSlice.actions;
 
+export const selectError = (state: RootState) => state.movieFinder.error;
 export const selectStatus = (state: RootState) => state.movieFinder.status;
 export const selectHomePage = (state: RootState) => state.movieFinder.homePage;
 export const selectDetails = (state: RootState) => state.movieFinder.detailsPage;
