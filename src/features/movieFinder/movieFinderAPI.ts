@@ -26,79 +26,43 @@ export const movieFinderAPI = {
   getMovieData(id: number = 1) {
     let query = `${API_FILMS}/${id}`;
     return movieFinderInstance.get(query)
-      .then(response => {
-        console.log(response);
-        return response;
-      })
-      .catch(e => {
-        console.log(e);
-        return e;
-      });
+      .then(response => response)
+      .catch(e => e);
   },
 
   getMovieSimilars(id: number = 1) {
     let query = `${API_FILMS}/${id}/similars`;
     return movieFinderInstance.get(query)
-      .then(response => {
-        console.log(response);
-        return response;
-      })
-      .catch(e => {
-        console.log(e);
-        return e;
-      });
+      .then(response => response)
+      .catch(e => e);
   },
 
   getMovieExtra(id: number = 1, type: TMovieExtraType = 'videos') {
     let query = `${API_FILMS}/${id}/${type}`;
     return movieFinderInstance.get(query)
-      .then(response => {
-        console.log(response);
-        return response;
-      })
-      .catch(e => {
-        console.log(e);
-        return e;
-      });
+      .then(response => response)
+      .catch(e => e);
   },
 
   getMoviesByKeyword(search: TSearchRequest, extended: TSearchForm | null) {
     let query = `${API_FILMS}`;
     const params = !extended ? {...search} : {...search, ...convertSearchFilter(extended)};
     return movieFinderInstance.get(query, {params})
-      .then(response => {
-        console.log(response);
-        return response;
-      })
-      .catch(e => {
-        console.log(e);
-        return e;
-      });
+      .then(response => response)
+      .catch(e => e);
   },
 
   getSeries(page: number = 1) {
     let query = `${API_FILMS}`;
     return movieFinderInstance.get(query, {params: {type: 'TV_SERIES', page}})
-      .then(response => {
-        console.log(response);
-        return response;
-      })
-      .catch(e => {
-        console.log(e);
-        return e;
-      });
+      .then(response => response)
+      .catch(e => e);
   },
 
   getFilters() {
     let query = `${API_FILMS}/filters`;
     return movieFinderInstance.get(query)
-      .then(response => {
-        console.log(response);
-        return response;
-      })
-      .catch(e => {
-        console.log(e);
-        return e;
-      });
+      .then(response => response)
+      .catch(e => e);
   },
 }
