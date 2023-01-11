@@ -5,7 +5,8 @@ import 'swiper/css';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {VideoItem} from '..';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
-import {getMovieVideosAsync, selectDetails} from '../../features/movieFinder/movieFinderSlice';
+import {selectDetails} from '../../features/movieFinder/movieFinderSlice';
+import {getMovieVideosAsync} from '../../features/movieFinder/movieFinderThunks';
 
 export const VideoList: FC = memo(() => {
 
@@ -22,7 +23,7 @@ export const VideoList: FC = memo(() => {
   }, [id]);
 
   return (
-    <Box>
+    <Box minHeight={'200px'} >
       {MovieTrailers.length > 0
         ? <Swiper
           onSwiper={(swiper) => swiperRef.current = swiper}

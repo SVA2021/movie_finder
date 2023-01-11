@@ -3,7 +3,8 @@ import {FC, useEffect} from 'react';
 import {Link as RouterLink} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {SwipeListTemplate} from "../../components";
-import {getTopListAsync, selectHomePage} from "../../features/movieFinder/movieFinderSlice";
+import { selectHomePage} from "../../features/movieFinder/movieFinderSlice";
+import {getTopListAsync} from "../../features/movieFinder/movieFinderThunks";
 import {TOP_FILMS_TYPE} from "../../features/movieFinder/movieFinderTypes";
 import {getTopListTitle} from "../../utils";
 

@@ -3,7 +3,8 @@ import {FC, memo, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {SwipeListTemplate} from '..';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {getMovieSimilarAsync, selectDetails} from '../../features/movieFinder/movieFinderSlice';
+import {selectDetails} from '../../features/movieFinder/movieFinderSlice';
+import {getMovieSimilarAsync} from "../../features/movieFinder/movieFinderThunks";
 
 export const SimilarList: FC = memo(() => {
 

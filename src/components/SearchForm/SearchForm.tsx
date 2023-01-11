@@ -4,7 +4,8 @@ import {FC, memo, useEffect} from 'react';
 import {Controller, SubmitHandler, useForm} from 'react-hook-form';
 import {StyledButton} from '..';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
-import {getFiltersAsync, selectFilters, setSearchExtended} from '../../features/movieFinder/movieFinderSlice';
+import {selectFilters, setSearchExtended} from '../../features/movieFinder/movieFinderSlice';
+import {getFiltersAsync} from '../../features/movieFinder/movieFinderThunks';
 import {TSearchForm} from '../../features/movieFinder/movieFinderTypes';
 interface SearchFormProps {
   initialFilters: TSearchForm | null

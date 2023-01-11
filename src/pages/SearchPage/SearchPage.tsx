@@ -3,7 +3,8 @@ import {Box, Grid, Pagination, Stack, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {SearchForm, SmallCard, StyledButton} from "../../components";
-import {getMoviesByKeywordAsync, selectSearchExtended, selectSearchRequest, selectSearchResult, setSearchRequest} from "../../features/movieFinder/movieFinderSlice";
+import { selectSearchExtended, selectSearchRequest, selectSearchResult, setSearchRequest} from "../../features/movieFinder/movieFinderSlice";
+import {getMoviesByKeywordAsync} from '../../features/movieFinder/movieFinderThunks';
 
 const DEFAULT_SEARCH_KEYWORD = {keyword: '', page: 1};
 

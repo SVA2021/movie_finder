@@ -3,7 +3,8 @@ import {FC, memo, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {StyledLink} from '..';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {getMovieDataAsync, selectDetails} from '../../features/movieFinder/movieFinderSlice';
+import {selectDetails} from '../../features/movieFinder/movieFinderSlice';
+import {getMovieDataAsync} from "../../features/movieFinder/movieFinderThunks";
 import {getTimeFromMinutes} from '../../utils';
 
 export const FullCard: FC = memo(() => {

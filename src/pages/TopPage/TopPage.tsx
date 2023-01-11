@@ -3,7 +3,8 @@ import {FC} from 'react';
 import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {ExpandableList} from "../../components";
-import {getTopListAsync, selectHomePage} from "../../features/movieFinder/movieFinderSlice";
+import { selectHomePage} from "../../features/movieFinder/movieFinderSlice";
+import {getTopListAsync} from "../../features/movieFinder/movieFinderThunks";
 import {getTopListTitle, getTopListType} from "../../utils";
 
 export const TopPage: FC = () => {
