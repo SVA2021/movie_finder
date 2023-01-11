@@ -148,7 +148,6 @@ export interface TMovieDetails {
   facts: TFactsRes | null
 }
 
-// export type TMovieExtraType = 'similars' | 'videos' | 'images' | 'awards' | 'facts'
 export type TMovieExtraType = 'videos' | 'images' | 'awards' | 'facts'
 export type TVideoItemType = 'YOUTUBE' | 'KINOPOISK_WIDGET' | 'UNKNOWN'
 
@@ -208,19 +207,13 @@ export interface TFactsRes {
   items: TFactsItem[]
 }
 
-export interface TMovieExtraProps {
-  id: number
-}
-
 export interface TSearchRequest {
   keyword: string | null
   page: number
-  // extended: TSearchExtended | null
 }
 
 export const ORDERS = ['RATING', 'NUM_VOTE', 'YEAR'] as const;
 export type TOrder = typeof ORDERS[number];
-// export type TOrder = 'RATING' | 'NUM_VOTE' | 'YEAR'
 export type TFilterGenre = {id: number, genre: string}
 export type TFilterCountry = {id: number, country: string}
 
