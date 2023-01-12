@@ -26,7 +26,7 @@ export const SearchForm: FC<SearchFormProps> = memo(({closeHandler, initialFilte
   const Filters = useAppSelector(selectFilters);
   const Countries = Filters?.countries ?? [];
   const Genres = Filters?.genres ?? [];
-  const BASE_FILTER_DATA = initialFilters ?? DEFAULT_SEARCH_FORM;
+  const BASE_FILTER_DATA: TSearchForm = initialFilters ?? DEFAULT_SEARCH_FORM;
 
   const onSubmit: SubmitHandler<TSearchForm> = data => onSubmitHandler(data);
   const {control, handleSubmit} = useForm<TSearchForm>();
