@@ -1,14 +1,29 @@
 import {AccountCircle, ExpandMore, Logout} from '@mui/icons-material';
 import {Accordion, AccordionDetails, AccordionSummary, Box, Grid, Stack} from '@mui/material';
+import {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {AccountForm, AccountLabel, StyledTextItem} from '../../components';
-import {selectIsAuth, setUser} from '../../features/auth/authSlice';
+import {selectIsAuth, selectUser, setUser} from '../../features/auth/authSlice';
 
 export const AccountMenu = () => {
 
   const dispatch = useAppDispatch();
   const isAuth = useAppSelector(selectIsAuth);
-  const logoutUser = () => dispatch(setUser(null));
+  const user = useAppSelector(selectUser);
+
+  const logoutUser = () => {
+    dispatch(setUser(null));
+    localStorage.clear();
+  }
+
+  let username = localStorage.getItem('user');
+  console.log(username);
+
+  useEffect(() => {
+    
+    if (!isAuth && username) setUser({login: username, password: 'random'});
+    if (!username && isAuth && user?.login) localStorage.setItem('user', user?.login);
+  }, [isAuth,])
 
   return (
     <Accordion>
