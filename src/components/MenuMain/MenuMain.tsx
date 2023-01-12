@@ -1,70 +1,64 @@
-import {Home, LocalMovies, Menu as MenuIcon, Movie} from '@mui/icons-material';
-import {Grid, Link, Popover} from '@mui/material';
+import {Home, Menu as MenuIcon, Settings} from '@mui/icons-material';
+import {Grid, Popover} from '@mui/material';
 import * as React from 'react';
-import {StyledButton, StyledTextItem, SubMenuMobile, } from '../../components';
-import {Link as RouterLink, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {AccountMenu, SearchMenuMobile, StyledButton, StyledTextItem} from '../../components';
 
 export const MenuMain = (props: any) => {
 
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
-	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-	const open = Boolean(anchorEl);
-	const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorEl(event.currentTarget);
-	};
-	const handleClose = () => {
-		setAnchorEl(null);
-	};
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
 
-	function handleClick(path: string): void {
-		navigate(path);
-		handleClose();
-	}
+  const handleOpen = (e: React.MouseEvent<HTMLElement>) => setAnchorEl(e.currentTarget);
+  const handleClose = () =>  setAnchorEl(null);
 
-	return (
-		<>
-			<StyledButton
-				id="fade-button"
-				aria-controls={open ? 'fade-menu' : undefined}
-				aria-haspopup="true"
-				aria-expanded={open ? 'true' : undefined}
-				onClick={handleOpen}
-			>
-				<MenuIcon fontSize='large' />
-			</StyledButton>
-			<Popover
-				id="main-menu"
-				anchorEl={anchorEl}
-				open={open}
-				onClose={handleClose}
-				anchorOrigin={{
-					vertical: 'bottom',
-					horizontal: 'left',
-				}}
-				transformOrigin={{
-					vertical: 'top',
-					horizontal: 'left',
-				}}
-			>
-				<Grid container direction={'column'} spacing={2} sx={{
-					bgcolor: 'primary.main',
-					p: 2,
-				}} >
-					<Grid item xs={12} md={6} lg={3} onClick={() => handleClick('/')} >
-						<StyledTextItem ><Home fontSize='medium' />Home</StyledTextItem>
-					</Grid>
-					<Grid item xs={12} md={6} lg={3}>
-						<StyledTextItem ><LocalMovies fontSize='medium' />Movies</StyledTextItem>
-					</Grid>
-					<Grid item xs={12} md={6} lg={3}>
-						<StyledTextItem ><Movie fontSize='medium' />Series</StyledTextItem>
-					</Grid>
-					<Grid item xs={12} sx={{display: {xs: 'block', md: 'none', }}}>
-						<SubMenuMobile />
-					</Grid>
-				</Grid>
-			</Popover>
-		</>
-	);
+  function handleClick(path: string): void {
+    navigate(path);
+    handleClose();
+  }
+
+  return (
+    <>
+      <StyledButton
+        id="fade-button"
+        aria-haspopup="true"
+        aria-controls={open ? 'fade-menu' : undefined}
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleOpen}
+      >
+        <MenuIcon fontSize='large' />
+      </StyledButton>
+      <Popover
+        id="main-menu"
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        <Grid container direction={'column'} spacing={2} p={2} bgcolor={'primary.main'}>
+          <Grid item xs={12} md={6} lg={3} onClick={() => handleClick('/')} >
+            <StyledTextItem ><Home fontSize='medium' />Главная</StyledTextItem>
+          </Grid>
+          <Grid item xs={12} md={6} lg={3}>
+            <StyledTextItem ><Settings fontSize='medium' />Настройки</StyledTextItem>
+          </Grid>
+          <Grid item xs={12} md={6} lg={3}>
+            <AccountMenu />
+          </Grid>
+          <Grid item xs={12} sx={{display: {xs: 'block', md: 'none', }}}>
+            <SearchMenuMobile />
+          </Grid>
+        </Grid>
+      </Popover>
+    </>
+  );
 }
