@@ -11,7 +11,6 @@ export type TGenre = {genre: string}
 export type TProductionStatus = typeof PRODUCTION_STATUS[number];
 export type TFilmType = typeof FILM_TYPE[number];
 export type TTopList = typeof TOP_FILMS_TYPE[number];
-export type TUser = {user: string, password: string} | null;
 export type TStatus = 'idle' | 'loading' | 'failed';
 
 //********** ITEM TYPES *************************/
