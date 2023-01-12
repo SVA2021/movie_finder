@@ -22,3 +22,4 @@ export * from './FactsList/FactsList';
 export * from './AwardsList/AwardsList';
 export * from './SearchForm/SearchForm';
 export * from './AccountLabel/AccountLabel';
+export * from './AccountForm/AccountForm';
