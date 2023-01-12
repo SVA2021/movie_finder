@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '../../app/store';
 
-interface TUser {
+export interface TUser {
   login: string,
   password: string,
 }
@@ -25,6 +25,7 @@ export const authSlice = createSlice({
     },
     setUser: (state, action: PayloadAction<TUser | null>) => {
       state.user = action.payload;
+      state.isAuth = !!action.payload;
     },
   },
 });
