@@ -20,7 +20,7 @@ export const Banner: FC<BannerProps> = ({closeHandler}) => {
   return (
     <Box
       component={'a'}
-      href={'https://github.com/SVA2021/movie_finder'}
+      href={'https://portfolio-sva2021.vercel.app'}
       target={'_blank'}
       rel={'noopener noreferref'}
       sx={{
