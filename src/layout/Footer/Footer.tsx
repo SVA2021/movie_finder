@@ -9,7 +9,7 @@ const LINKS = [
   },
   {
     title: 'Портфолио SVA',
-    href: 'https://sva2021.github.io/MyPortfolio/',
+    href: 'https://portfolio-sva2021.vercel.app/',
   },
   {
     title: 'Github SVA',
