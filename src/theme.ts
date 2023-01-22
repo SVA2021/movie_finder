@@ -40,7 +40,8 @@ export const theme = createTheme({
     },
     text: {
       primary: THEME_COLOR.beige,
-      secondary: THEME_COLOR.beige
+      secondary: THEME_COLOR.beige,
+      disabled: THEME_COLOR.dark,
     },
     background: {
       paper: THEME_COLOR.dark,

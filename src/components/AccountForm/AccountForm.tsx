@@ -22,6 +22,7 @@ export const AccountForm = memo(() => {
               m: 1,
               p: 1,
               bgcolor: 'secondary.main',
+              color: 'primary.main',
               borderRadius: 2,
               opacity: 0.5,
               '&:hover': {
@@ -48,6 +49,7 @@ export const AccountForm = memo(() => {
               m: 1,
               p: 1,
               bgcolor: 'secondary.main',
+              color: 'primary.main',
               borderRadius: 2,
               opacity: 0.5,
               '&:hover': {

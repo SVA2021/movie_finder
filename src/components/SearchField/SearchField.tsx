@@ -29,6 +29,7 @@ export const SearchField = () => {
         sx={{
           p: 2,
           bgcolor: 'secondary.main',
+          color: 'primary.main',
           borderRadius: 4,
           opacity: 0.5,
           '&:hover': {
