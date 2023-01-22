@@ -1,18 +1,16 @@
 import {Home, Menu as MenuIcon, Settings} from '@mui/icons-material';
-import {Grid, Popover} from '@mui/material';
+import {Button, Grid, Popover} from '@mui/material';
 import * as React from 'react';
 import {useNavigate} from "react-router-dom";
-import {AccountMenu, SearchMenuMobile, StyledButton, StyledTextItem} from '../../components';
+import {AccountMenu, SearchMenuMobile, StyledTextItem} from '../../components';
 
 export const MenuMain = (props: any) => {
 
   const navigate = useNavigate();
-
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-
   const handleOpen = (e: React.MouseEvent<HTMLElement>) => setAnchorEl(e.currentTarget);
-  const handleClose = () =>  setAnchorEl(null);
+  const handleClose = () => setAnchorEl(null);
 
   function handleClick(path: string): void {
     navigate(path);
@@ -21,15 +19,35 @@ export const MenuMain = (props: any) => {
 
   return (
     <>
-      <StyledButton
+      <Button
         id="fade-button"
         aria-haspopup="true"
         aria-controls={open ? 'fade-menu' : undefined}
         aria-expanded={open ? 'true' : undefined}
         onClick={handleOpen}
+        sx={{
+          backgroundColor: 'transparent',
+          color: 'text.secondary',
+          boxShadow: 'none',
+          "&:hover": {
+            color: 'action.hover',
+            backgroundColor: 'transparent',
+            boxShadow: 'none',
+          },
+          "&:active": {
+            color: 'action.active',
+            backgroundColor: 'transparent',
+            boxShadow: 'none',
+          },
+          "&:focus": {
+            color: 'common.white',
+            backgroundColor: 'transparent',
+            boxShadow: 'none',
+          },
+        }}
       >
         <MenuIcon fontSize='large' />
-      </StyledButton>
+      </Button>
       <Popover
         id="main-menu"
         open={open}

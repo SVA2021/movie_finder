@@ -29,14 +29,14 @@ export const SmallCard: FC<TSmallCardProps> = ({item}) => {
 					alt={nameRu?.toString() || nameEn?.toString() || ''}
 				/>
 				<CardContent>
-					<Typography gutterBottom variant="body1" component="p">{nameRu}</Typography>
+					<Typography gutterBottom variant="body1" component="p" color={'text.secondary'}>{nameRu}</Typography>
 					{nameEn &&
-						<Typography fontStyle={'italic'} gutterBottom variant="body2" component="p">
+						<Typography fontStyle={'italic'} gutterBottom variant="body2" component="p" color={'text.secondary'}>
 							{nameEn}
 						</Typography>
 					}
 					{year &&
-						<Typography variant="body1" component="p">
+						<Typography variant="body1" component="p" color={'text.secondary'}>
 							{year},  {time}
 						</Typography>
 					}

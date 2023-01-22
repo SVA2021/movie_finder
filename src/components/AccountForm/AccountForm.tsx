@@ -1,23 +1,17 @@
-import {Box, Input} from '@mui/material';
+import {Box, Button, Input} from '@mui/material';
 import {memo} from 'react';
 import {Controller, SubmitHandler, useForm} from 'react-hook-form';
-import {StyledButton} from '..';
 import {useAppDispatch} from '../../app/hooks';
 import {setUser, TUser} from '../../features/auth/authSlice';
 
 export const AccountForm = memo(() => {
-
   const dispatch = useAppDispatch();
-
-  const sendFormData = (data: TUser) => dispatch(setUser(data));
-
   const {control, handleSubmit} = useForm<TUser>();
   const onSubmit: SubmitHandler<TUser> = data => sendFormData(data);
-
+  const sendFormData = (data: TUser) => dispatch(setUser(data));
 
   return (
     <Box component={'form'} onSubmit={handleSubmit(onSubmit)} >
-
       <Controller
         name={'login'}
         control={control}
@@ -70,11 +64,9 @@ export const AccountForm = memo(() => {
           />
         )}
       />
-
       <Box textAlign={'center'} mt={2} >
-        <StyledButton type={'submit'} >Войти</StyledButton>
+        <Button type={'submit'} >Войти</Button>
       </Box>
-
     </Box>
   );
 });

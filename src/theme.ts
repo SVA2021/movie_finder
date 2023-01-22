@@ -20,12 +20,15 @@ export const theme = createTheme({
     },
   },
   palette: {
+    mode: 'dark',
     common: {
       black: THEME_COLOR.black,
       white: THEME_COLOR.white,
     },
     primary: {
       main: THEME_COLOR.dark,
+      dark: THEME_COLOR.dark,
+      light: THEME_COLOR.beige,
     },
     secondary: {
       main: THEME_COLOR.beige,
@@ -36,11 +39,11 @@ export const theme = createTheme({
       focus: THEME_COLOR.white,
     },
     text: {
-      primary: THEME_COLOR.black,
+      primary: THEME_COLOR.beige,
       secondary: THEME_COLOR.beige
     },
     background: {
-      paper: THEME_COLOR.white,
+      paper: THEME_COLOR.dark,
       default: THEME_COLOR.white,
     }
   },
@@ -87,30 +90,6 @@ export const theme = createTheme({
         })
       }
     },
-    MuiButton: {
-      styleOverrides: {
-        root: ({ownerState, theme}) => ({
-          ...(ownerState && {
-            backgroundColor: theme.palette.primary.main,
-            "&:hover": {
-              backgroundColor: theme.palette.primary.main,
-              color: theme.palette.action.hover,
-              // boxShadow: `8px 8px 8px ${theme.palette.action.hover}`,
-            },
-            "&:active": {
-              backgroundColor: theme.palette.primary.main,
-              color: theme.palette.action.active,
-              // boxShadow: `8px 8px 8px ${theme.palette.action.active}`,
-            },
-            "&:focus": {
-              backgroundColor: theme.palette.primary.main,
-              color: theme.palette.common.white,
-              // boxShadow: `8px 8px 8px ${theme.palette.action.focus}`,
-            },
-          }),
-        })
-      }
-    },
     MuiLink: {
       styleOverrides: {
         root: ({ownerState, theme}) => ({
@@ -124,6 +103,32 @@ export const theme = createTheme({
             },
             "&:focus": {
               color: theme.palette.common.white,
+            },
+          }),
+        })
+      }
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: ({ownerState, theme}) => ({
+          ...(ownerState && {
+            color: theme.palette.primary.main,
+            backgroundColor: theme.palette.text.secondary,
+            borderRadius: 16,
+            "&:hover": {
+              backgroundColor: theme.palette.action.hover,
+              boxShadow: `8px 8px 8px ${theme.palette.action.active},
+                -8px -8px 8px ${theme.palette.action.active}`,
+            },
+            "&:active": {
+              backgroundColor: theme.palette.action.active,
+              boxShadow: `8px 8px 8px ${theme.palette.action.focus},
+                -8px -8px 8px ${theme.palette.action.focus}`,
+            },
+            "&:focus": {
+              backgroundColor: theme.palette.action.active,
+              boxShadow: `8px 8px 8px ${theme.palette.action.hover},
+                -8px -8px 8px ${theme.palette.action.hover}`,
             },
           }),
         })

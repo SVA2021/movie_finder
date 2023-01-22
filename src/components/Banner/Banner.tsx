@@ -1,7 +1,6 @@
 import CloseIcon from '@mui/icons-material/Close';
-import {Box, Typography, useTheme} from "@mui/material";
+import {Box, Button, Typography, useTheme} from "@mui/material";
 import {FC} from "react";
-import {StyledButton} from "..";
 
 interface BannerProps {
   closeHandler: () => void
@@ -61,11 +60,24 @@ export const Banner: FC<BannerProps> = ({closeHandler}) => {
           </Typography>
         )
       }
-
-      <Box sx={{position: 'absolute', top: 4, right: 4}}>
-        <StyledButton onClick={handleClick} ><CloseIcon fontSize='small' /></StyledButton>
+      <Box sx={{position: 'absolute', top: 6, right: 6}}>
+        <Button onClick={handleClick}
+          sx={{
+            minWidth: 'auto',
+            "&:hover": {
+              boxShadow: 'none',
+            },
+            "&:action": {
+              boxShadow: 'none',
+            },
+            "&:focus": {
+              boxShadow: 'none',
+            },
+          }}
+        >
+          <CloseIcon fontSize='small' />
+        </Button>
       </Box>
-
     </Box>
   )
 }

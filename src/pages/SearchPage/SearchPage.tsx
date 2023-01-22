@@ -1,9 +1,9 @@
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import {Box, Grid, Pagination, Stack, Typography} from "@mui/material";
+import {Box, Button, Grid, Pagination, Stack, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {SearchForm, SmallCard, StyledButton} from "../../components";
-import { selectSearchExtended, selectSearchRequest, selectSearchResult, setSearchRequest} from "../../features/movieFinder/movieFinderSlice";
+import {selectSearchExtended, selectSearchRequest, selectSearchResult, setSearchRequest} from "../../features/movieFinder/movieFinderSlice";
 import {getMoviesByKeywordAsync} from '../../features/movieFinder/movieFinderThunks';
 
 const DEFAULT_SEARCH_KEYWORD = {keyword: '', page: 1};
@@ -62,7 +62,9 @@ export const SearchPage = () => {
         />}
 
       <Box sx={{position: 'fixed', top: {xs: 30, md: 160}, right: {xs: 10, md: 32}}}>
-        <StyledButton onClick={() => setIsFormOpen(true)} ><FilterAltIcon fontSize='medium' /></StyledButton>
+        <Button onClick={() => setIsFormOpen(true)} >
+          <FilterAltIcon fontSize='medium' />
+        </Button>
       </Box>
     </Box>
   )

@@ -4,7 +4,14 @@ import {AccountLabel, Logo, MenuMain, SearchMenu} from '../../components';
 export const Header = () => {
   return (
     <Box sx={{flexGrow: 1, bgcolor: 'primary.main'}}>
-      <AppBar position='sticky' sx={{maxWidth: 'xl', m: '0 auto', zIndex: 900}}>
+      <AppBar position='sticky'
+        sx={{
+          maxWidth: 'xl',
+          m: '0 auto',
+          zIndex: 900,
+          backgroundImage: 'none',
+        }}
+      >
         <Toolbar sx={{boxShadow: 'none'}}>
           <Grid container justifyContent={'space-between'} alignItems={'center'}>
             <Grid item xs={3} md={1}>

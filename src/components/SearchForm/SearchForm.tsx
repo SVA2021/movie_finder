@@ -1,8 +1,7 @@
 import CloseIcon from '@mui/icons-material/Close';
-import {Box, Grid, MenuItem, Select, Slider, Typography} from '@mui/material';
+import {Box, Button, Grid, MenuItem, Select, Slider, Typography} from '@mui/material';
 import {FC, memo, useEffect} from 'react';
 import {Controller, SubmitHandler, useForm} from 'react-hook-form';
-import {StyledButton} from '..';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {selectFilters, setSearchExtended} from '../../features/movieFinder/movieFinderSlice';
 import {getFiltersAsync} from '../../features/movieFinder/movieFinderThunks';
@@ -167,13 +166,13 @@ export const SearchForm: FC<SearchFormProps> = memo(({closeHandler, initialFilte
         </Grid>
 
         <Box mt={4} textAlign={'center'} >
-          <StyledButton type={'submit'} >Искать</StyledButton>
+          <Button type={'submit'} >Искать</Button>
         </Box>
 
       </Box>
 
       <Box sx={{position: 'absolute', top: {xs: 10, md: 32}, right: {xs: 10, md: 32}}}>
-        <StyledButton onClick={closeHandler} ><CloseIcon fontSize='small' /></StyledButton>
+        <Button onClick={closeHandler} ><CloseIcon fontSize='small' /></Button>
       </Box>
 
     </Box>

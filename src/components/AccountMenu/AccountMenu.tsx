@@ -1,5 +1,5 @@
 import {AccountCircle, ExpandMore, Logout} from '@mui/icons-material';
-import {Accordion, AccordionDetails, AccordionSummary, Box, Grid, Stack} from '@mui/material';
+import {Accordion, AccordionDetails, AccordionSummary, Box, Stack} from '@mui/material';
 import {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {AccountForm, AccountLabel, StyledTextItem} from '../../components';
@@ -17,10 +17,8 @@ export const AccountMenu = () => {
   }
 
   let username = localStorage.getItem('user');
-  console.log(username);
 
   useEffect(() => {
-    
     if (!isAuth && username) setUser({login: username, password: 'random'});
     if (!username && isAuth && user?.login) localStorage.setItem('user', user?.login);
   }, [isAuth,])
