@@ -1,4 +1,4 @@
-import {Avatar, Box, Card, CardActionArea, CardContent, CardMedia, Grid, Rating, Typography} from "@mui/material";
+import {Avatar, Box, Card, CardActionArea, CardContent, CardMedia, Grid, Paper, Rating, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography} from "@mui/material";
 import {FC, memo, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {StyledLink} from '..';
@@ -22,6 +22,23 @@ export const FullCard: FC = memo(() => {
   const kinopoiskLink = movie?.webUrl ?? `https://www.kinopoisk.ru/${movie?.type === 'FILM' ? 'film' : 'series'}/${movie?.kinopoiskId}/`;
   const imdbLink = `https://www.imdb.com/title/${movie?.imdbId}/`;
   const ageLimit = (movie?.ratingAgeLimits ?? '').slice(3, 5);
+
+  function createData(
+    name: string,
+    rating: string,
+    counts: string,
+  ) {
+    return {name, rating, counts, };
+  }
+
+  const rows = [
+    createData('Kinopoisk', `${movie?.ratingKinopoisk ?? ' - '}`, `${movie?.ratingKinopoiskVoteCount ?? ' - '}`),
+    createData('Imdb', `${movie?.ratingImdb ?? ' - '}`, `${movie?.ratingImdbVoteCount ?? ' - '}`),
+    createData('Await', `${movie?.ratingAwait ?? ' - '}`, `${movie?.ratingAwaitCount ?? ' - '}`),
+    createData('RfCritics', `${movie?.ratingRfCritics ?? ' - '}`, `${movie?.ratingRfCriticsVoteCount ?? ' - '}`),
+    createData('FilmCritics', `${movie?.ratingFilmCritics ?? ' - '}`, `${movie?.ratingFilmCriticsVoteCount ?? ' - '}`),
+    createData('GoodReview', `${movie?.ratingGoodReview ?? ' - '}`, `${movie?.ratingGoodReviewVoteCount ?? ' - '}`),
+  ]
 
   return (
     <Card sx={{bgcolor: 'primary.main', position: 'relative'}} >
@@ -77,7 +94,38 @@ export const FullCard: FC = memo(() => {
                 </Typography>
               </Grid>
               <Grid item xs={12} md={4}>
-                <Box>
+
+                <TableContainer component={Paper}>
+                  <Table aria-label="Рейтинги" sx={{maxWidth: '100%'}} >
+                    <TableHead>
+                      <TableRow>
+                        <TableCell colSpan={3} align={'center'} >Рейтинги</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell align={'center'}  padding={'none'} >источник</TableCell>
+                        <TableCell align={'center'}  padding={'none'} >рейтинг</TableCell>
+                        <TableCell align={'center'}  padding={'none'} >голосов</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map((row) => (
+                        <TableRow
+                          key={row.name}
+                          sx={{'&:last-child td, &:last-child th': {border: 0}}}
+                        >
+                          <TableCell component="th" scope="row" align={'center'} padding={'none'}>
+                            {row.name}
+                          </TableCell>
+                          <TableCell align={'center'} padding={'none'} >{row.rating}</TableCell>
+                          <TableCell align={'center'} padding={'none'} >{row.counts}</TableCell>
+                        </TableRow>
+                      ))}
+
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+
+                {/* <Box>
                   <Typography gutterBottom variant={'body1'} component={'p'} color={'text.secondary'} >
                     Рейтинги
                   </Typography>
@@ -97,7 +145,8 @@ export const FullCard: FC = memo(() => {
                   <Typography gutterBottom variant={'body1'} component={'p'} >
                     Количество рецензий: {movie?.reviewsCount ?? ' - '}
                   </Typography>
-                </Box>
+                </Box> */}
+
               </Grid>
             </Grid>
           </CardContent>
