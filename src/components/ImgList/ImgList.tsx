@@ -3,6 +3,7 @@ import {FC, memo, useEffect, useRef, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import 'swiper/css';
 import {Swiper, SwiperSlide} from 'swiper/react';
+import {EmptyDataBox} from '..';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {selectDetails} from '../../features/movieFinder/movieFinderSlice';
 import {getMovieImagesAsync} from '../../features/movieFinder/movieFinderThunks';
@@ -66,10 +67,7 @@ export const ImgList: FC = memo(() => {
             )
           }
         </Swiper>
-        :
-        <Typography variant="h3" component={'p'} fontStyle={'italic'}>
-          Нет данных
-        </Typography>
+        : <EmptyDataBox />
       }
       {fullImage &&
         <Paper elevation={24} >

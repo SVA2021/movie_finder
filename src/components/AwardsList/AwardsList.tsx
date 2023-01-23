@@ -3,6 +3,7 @@ import {FC, memo, useEffect, useRef} from 'react';
 import {useParams} from 'react-router-dom';
 import 'swiper/css';
 import {Swiper, SwiperSlide} from 'swiper/react';
+import {EmptyDataBox} from '..';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {selectDetails} from '../../features/movieFinder/movieFinderSlice';
 import {getMovieAwardsAsync} from '../../features/movieFinder/movieFinderThunks';
@@ -22,7 +23,7 @@ export const AwardsList: FC = memo(() => {
   }, [id]);
 
   return (
-    <Box minHeight={'200px'} >
+    <Box >
       {MovieAwards.length > 0
         ? <Swiper
           onSwiper={(swiper) => swiperRef.current = swiper}
@@ -68,12 +69,11 @@ export const AwardsList: FC = memo(() => {
                     </Typography>
                     <Typography gutterBottom variant="body1" component="p">
                       Год номинации: {item.year}
-                    </Typography>
-                    <Typography gutterBottom variant="body1" component="p">
+                      <br />
                       {item.nominationName}
                     </Typography>
                     <Typography variant="body1" component="p">
-                      Выиграна? <Checkbox checked={item.win} />
+                      Выиграна? <Checkbox checked={item.win} color={'secondary'} />
                     </Typography>
                   </CardContent>
                 </Card>
@@ -81,10 +81,7 @@ export const AwardsList: FC = memo(() => {
             )
           }
         </Swiper>
-        :
-        <Typography variant="h3" component={'p'} fontStyle={'italic'}>
-          Нет данных
-        </Typography>
+        : <EmptyDataBox />
       }
     </Box>
   );

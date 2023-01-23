@@ -3,6 +3,7 @@ import {FC, memo, useEffect, useRef} from 'react';
 import {useParams} from 'react-router-dom';
 import 'swiper/css';
 import {Swiper, SwiperSlide} from 'swiper/react';
+import {EmptyDataBox} from '..';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {selectDetails} from '../../features/movieFinder/movieFinderSlice';
 import {getMovieFactsAsync} from '../../features/movieFinder/movieFinderThunks';
@@ -49,11 +50,12 @@ export const FactsList: FC = memo(() => {
                     pb={2}
                     variant="h4"
                     textTransform={'capitalize'}
-                    component={'p'} color={'text.secondary'}
+                    component={'p'}
+                    color={'text.secondary'}
                   >
                     {item.type === 'FACT' ? 'факт' : 'слух'}
                   </Typography>
-                  <Typography variant="body1" component={'p'} sx={{wordBreak: 'break-word', }}>
+                  <Typography variant="body1" component={'p'} sx={{wordBreak: 'break-word'}}>
                     {`${item.text}`}
                   </Typography>
                 </Box>
@@ -61,10 +63,7 @@ export const FactsList: FC = memo(() => {
             )
           }
         </Swiper>
-        :
-        <Typography variant="h3" component={'p'} fontStyle={'italic'}>
-          Нет данных
-        </Typography>
+        : <EmptyDataBox />
       }
     </Box>
   );

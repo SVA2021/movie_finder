@@ -1,5 +1,6 @@
 import {Box, Button, Grid, Typography} from '@mui/material';
 import {FC} from 'react';
+import {EmptyDataBox} from '..';
 import {SmallCard} from '../SmallCard/SmallCard';
 
 interface ExpandableListProps {
@@ -22,18 +23,29 @@ export const ExpandableList: FC<ExpandableListProps> = ({title, data, page, tota
       >
         {title}
       </Typography>
-      <Grid container rowSpacing={2} columnSpacing={{xs: 0, md: 2, lg: 4}}>
-        {
-          data.map((item, index) =>
-            <Grid key={index} item xs={12} md={3} lg={2}>
-              <SmallCard item={item} />
+      {
+        data.length > 0
+          ? <>
+            <Grid container
+              rowSpacing={2}
+              columnSpacing={{xs: 0, md: 2, lg: 4}}
+            >
+              {
+                data.map((item, index) =>
+                  <Grid key={index} item xs={12} md={3} lg={2}>
+                    <SmallCard item={item} />
+                  </Grid>
+                )
+              }
             </Grid>
-          )
-        }
-      </Grid>
-      <Box mt={4} textAlign={'center'} >
-        <Button onClick={addPage} disabled={page === totalPages} >Load more</Button>
-      </Box>
+            <Box mt={4} textAlign={'center'} >
+              <Button onClick={addPage} disabled={page === totalPages} >
+                Load more
+              </Button>
+            </Box>
+          </>
+          : <EmptyDataBox />
+      }
     </Box>
   );
 };

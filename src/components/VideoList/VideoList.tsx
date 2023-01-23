@@ -3,7 +3,7 @@ import {FC, memo, useEffect, useRef} from 'react';
 import {useParams} from 'react-router-dom';
 import 'swiper/css';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {VideoItem} from '..';
+import {EmptyDataBox, VideoItem} from '..';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {selectDetails} from '../../features/movieFinder/movieFinderSlice';
 import {getMovieVideosAsync} from '../../features/movieFinder/movieFinderThunks';
@@ -23,7 +23,7 @@ export const VideoList: FC = memo(() => {
   }, [id]);
 
   return (
-    <Box minHeight={'200px'} >
+    <Box >
       {MovieTrailers.length > 0
         ? <Swiper
           onSwiper={(swiper) => swiperRef.current = swiper}
@@ -50,10 +50,7 @@ export const VideoList: FC = memo(() => {
             )
           }
         </Swiper>
-        :
-        <Typography variant="h3" component={'p'} fontStyle={'italic'}>
-          Нет данных
-        </Typography>
+        : <EmptyDataBox />
       }
     </Box>
   );
