@@ -2,7 +2,7 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import {Box, Button, Grid, Pagination, Stack, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {SearchForm, SmallCard, StyledButton} from "../../components";
+import {ModalBox, SearchForm, SmallCard} from "../../components";
 import {selectSearchExtended, selectSearchRequest, selectSearchResult, setSearchRequest} from "../../features/movieFinder/movieFinderSlice";
 import {getMoviesByKeywordAsync} from '../../features/movieFinder/movieFinderThunks';
 
@@ -17,7 +17,6 @@ export const SearchPage = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const searchItems = SEARCH_RESULT?.items ?? [];
-  const title = `Результат поиска по "${SEARCH_REQUEST.keyword}", всего найдено ${SEARCH_RESULT?.total ?? 0}`;
 
   useEffect(() => {
     dispatch(getMoviesByKeywordAsync({search: SEARCH_REQUEST, extended: SEARCH_EXTENDED}))
@@ -38,8 +37,15 @@ export const SearchPage = () => {
 
   return (
     <Box pt={1} sx={{position: 'relative'}}>
-      <Typography gutterBottom variant="h3" component={'h2'} textTransform={'capitalize'} color={'common.white'}>
-        {title}
+      <Typography gutterBottom variant="h3" component={'h2'} color={'common.white'}>
+        Результат поиска по
+        <Typography variant="h3" component={'span'} color={'secondary'} ml={1}>
+          "{SEARCH_REQUEST.keyword}"
+        </Typography>
+        , всего найдено
+        <Typography variant="h3" component={'span'} color={'secondary'} ml={1}>
+          {SEARCH_RESULT?.total ?? 0}
+        </Typography>
       </Typography>
       <Box pt={1}>
         <PaginationArea />
@@ -56,10 +62,10 @@ export const SearchPage = () => {
       </Box>
 
       {isFormOpen &&
-        <SearchForm
-          initialFilters={SEARCH_EXTENDED}
-          closeHandler={() => setIsFormOpen(false)}
-        />}
+        <ModalBox closeHandler={() => setIsFormOpen(false)}>
+          <SearchForm initialFilters={SEARCH_EXTENDED} closeHandler={() => setIsFormOpen(false)} />
+        </ModalBox>
+      }
 
       <Box sx={{position: 'fixed', top: {xs: 30, md: 160}, right: {xs: 10, md: 32}}}>
         <Button onClick={() => setIsFormOpen(true)} >
