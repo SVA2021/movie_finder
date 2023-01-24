@@ -28,9 +28,11 @@ export const Details: FC = () => {
           onChange={handleChangeTabs}
           indicatorColor="secondary"
           textColor="secondary"
+          variant={'scrollable'}
         >
           {
-            Object.keys(SECTIONS).map((item) => <Tab key={item} label={item} value={item} />)
+            Object.keys(SECTIONS).map((item) =>
+              <Tab key={item} label={item} value={item} />)
           }
         </Tabs>
         <Box mt={4} >
