@@ -2,7 +2,7 @@
 
 exports[`render styled-text-item snapshot test 1`] = `
 <p
-  class="MuiTypography-root MuiTypography-h3 css-53zoc3-MuiTypography-root"
+  class="MuiTypography-root MuiTypography-h3 css-14at1vf-MuiTypography-root"
   data-testid="styled-text-item"
 >
   Hello World
