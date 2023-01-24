@@ -2,8 +2,8 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import {Button, Grid, useTheme} from '@mui/material';
 import {FC, useRef} from 'react';
-import 'swiper/css';
 import {Swiper, SwiperSlide} from 'swiper/react';
+import 'swiper/swiper.min.css'; // core Swiper
 import {EmptyDataBox} from '..';
 import {SmallCard} from '../SmallCard/SmallCard';
 import {SwipeListTemplateProps} from './SwiperListTemplate.types';
@@ -72,7 +72,7 @@ export const SwipeListTemplate: FC<SwipeListTemplateProps> = ({data}) => {
             </Button>
           </Grid>
         </>
-        : 
+        :
         <Grid item xs={12}>
           <EmptyDataBox />
         </Grid>

@@ -1,8 +1,8 @@
 import {Box, useTheme} from '@mui/material';
 import {FC, memo, useEffect, useRef, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import 'swiper/css';
 import {Swiper, SwiperSlide} from 'swiper/react';
+import 'swiper/swiper.min.css'; // core Swiper
 import {EmptyDataBox, ModalBox} from '..';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {selectDetails} from '../../features/movieFinder/movieFinderSlice';
