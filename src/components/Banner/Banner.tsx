@@ -6,6 +6,8 @@ interface BannerProps {
   closeHandler: () => void
 }
 
+export const myPortfolioLink = 'https://portfolio-sva2021.vercel.app';
+
 export const Banner: FC<BannerProps> = ({closeHandler}) => {
 
   const theme = useTheme();
@@ -18,8 +20,9 @@ export const Banner: FC<BannerProps> = ({closeHandler}) => {
 
   return (
     <Box
+      data-testid={'banner'}
       component={'a'}
-      href={'https://portfolio-sva2021.vercel.app'}
+      href={myPortfolioLink}
       target={'_blank'}
       rel={'noopener noreferref'}
       sx={{
