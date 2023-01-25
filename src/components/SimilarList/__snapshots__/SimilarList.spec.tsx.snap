@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render SimilarList snapshot test 1`] = `
+<div
+  class="MuiBox-root css-1baeknb"
+  data-testid="similar-list"
+>
+  <h3
+    class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-hjvxqc-MuiTypography-root"
+  >
+    Похожее
+  </h3>
+  <div
+    class="MuiGrid-root MuiGrid-container css-1nsfak8-MuiGrid-root"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-h3 css-13mkr37-MuiTypography-root"
+        data-testid="empty-data-box"
+      >
+        Нет данных
+      </p>
+    </div>
+  </div>
+</div>
+`;

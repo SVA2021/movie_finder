@@ -19,7 +19,7 @@ export const SimilarList: FC = memo(() => {
   }, [id]);
 
   return (
-    <Box pt={{xs: 2, lg: 4}} color={'common.white'} >
+    <Box pt={{xs: 2, lg: 4}} color={'common.white'} data-testid={'similar-list'}>
       <Typography ml={{lg: 15, xl: 20}} gutterBottom variant="h3" component={'h3'}>
         Похожее
       </Typography>
