@@ -10,6 +10,7 @@ interface ModalBoxProps {
 export const ModalBox: FC<ModalBoxProps> = memo(({children, closeHandler}) => {
   return (
     <Box
+      data-testid={'modal-box'}
       margin={'0 auto'}
       p={{xs: 1, md: 2, lg: 4}}
       zIndex={1000}
