@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render StyledLink snapshot test 1`] = `
+<a
+  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-17dcqu8-MuiTypography-root-MuiLink-root"
+  data-testid="styled-link"
+  href="fakehref"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  <p
+    class="MuiTypography-root MuiTypography-body1 css-137b474-MuiTypography-root"
+  >
+    fakeTitle
+  </p>
+</a>
+`;
