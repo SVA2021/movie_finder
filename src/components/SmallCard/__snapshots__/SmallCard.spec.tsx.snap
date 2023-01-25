@@ -46,6 +46,7 @@ exports[`render SmallCard snapshot test 1`] = `
   </button>
   <p
     class="MuiTypography-root MuiTypography-h3 css-1uovp3e-MuiTypography-root"
+    data-testid="rating-badge"
   >
     7.0
   </p>

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render RatingBadge snapshot test 1`] = `
+<p
+  class="MuiTypography-root MuiTypography-h3 css-1uovp3e-MuiTypography-root"
+  data-testid="rating-badge"
+>
+  7.0
+</p>
+`;
