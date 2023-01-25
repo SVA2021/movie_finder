@@ -13,7 +13,7 @@ interface ExpandableListProps {
 
 export const ExpandableList: FC<ExpandableListProps> = ({title, data, page, totalPages, addPage}) => {
   return (
-    <Box pt={1}>
+    <Box pt={1} data-testid={'expandable-list'} >
       <Typography
         gutterBottom
         variant="h3"
@@ -40,7 +40,7 @@ export const ExpandableList: FC<ExpandableListProps> = ({title, data, page, tota
             </Grid>
             <Box mt={4} textAlign={'center'} >
               <Button onClick={addPage} disabled={page === totalPages} >
-                Load more
+                Еще
               </Button>
             </Box>
           </>
