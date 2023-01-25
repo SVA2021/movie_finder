@@ -23,7 +23,7 @@ export const FactsList: FC = memo(() => {
   }, [id]);
 
   return (
-    <Box minHeight={'200px'} >
+    <Box data-testid={'facts-list'} >
       {MovieFacts.length > 0
         ? <Swiper
           onSwiper={(swiper) => swiperRef.current = swiper}
