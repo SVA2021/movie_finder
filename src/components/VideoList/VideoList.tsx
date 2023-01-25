@@ -23,7 +23,7 @@ export const VideoList: FC = memo(() => {
   }, [id]);
 
   return (
-    <Box >
+    <Box data-testid={'video-list'}>
       {MovieTrailers.length > 0
         ? <Swiper
           onSwiper={(swiper) => swiperRef.current = swiper}
