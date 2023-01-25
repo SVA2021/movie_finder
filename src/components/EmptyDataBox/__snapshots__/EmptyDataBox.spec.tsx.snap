@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render EmptyDataBox snapshot test 1`] = `
+<p
+  class="MuiTypography-root MuiTypography-h3 css-13mkr37-MuiTypography-root"
+  data-testid="empty-data-box"
+>
+  Нет данных
+</p>
+`;

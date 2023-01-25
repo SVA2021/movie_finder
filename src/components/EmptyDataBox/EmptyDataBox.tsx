@@ -4,6 +4,7 @@ import React, {memo} from 'react';
 export const EmptyDataBox = memo(() => {
   return (
     <Typography
+      data-testid={'empty-data-box'}
       variant="h3"
       component={'p'}
       fontStyle={'italic'}
