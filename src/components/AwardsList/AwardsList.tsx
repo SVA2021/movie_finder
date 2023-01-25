@@ -23,7 +23,7 @@ export const AwardsList: FC = memo(() => {
   }, [id]);
 
   return (
-    <Box >
+    <Box data-testid={'awards-list'} >
       {MovieAwards.length > 0
         ? <Swiper
           onSwiper={(swiper) => swiperRef.current = swiper}
