@@ -25,7 +25,7 @@ export const ImgList: FC = memo(() => {
   }, [id]);
 
   return (
-    <Box >
+    <Box data-testid={'img-list'}>
       {Images.length > 0
         ? <Swiper
           onSwiper={(swiper) => swiperRef.current = swiper}
