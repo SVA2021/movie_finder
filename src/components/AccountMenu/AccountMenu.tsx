@@ -1,11 +1,11 @@
 import {AccountCircle, ExpandMore, Logout} from '@mui/icons-material';
 import {Accordion, AccordionDetails, AccordionSummary, Box, Stack} from '@mui/material';
-import {useEffect} from 'react';
+import {FC, useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {AccountForm, AccountLabel, StyledTextItem} from '../../components';
 import {selectIsAuth, selectUser, setUser} from '../../features/auth/authSlice';
 
-export const AccountMenu = () => {
+export const AccountMenu: FC = () => {
 
   const dispatch = useAppDispatch();
   const isAuth = useAppSelector(selectIsAuth);
@@ -24,15 +24,16 @@ export const AccountMenu = () => {
   }, [isAuth,])
 
   return (
-    <Accordion>
+    <Accordion data-testid={'account-menu'}>
       <AccordionSummary
         expandIcon={<ExpandMore />}
         aria-controls="panel-account"
         id="panel-account"
+        data-testid={'panel-account'}
       >
         <StyledTextItem ><AccountCircle fontSize='medium' />Аккаунт</StyledTextItem>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails data-testid={'panel-account-details'}>
         {
           isAuth
             ?
