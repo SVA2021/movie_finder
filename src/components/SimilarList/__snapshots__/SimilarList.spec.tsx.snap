@@ -12,6 +12,7 @@ exports[`render SimilarList snapshot test 1`] = `
   </h3>
   <div
     class="MuiGrid-root MuiGrid-container css-1nsfak8-MuiGrid-root"
+    data-testid="swipe-list-template"
   >
     <div
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"

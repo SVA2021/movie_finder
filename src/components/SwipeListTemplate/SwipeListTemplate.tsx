@@ -17,6 +17,7 @@ export const SwipeListTemplate: FC<SwipeListTemplateProps> = ({data}) => {
 
   return (
     <Grid container
+      data-testid={'swipe-list-template'}
       m={0}
       spacing={0}
       direction={'row'}
@@ -31,7 +32,7 @@ export const SwipeListTemplate: FC<SwipeListTemplateProps> = ({data}) => {
             justifyContent={'center'}
             sx={{display: {xs: 'none', lg: 'flex'}}}
           >
-            <Button onClick={swipePrev}>
+            <Button onClick={swipePrev} data-testid={'swipe-list-prevbtn'}>
               <NavigateBeforeIcon fontSize='large' />
             </Button>
           </Grid>
@@ -67,7 +68,7 @@ export const SwipeListTemplate: FC<SwipeListTemplateProps> = ({data}) => {
             justifyContent={'center'}
             sx={{display: {xs: 'none', lg: 'flex'}}}
           >
-            <Button onClick={swipeNext}>
+            <Button onClick={swipeNext} data-testid={'swipe-list-nextbtn'}>
               <NavigateNextIcon fontSize='large' />
             </Button>
           </Grid>
