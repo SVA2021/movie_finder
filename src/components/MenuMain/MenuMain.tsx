@@ -1,10 +1,11 @@
 import {Home, Menu as MenuIcon, Settings} from '@mui/icons-material';
 import {Button, Grid, Popover} from '@mui/material';
 import * as React from 'react';
+import {FC} from 'react';
 import {useNavigate} from "react-router-dom";
 import {AccountMenu, SearchMenuMobile, StyledTextItem} from '../../components';
 
-export const MenuMain = (props: any) => {
+export const MenuMain: FC = () => {
 
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -49,6 +50,7 @@ export const MenuMain = (props: any) => {
         <MenuIcon fontSize='large' />
       </Button>
       <Popover
+        data-testid={'main-menu'}
         id="main-menu"
         open={open}
         anchorEl={anchorEl}
