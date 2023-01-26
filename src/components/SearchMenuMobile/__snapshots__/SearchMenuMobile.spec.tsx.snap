@@ -74,6 +74,7 @@ exports[`render SearchMenuMobile snapshot test 1`] = `
           >
             <form
               class="MuiBox-root css-hpgf8j"
+              data-testid="search-field"
             >
               <div
                 class="MuiInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-adornedEnd css-1qmitm0-MuiInputBase-root-MuiInput-root"

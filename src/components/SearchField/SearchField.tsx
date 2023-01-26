@@ -24,7 +24,7 @@ export const SearchField = () => {
   }
 
   return (
-    <Box component={'form'} onSubmit={handleSubmit} p={1}>
+    <Box component={'form'} onSubmit={handleSubmit} p={1} data-testid={'search-field'}>
       <Input
         sx={{
           p: 2,
