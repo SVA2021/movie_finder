@@ -20,7 +20,7 @@ export const Details: FC = () => {
   };
 
   return (
-    <Box p={1}>
+    <Box p={1} data-testid={'details'}>
       <FullCard />
       <Box pt={{xs: 2, lg: 4}} color={'common.white'} >
         <Tabs aria-label="tabs"
