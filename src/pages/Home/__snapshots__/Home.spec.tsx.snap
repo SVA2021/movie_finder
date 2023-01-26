@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Home snapshot test 1`] = `
+<div
+  class="MuiBox-root css-zoser8"
+  data-testid="home"
+>
+  <div
+    class="MuiBox-root css-1ynyhby"
+  >
+    <h2
+      class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1gwo2vl-MuiTypography-root"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-ezstlu-MuiTypography-root-MuiLink-root"
+        href="/top/TOP_250_BEST_FILMS"
+      >
+        топ 250 фильмов кинопоиска
+      </a>
+    </h2>
+    <div
+      class="MuiGrid-root MuiGrid-container css-1nsfak8-MuiGrid-root"
+      data-testid="swipe-list-template"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-h3 css-13mkr37-MuiTypography-root"
+          data-testid="empty-data-box"
+        >
+          Нет данных
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiBox-root css-1ynyhby"
+  >
+    <h2
+      class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1gwo2vl-MuiTypography-root"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-ezstlu-MuiTypography-root-MuiLink-root"
+        href="/top/TOP_100_POPULAR_FILMS"
+      >
+        100 самых популярных фильмов
+      </a>
+    </h2>
+    <div
+      class="MuiGrid-root MuiGrid-container css-1nsfak8-MuiGrid-root"
+      data-testid="swipe-list-template"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-h3 css-13mkr37-MuiTypography-root"
+          data-testid="empty-data-box"
+        >
+          Нет данных
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiBox-root css-1ynyhby"
+  >
+    <h2
+      class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1gwo2vl-MuiTypography-root"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-ezstlu-MuiTypography-root-MuiLink-root"
+        href="/top/TOP_AWAIT_FILMS"
+      >
+        самые ожидаемые фильмы
+      </a>
+    </h2>
+    <div
+      class="MuiGrid-root MuiGrid-container css-1nsfak8-MuiGrid-root"
+      data-testid="swipe-list-template"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-h3 css-13mkr37-MuiTypography-root"
+          data-testid="empty-data-box"
+        >
+          Нет данных
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
