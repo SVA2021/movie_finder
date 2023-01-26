@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render SearchPage snapshot test 1`] = `
+<div
+  class="MuiBox-root css-6hd2tp"
+  data-testid="search"
+>
+  <h2
+    class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1h73sbn-MuiTypography-root"
+  >
+    Результат поиска по
+    <span
+      class="MuiTypography-root MuiTypography-h3 css-13tvz7n-MuiTypography-root"
+    >
+      "
+      "
+    </span>
+    , всего найдено
+    <span
+      class="MuiTypography-root MuiTypography-h3 css-13tvz7n-MuiTypography-root"
+    >
+      0
+    </span>
+  </h2>
+  <div
+    class="MuiBox-root css-zoser8"
+  >
+    <div
+      class="css-5m6dtu-MuiStack-root"
+    >
+      <nav
+        aria-label="pagination navigation"
+        class="MuiPagination-root MuiPagination-outlined css-1oj2twp-MuiPagination-root"
+      >
+        <ul
+          class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
+        >
+          <li>
+            <button
+              aria-label="Go to previous page"
+              class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeLarge MuiPaginationItem-outlined MuiPaginationItem-rounded MuiPaginationItem-outlinedSecondary Mui-disabled MuiPaginationItem-previousNext css-1jhmdt8-MuiButtonBase-root-MuiPaginationItem-root"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-n8417t-MuiSvgIcon-root-MuiPaginationItem-icon"
+                data-testid="NavigateBeforeIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                />
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button
+              aria-label="Go to next page"
+              class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeLarge MuiPaginationItem-outlined MuiPaginationItem-rounded MuiPaginationItem-outlinedSecondary Mui-disabled MuiPaginationItem-previousNext css-1jhmdt8-MuiButtonBase-root-MuiPaginationItem-root"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-n8417t-MuiSvgIcon-root-MuiPaginationItem-icon"
+                data-testid="NavigateNextIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                />
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-container css-l4fv9m-MuiGrid-root"
+    />
+    <div
+      class="css-5m6dtu-MuiStack-root"
+    >
+      <nav
+        aria-label="pagination navigation"
+        class="MuiPagination-root MuiPagination-outlined css-1oj2twp-MuiPagination-root"
+      >
+        <ul
+          class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
+        >
+          <li>
+            <button
+              aria-label="Go to previous page"
+              class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeLarge MuiPaginationItem-outlined MuiPaginationItem-rounded MuiPaginationItem-outlinedSecondary Mui-disabled MuiPaginationItem-previousNext css-1jhmdt8-MuiButtonBase-root-MuiPaginationItem-root"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-n8417t-MuiSvgIcon-root-MuiPaginationItem-icon"
+                data-testid="NavigateBeforeIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                />
+              </svg>
+            </button>
+          </li>
+          <li>
+            <button
+              aria-label="Go to next page"
+              class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeLarge MuiPaginationItem-outlined MuiPaginationItem-rounded MuiPaginationItem-outlinedSecondary Mui-disabled MuiPaginationItem-previousNext css-1jhmdt8-MuiButtonBase-root-MuiPaginationItem-root"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-n8417t-MuiSvgIcon-root-MuiPaginationItem-icon"
+                data-testid="NavigateNextIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                />
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div
+    class="MuiBox-root css-btoxgj"
+  >
+    <button
+      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="FilterAltIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M4.25 5.61C6.27 8.2 10 13 10 13v6c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-6s3.72-4.8 5.74-7.39c.51-.66.04-1.61-.79-1.61H5.04c-.83 0-1.3.95-.79 1.61z"
+        />
+      </svg>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</div>
+`;

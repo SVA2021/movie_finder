@@ -1,6 +1,6 @@
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import {Box, Button, Grid, Pagination, Stack, Typography} from "@mui/material";
-import {useEffect, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {ModalBox, SearchForm, SmallCard} from "../../components";
 import {selectSearchExtended, selectSearchRequest, selectSearchResult, setSearchRequest} from "../../features/movieFinder/movieFinderSlice";
@@ -8,7 +8,7 @@ import {getMoviesByKeywordAsync} from '../../features/movieFinder/movieFinderThu
 
 const DEFAULT_SEARCH_KEYWORD = {keyword: '', page: 1};
 
-export const SearchPage = () => {
+export const SearchPage: FC = () => {
 
   const dispatch = useAppDispatch();
   const SEARCH_RESULT = useAppSelector(selectSearchResult);
@@ -36,7 +36,7 @@ export const SearchPage = () => {
   );
 
   return (
-    <Box pt={1} sx={{position: 'relative'}}>
+    <Box pt={1} sx={{position: 'relative'}} data-testid={'search'}>
       <Typography gutterBottom variant="h3" component={'h2'} color={'common.white'}>
         Результат поиска по
         <Typography variant="h3" component={'span'} color={'secondary'} ml={1}>
