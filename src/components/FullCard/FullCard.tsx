@@ -23,7 +23,7 @@ export const FullCard: FC = memo(() => {
   const ageLimit = (movie?.ratingAgeLimits ?? '').slice(3, 5);
 
   return (
-    <Card sx={{bgcolor: 'primary.main', position: 'relative'}} >
+    <Card sx={{bgcolor: 'primary.main', position: 'relative'}} data-testid={'fullcard'}>
       <Grid container color={'common.white'} spacing={{xs: 0, lg: 4}} >
         <Grid item xs={12} md={4}>
           <CardMedia
