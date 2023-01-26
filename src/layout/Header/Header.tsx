@@ -3,7 +3,7 @@ import {AccountLabel, Logo, MenuMain, SearchMenu} from '../../components';
 
 export const Header = () => {
   return (
-    <Box sx={{flexGrow: 1, bgcolor: 'primary.main'}}>
+    <Box sx={{flexGrow: 1, bgcolor: 'primary.main'}} data-testid={'header'}>
       <AppBar position='sticky'
         sx={{
           maxWidth: 'xl',
