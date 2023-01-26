@@ -1,12 +1,12 @@
 import {Alert, Backdrop, CircularProgress, Container, Snackbar} from "@mui/material";
-import {useState} from "react";
+import {FC, useState} from "react";
 import {Outlet} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {Banner} from "../../components";
 import {selectError, selectStatus, setError} from "../../features/movieFinder/movieFinderSlice";
 import {Footer, Header} from "../index";
 
-export const Layout = () => {
+export const Layout: FC = () => {
 
   const dispatch = useAppDispatch();
   const SERVER_STATUS = useAppSelector(selectStatus);
@@ -17,7 +17,7 @@ export const Layout = () => {
   const handleCloseBanner = () => setIsOpenBanner(false);
 
   return (
-    <Container maxWidth='xl' sx={{minHeight: '100vh'}} >
+    <Container maxWidth='xl' sx={{minHeight: '100vh'}} data-testid={'layout'}>
       <Backdrop open={SERVER_STATUS === 'loading'} sx={{zIndex: 1000}} >
         <CircularProgress color="warning" />
       </Backdrop>
