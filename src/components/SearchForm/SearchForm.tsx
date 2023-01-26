@@ -39,7 +39,7 @@ export const SearchForm: FC<SearchFormProps> = memo(({closeHandler, initialFilte
   }, []);
 
   return (
-    <Box component={'form'} onSubmit={handleSubmit(onSubmit)} width={'80%'} >
+    <Box component={'form'} onSubmit={handleSubmit(onSubmit)} width={'80%'} data-testid={'search-form'}>
       <Typography mb={{xs: 4, md: 20}} variant="h3" color={'secondary'} textAlign={'center'} >
         Дополнительные фильтры поиска
       </Typography>
