@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render TopPage snapshot test 1`] = `
+<div
+  class="MuiBox-root css-zoser8"
+  data-testid="top"
+>
+  <div
+    class="MuiBox-root css-zoser8"
+    data-testid="expandable-list"
+  >
+    <h2
+      class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-9q8iy8-MuiTypography-root"
+    >
+      100 самых популярных фильмов
+    </h2>
+    <p
+      class="MuiTypography-root MuiTypography-h3 css-13mkr37-MuiTypography-root"
+      data-testid="empty-data-box"
+    >
+      Нет данных
+    </p>
+  </div>
+</div>
+`;
