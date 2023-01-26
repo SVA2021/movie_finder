@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Footer snapshot test 1`] = `
+<div
+  class="MuiBox-root css-1xpmf4r"
+  data-testid="footer"
+>
+  <div
+    class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-iv7vbz-MuiGrid-root"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-17dcqu8-MuiTypography-root-MuiLink-root"
+        data-testid="styled-link"
+        href="https://kinopoiskapiunofficial.tech/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-137b474-MuiTypography-root"
+        >
+          Backend API
+        </p>
+      </a>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-iv7vbz-MuiGrid-root"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-17dcqu8-MuiTypography-root-MuiLink-root"
+        data-testid="styled-link"
+        href="https://portfolio-sva2021.vercel.app/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-137b474-MuiTypography-root"
+        >
+          Портфолио SVA
+        </p>
+      </a>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-iv7vbz-MuiGrid-root"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-17dcqu8-MuiTypography-root-MuiLink-root"
+        data-testid="styled-link"
+        href="https://github.com/SVA2021"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-137b474-MuiTypography-root"
+        >
+          Github SVA
+        </p>
+      </a>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 css-iv7vbz-MuiGrid-root"
+    >
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-17dcqu8-MuiTypography-root-MuiLink-root"
+        data-testid="styled-link"
+        href="https://github.com/SVA2021/movie_finder"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-137b474-MuiTypography-root"
+        >
+          Code
+        </p>
+      </a>
+    </div>
+  </div>
+  <p
+    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-1o4n9zm-MuiTypography-root"
+  >
+    SVA 2023
+  </p>
+</div>
+`;

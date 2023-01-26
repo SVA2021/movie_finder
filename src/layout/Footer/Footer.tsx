@@ -23,7 +23,7 @@ const LINKS = [
 
 export const Footer: FC = () => {
   return (
-    <Box mt={2} sx={{flexGrow: 1}}>
+    <Box mt={2} sx={{flexGrow: 1}} data-testid={'footer'}>
       <Grid container>
         {
           LINKS.map((link, index) =>
