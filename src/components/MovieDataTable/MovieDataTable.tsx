@@ -20,7 +20,7 @@ export const MovieDataTable: FC<MovieDataTableProps> = memo(({movie}) => {
   ]
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} data-testid={'movie-data-table'}>
       <Table aria-label="основная информация" sx={{maxWidth: '100%'}} >
         <TableBody>
           {rows.map((row) => (
