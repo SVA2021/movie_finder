@@ -73,6 +73,7 @@ exports[`render AccountMenu snapshot test 1`] = `
           >
             <form
               class="MuiBox-root css-0"
+              data-testid="account-form"
             >
               <div
                 class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth css-acv73g-MuiInputBase-root-MuiInput-root"

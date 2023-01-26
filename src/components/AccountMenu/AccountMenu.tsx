@@ -3,13 +3,15 @@ import {Accordion, AccordionDetails, AccordionSummary, Box, Stack} from '@mui/ma
 import {FC, useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {AccountForm, AccountLabel, StyledTextItem} from '../../components';
-import {selectIsAuth, selectUser, setUser} from '../../features/auth/authSlice';
+import {selectIsAuth, selectUser, setUser, TUser} from '../../features/auth/authSlice';
 
 export const AccountMenu: FC = () => {
 
   const dispatch = useAppDispatch();
   const isAuth = useAppSelector(selectIsAuth);
   const user = useAppSelector(selectUser);
+
+  const accountSubmit = (data: TUser) => dispatch(setUser(data));
 
   const logoutUser = () => {
     dispatch(setUser(null));
@@ -44,7 +46,7 @@ export const AccountMenu: FC = () => {
               </Box>
             </Stack>
             :
-            <AccountForm />
+            <AccountForm accountSubmit={accountSubmit} />
         }
       </AccordionDetails>
     </Accordion>
