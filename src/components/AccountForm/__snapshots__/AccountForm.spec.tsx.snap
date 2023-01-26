@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render AccountForm snapshot test 1`] = `
+<form
+  class="MuiBox-root css-0"
+  data-testid="account-form"
+>
+  <div
+    class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth css-acv73g-MuiInputBase-root-MuiInput-root"
+    required=""
+  >
+    <input
+      class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+      name="login"
+      placeholder="логин"
+      required=""
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth css-acv73g-MuiInputBase-root-MuiInput-root"
+    required=""
+  >
+    <input
+      class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+      name="password"
+      placeholder="пароль"
+      required=""
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="MuiBox-root css-16j30i3"
+  >
+    <button
+      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+      tabindex="0"
+      type="submit"
+    >
+      Войти
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</form>
+`;

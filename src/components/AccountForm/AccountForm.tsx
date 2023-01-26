@@ -1,17 +1,23 @@
 import {Box, Button, Input} from '@mui/material';
-import {memo} from 'react';
+import {FC, memo} from 'react';
 import {Controller, SubmitHandler, useForm} from 'react-hook-form';
-import {useAppDispatch} from '../../app/hooks';
-import {setUser, TUser} from '../../features/auth/authSlice';
+import {TUser} from '../../features/auth/authSlice';
 
-export const AccountForm = memo(() => {
-  const dispatch = useAppDispatch();
+interface AccountFormProps {
+  accountSubmit: (data: TUser) => void
+}
+
+export const AccountForm: FC<AccountFormProps> = memo(({accountSubmit}) => {
+
   const {control, handleSubmit} = useForm<TUser>();
-  const onSubmit: SubmitHandler<TUser> = data => sendFormData(data);
-  const sendFormData = (data: TUser) => dispatch(setUser(data));
+  const onSubmit: SubmitHandler<TUser> = data => accountSubmit(data);
 
   return (
-    <Box component={'form'} onSubmit={handleSubmit(onSubmit)} >
+    <Box
+      data-testid={'account-form'}
+      component={'form'}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Controller
         name={'login'}
         control={control}
