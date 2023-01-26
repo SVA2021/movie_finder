@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render RatingTable snapshot test 1`] = `
+<div
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+  data-testid="rating-table"
+>
+  <table
+    aria-label="Рейтинги"
+    class="MuiTable-root css-fj9a4a-MuiTable-root"
+  >
+    <thead
+      class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+    >
+      <tr
+        class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1ndpvdd-MuiTableCell-root"
+          colspan="2"
+          scope="col"
+        >
+          Рейтинги
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+    >
+      <tr
+        class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingCheckbox MuiTableCell-sizeMedium css-rk8gnx-MuiTableCell-root"
+          scope="row"
+        >
+          Kinopoisk
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-iixv6p-MuiTableCell-root"
+        >
+           -  /  - 
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingCheckbox MuiTableCell-sizeMedium css-rk8gnx-MuiTableCell-root"
+          scope="row"
+        >
+          Imdb
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-iixv6p-MuiTableCell-root"
+        >
+           -  /  - 
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingCheckbox MuiTableCell-sizeMedium css-rk8gnx-MuiTableCell-root"
+          scope="row"
+        >
+          Await
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-iixv6p-MuiTableCell-root"
+        >
+           -  /  - 
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingCheckbox MuiTableCell-sizeMedium css-rk8gnx-MuiTableCell-root"
+          scope="row"
+        >
+          RfCritics
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-iixv6p-MuiTableCell-root"
+        >
+           -  /  - 
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingCheckbox MuiTableCell-sizeMedium css-rk8gnx-MuiTableCell-root"
+          scope="row"
+        >
+          FilmCritics
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-iixv6p-MuiTableCell-root"
+        >
+           -  /  - 
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingCheckbox MuiTableCell-sizeMedium css-rk8gnx-MuiTableCell-root"
+          scope="row"
+        >
+          GoodReview
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-iixv6p-MuiTableCell-root"
+        >
+           -  /  - 
+        </td>
+      </tr>
+      <tr
+        class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingCheckbox MuiTableCell-sizeMedium css-rk8gnx-MuiTableCell-root"
+          scope="row"
+        >
+          Количество рецензий
+        </th>
+        <td
+          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-iixv6p-MuiTableCell-root"
+        >
+           - 
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

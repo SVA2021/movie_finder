@@ -27,7 +27,7 @@ export const RatingTable: FC<RatingTableProps> = memo(({movie}) => {
   ]
 
   return (
-    <TableContainer component={Paper} >
+    <TableContainer component={Paper} data-testid={'rating-table'} >
       <Table aria-label="Рейтинги" sx={{maxWidth: '100%'}} >
         <TableHead>
           <TableRow>
